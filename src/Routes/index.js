@@ -1,8 +1,9 @@
 import { Routes, Route } from "react-router-dom";
+import { Home } from "../Pages/Home";
 
 export const RoutesComponent = () => {
     return <Routes>
-        <Route path="/"></Route>
+        <Route path="/" element={<Home/>} ></Route>
         <Route path="/:id"></Route>
         <Route path="/main"></Route>
         <Route path="/login"></Route>

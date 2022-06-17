@@ -1,3 +1,5 @@
 export const Providers = ({children}) => {
-    return {children}
+    return <div>
+        {children}
+    </div>
 }

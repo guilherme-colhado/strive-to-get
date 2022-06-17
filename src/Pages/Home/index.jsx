@@ -1,3 +1,7 @@
+import { Header } from "../../Components/Header"
+
 export const Home = () => {
-    return
+    return <div>
+        <Header login={true}/>
+    </div>
 }

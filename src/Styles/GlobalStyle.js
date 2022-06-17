@@ -6,7 +6,7 @@ export const GlobalStyle =  createGlobalStyle`
     a, abbr, acronym, address, big, cite, code,
     del, dfn, em, img, ins, kbd, q, s, samp,
     small, strike, strong, sub, sup, tt, var,
-    b, u, i, center,
+    b, u, i, center, button,
     dl, dt, dd, ol, ul, li,
     fieldset, form, label, legend,
     table, caption, tbody, tfoot, thead, tr, th, td,
@@ -18,11 +18,13 @@ export const GlobalStyle =  createGlobalStyle`
         padding: 0;
         vertical-align: baseline;
         box-sizing: border-box;
+        font-family: 'Itim', cursive;
     }
     ol, ul {
         list-style: none;
     }
     :root{
+        font-size: 8px;
         --MainDark: #031319;
         --MainLigth: #B2C0C6;
         --CardDark: #3B464B; 
@@ -38,5 +40,8 @@ export const GlobalStyle =  createGlobalStyle`
         --ColorCardGroupNotInscribedLigth: #BC4343;
         --plusDark: #ac0000;
         --plusLigth: #db2121
+    }
+    body{
+        background-color: var(--MainDark);
     }
 `
