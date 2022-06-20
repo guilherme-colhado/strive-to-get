@@ -27,6 +27,12 @@ export const HeaderStyle = styled.header`
         color: #ffffff;
         text-align: center;
     }
+    @media (max-width: 720px) {
+        padding: 10px;
+        div:nth-child(3){
+            display: none;
+        }
+    }
 `
 
 export const Button = styled.button`
@@ -58,6 +64,63 @@ export const Button = styled.button`
             content: '';
             background-color: ${props => props.link ? '#ffffff' : ''};
             border-radius: 10px;
+        }
+    }
+    @media (max-width: 720px) {
+        display: none;
+    }
+`
+
+export const Mobile = styled.div`
+    margin-right: 50px;
+    input{
+        position: absolute;
+        opacity: 0;
+    }
+    label{
+        display: none;
+        position: absolute;
+        width: 45px;
+        height: 45px;
+        z-index: 1;
+        cursor: pointer;
+    }
+    span{
+        display: none;
+        position: absolute;
+        background-color: var(--MainLigth);
+        width: 40px;
+        height: 6px;
+        border-radius: 10px;
+        transition: all .3s linear;
+    }
+    span::after, span::before{
+        content: '';
+        position: absolute;
+        background-color: var(--MainDark);
+        width: 40px;
+        height: 7px;
+        top: -14px;
+        border-radius: 10px;
+        transition: all .3s linear;
+    }
+    span::before{
+        top: 14px;
+    }
+    input:checked~span{
+        background-color: transparent;
+    }
+    input:checked~span::before{
+        transform: rotate(-45deg);
+        top: 0;
+    }
+    input:checked~span::after{
+        transform: rotate(45deg);
+        top: 0;
+    }
+    @media (max-width: 720px) {
+        label, span{
+            display: block;
         }
     }
 `
