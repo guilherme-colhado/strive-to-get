@@ -4,8 +4,10 @@ import Logo from '../../Imgs/Logo.gif'
 import { FiLogIn } from 'react-icons/fi'
 import { HiOutlineUserAdd } from 'react-icons/hi'
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 export const Header = ({login, logged}) => {
     const [navMobile, setNavMobile] = useState(false);
+    const nav = useNavigate()
     return <HeaderStyle mobile={navMobile}>
         <div>
             <figure>
@@ -19,16 +21,20 @@ export const Header = ({login, logged}) => {
             <span/>
         </Mobile>
         <div>
-            <Button link={true}>
-                <div>
-                    <TbUsers/>Sobre Nós
-                </div>
-            </Button>
-            <Button>
-                <div>
-                    {login ? <><HiOutlineUserAdd/>Cadastrar</> : <><FiLogIn/>Login</>}
-                </div>
-            </Button>
+            <div>
+                <Button link={true} onClick={()=>nav('aboutUs')}>
+                    <div>
+                        <TbUsers/>Sobre Nós
+                    </div>
+                </Button>
+            </div>
+            <div>
+                <Button>
+                    <div>
+                        {login ? <><HiOutlineUserAdd/>Cadastrar</> : <><FiLogIn/>Login</>}
+                    </div>
+                </Button>
+            </div>
         </div>
     </HeaderStyle>
 }

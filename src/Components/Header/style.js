@@ -41,6 +41,10 @@ export const HeaderStyle = styled.header`
             width: 100vw;
             background-color: var(--HeaderDark);
             flex-direction: column;
+            >div{
+                width: 100vw;
+                box-shadow: 0 5px 10px #000;
+            }
         }
     }
 `
@@ -54,6 +58,8 @@ export const Button = styled.button`
     border-radius: 10px;
     border: none;
     margin-right: 10px;
+    display: flex;
+    flex-direction: column;
     div{
         display: flex;
         flex-direction: column;
@@ -64,6 +70,7 @@ export const Button = styled.button`
         max-width: 0px;
         width: 100%;
         height: 3px;
+        margin: 0 auto;
         align-self: flex-start;
         content: '';
         background-color: ${props => props.link ? '#ffffff' : ''};
@@ -88,10 +95,9 @@ export const Button = styled.button`
             }
         }
         background-color: transparent;
-        width: 100%;
-        margin: 0 10px;
+        width: max-content;
+        margin: 0 auto;
         border-radius: 0;
-        box-shadow: 0 5px 10px #000;
     }
 `
 
