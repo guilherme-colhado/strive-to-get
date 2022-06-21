@@ -2,9 +2,11 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext } from "react";
+import { useParams } from "react-router-dom";
 import { GoalsContext } from "../../Providers/Groups";
 
 export const FormGoals = () => {
+  const params = useParams();
   const formSchema = yup.object().shape({
     title: yup.string().required("Title required"),
     difficulty: yup.string().required("Difficulty required"),
@@ -15,6 +17,8 @@ export const FormGoals = () => {
 
   const onSubmitFunction = (data) => {
     console.log(data);
+    data.achieved = "false";
+    data.group = params.id;
     createGoals(data);
   };
 
@@ -42,7 +46,6 @@ export const FormGoals = () => {
         <option value="7">One week</option>
         <option value="30">One month</option>
       </select>
-      <input type="checkbox" value="true" {...register("achieved")} />
       <button type="submit">teste</button>
     </form>
   );
