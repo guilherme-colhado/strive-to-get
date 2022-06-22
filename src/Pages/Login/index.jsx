@@ -1,3 +1,3 @@
-export const Login = () => {
+export const LoginComponent = () => {
     return
 }
