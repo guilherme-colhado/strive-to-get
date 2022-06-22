@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { BaseApi } from "../../Services/api";
+import axios from "axios";
 
 export const SignUpContext = createContext();
 
@@ -7,7 +7,8 @@ export const SignUpProvider = ({ children }) => {
   const [returnInfo, setReturnInfo] = useState("");
 
   const createUser = (data) => {
-    BaseApi.post("/users/", data)
+    axios
+      .post("https://kenzie-habits.herokuapp.com/users/", data)
       .then((response) => {
         console.log(response);
         setReturnInfo(response.statusText);
