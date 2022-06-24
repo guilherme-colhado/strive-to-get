@@ -1,0 +1,19 @@
+form {
+  display: flex;
+  flex-direction: column;
+  background-color: grey;
+  width: 300px;
+}
+
+input {
+  margin: 10px;
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 5px;
+  justify-content: flex-end;
+}
+
+h2 {
+  color: white;
+  font-size: 35px;
+}
