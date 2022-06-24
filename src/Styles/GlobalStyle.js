@@ -44,4 +44,12 @@ export const GlobalStyle =  createGlobalStyle`
     body{
         background-color: var(--MainDark);
     }
+    .Toastify__toast{
+        background-color: var(--CardDark);
+        color: #fff;
+        font-size: 2.5rem;
+        svg{
+            color: #fff;
+        }
+    }
 `

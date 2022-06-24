@@ -1,17 +1,19 @@
 import * as S from "./style";
 import * as yup from "yup";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState, useContext } from "react";
 import { FiEyeOff, FiEye } from "react-icons/fi";
 import { LoginContext } from "../../Providers/Login";
+import { toast } from "react-toastify";
+import { useEffect } from "react";
 
 export const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const schema = yup.object().shape({
-    name: yup.string().required("Campo obrigatório!"),
+    username: yup.string().required("Campo obrigatório!"),
     password: yup
       .string()
       .min(6, "Mínimo de 6 dígitos")
@@ -27,10 +29,9 @@ export const Login = () => {
   });
 
   const { Login } = useContext(LoginContext);
-  console.log(LoginContext);
 
-  const onSubmitFunction = (data) => Login(data);
-
+  const onSubmitFunction = (data) => Login(data)
+  
   const togglePassword = () => {
     setShowPassword(!showPassword);
   };
@@ -43,9 +44,9 @@ export const Login = () => {
           <S.Input>
             <label>Nome de usuário</label>
             <input
-              error={errors.name?.message}
+              error={errors.username?.message}
               placeholder="Digite aqui seu nome de usuário"
-              {...register("name")}
+              {...register("username")}
             />
             <S.Password>
               <label>Senha</label>

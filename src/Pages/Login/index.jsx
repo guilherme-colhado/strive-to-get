@@ -1,3 +1,11 @@
+import { Header } from '../../Components/Header'
+import { Login } from '../../Components/Login'
+
 export const LoginComponent = () => {
-  return;
+  return <>
+    <Header/>
+    <main>
+      <Login></Login>
+    </main>
+  </>
 };
