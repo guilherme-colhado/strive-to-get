@@ -5,7 +5,7 @@ export const RoutesComponent = () => {
         <Route path="/"></Route>
         <Route path="/:id"></Route>
         <Route path="/main"></Route>
-        <Route path="/login"></Route>
+        <Route path="/login" ></Route>
         <Route path="/signUp"></Route>
         <Route path="/aboutUs"></Route>
         <Route path="/groups"></Route>
