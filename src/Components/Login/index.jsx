@@ -28,20 +28,9 @@ export const Login = () => {
     resolver: yupResolver(schema),
   });
 
-  const { Login, token } = useContext(LoginContext);
+  const { Login } = useContext(LoginContext);
 
   const onSubmitFunction = (data) => Login(data)
-  
-  useEffect(() => {
-    if(token) {
-      localStorage.setItem(
-        "@StriveToGet: Token",
-        JSON.stringify(token)
-      )
-      toast.success('Seja bem vindo!!')
-      Navigate('/')
-    }
-  }, [token]);
   
   const togglePassword = () => {
     setShowPassword(!showPassword);
