@@ -11,4 +11,4 @@ export const RoutesComponent = () => {
         <Route path="/groups"></Route>
         <Route path="/groups/:id"></Route>
     </Routes>
-}
+};

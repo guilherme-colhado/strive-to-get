@@ -1,3 +1,3 @@
 export const LoginComponent = () => {
-    return
-}
+  return;
+};
