@@ -31,7 +31,8 @@ export const GlobalStyle =  createGlobalStyle`
         --CardsLight: #D9D9D9;
         --HeaderDark: #ac0000;
         --HeaderLight: #db2121;
-        --BtnConfirm: #0CBA7B;
+        --BtnConfirmDark: #09764F;
+        --BtnConfirmLight: #0CBA7B;
         --BtnDark: #7B0000;
         --BtnLight: #F66565;
         --ColorCardGroupInscribedDark: #CC4A01;
@@ -43,5 +44,13 @@ export const GlobalStyle =  createGlobalStyle`
     }
     body{
         background-color: var(--MainDark);
+    }
+    .Toastify__toast{
+        background-color: var(--CardDark);
+        color: #fff;
+        font-size: 2.5rem;
+        svg{
+            color: #fff;
+        }
     }
 `
