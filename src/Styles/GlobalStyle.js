@@ -31,7 +31,8 @@ export const GlobalStyle =  createGlobalStyle`
         --CardsLight: #D9D9D9;
         --HeaderDark: #ac0000;
         --HeaderLight: #db2121;
-        --BtnConfirm: #0CBA7B;
+        --BtnConfirmDark: #09764F;
+        --BtnConfirmLight: #0CBA7B;
         --BtnDark: #7B0000;
         --BtnLight: #F66565;
         --ColorCardGroupInscribedDark: #CC4A01;
