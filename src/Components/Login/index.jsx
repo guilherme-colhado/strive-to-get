@@ -30,8 +30,8 @@ export const Login = () => {
 
   const { Login } = useContext(LoginContext);
 
-  const onSubmitFunction = (data) => Login(data)
-  
+  const onSubmitFunction = (data) => Login(data);
+
   const togglePassword = () => {
     setShowPassword(!showPassword);
   };
@@ -48,19 +48,19 @@ export const Login = () => {
               placeholder="Digite aqui seu nome de usuário"
               {...register("username")}
             />
-            <S.Password>
-              <label>Senha</label>
-              <input
-                error={errors.password?.message}
-                placeholder="Digite aqui sua senha"
-                type={showPassword ? "text" : "password"}
-                {...register("password")}
-              />
-              <span onClick={togglePassword}>
-                {!showPassword ? <FiEyeOff /> : <FiEye />}
-              </span>
-            </S.Password>
           </S.Input>
+          <S.Password>
+            <label>Senha</label>
+            <input
+              error={errors.password?.message}
+              placeholder="Digite aqui sua senha"
+              type={showPassword ? "text" : "password"}
+              {...register("password")}
+            />
+            <span onClick={togglePassword}>
+              {!showPassword ? <FiEyeOff /> : <FiEye />}
+            </span>
+          </S.Password>
           <button type="submit">
             <span>Fazer login</span>
           </button>
