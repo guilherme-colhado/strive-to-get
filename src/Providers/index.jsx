@@ -1,5 +1,5 @@
-export const Providers = ({children}) => {
-    return <div>
-        {children}
-    </div>
-}
+import { LoginProvider } from "./Login";
+
+export const Providers = ({ children }) => {
+  return <LoginProvider>{children}</LoginProvider>;
+};
