@@ -9,6 +9,7 @@ export const HeaderStyle = styled.header`
     align-items: center;
     justify-content: space-between;
     padding: 5px 86px;
+    box-shadow: 0 5px 10px #000;
     figure{
         margin-right: 10px;
         width: 74px;
@@ -168,6 +169,7 @@ export const Nav = styled.nav`
         max-height: ${props=>props.mobile ? '200px' : '0'};
         padding: 0;
         overflow: hidden;
+        box-shadow: 0 10px 10px #000;
         top: 85px;
         left: 0;
         width: 100vw;
