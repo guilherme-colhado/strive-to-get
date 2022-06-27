@@ -20,6 +20,19 @@ export const GlobalStyle =  createGlobalStyle`
         box-sizing: border-box;
         font-family: 'Itim', cursive;
     }
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+    -webkit-text-fill-color: #FFFFFF !important;
+    -webkit-box-shadow: 0 0 0px 1000px var(--MainDark) inset;
+    box-shadow: 0 0 0px 1000px var(--MainDark) inset;
+    }
     ol, ul {
         list-style: none;
     }

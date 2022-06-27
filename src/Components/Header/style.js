@@ -117,6 +117,8 @@ export const Mobile = styled.div`
         width: 45px;
         height: 45px;
         z-index: 1;
+        margin-top: -18px;
+        margin-left: -2px;
         cursor: pointer;
     }
     span{
