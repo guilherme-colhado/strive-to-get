@@ -7,6 +7,10 @@ export const FooterTag = styled.footer`
 `;
 
 export const DivContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
   width: 100%;
   height: 100px;
   background: var(--HeaderDark);
@@ -24,6 +28,12 @@ export const DivContainer = styled.div`
     #ac0021 100%
   );
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ac0000', endColorstr='#ac0021',GradientType=0 );
+
+  a {
+    cursor: pointer;
+    font-size: 1.4rem;
+    color: #ffffff;
+  }
 `;
 
 export const WaveBox = styled.div`
@@ -64,4 +74,11 @@ export const WaveBox = styled.div`
       }
     }
   }
+`;
+
+export const Para = styled.p`
+  color: #ffffff;
+  margin-bottom: 15px;
+  margin-top: 5px;
+  font-size: 1.2rem;
 `;

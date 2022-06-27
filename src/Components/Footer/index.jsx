@@ -1,4 +1,5 @@
-import { FooterTag, DivContainer, WaveBox, Wave } from "./style";
+import { FooterTag, DivContainer, WaveBox, Para } from "./style";
+import { AiFillCopyrightCircle } from "react-icons/ai";
 
 export const Footer = () => {
   return (
@@ -22,7 +23,15 @@ export const Footer = () => {
           ></path>
         </svg>
       </WaveBox>
-      <DivContainer></DivContainer>
+      <DivContainer>
+        <a href="https://www.freepik.com/vectors/homework">
+          Homework vector created by storyset - www.freepik.com
+        </a>
+        <Para>
+          <AiFillCopyrightCircle />
+          2022 All Rights Reserved 2022
+        </Para>
+      </DivContainer>
     </FooterTag>
   );
 };
