@@ -17,6 +17,9 @@ export const Container = styled.div`
   h4 {
     font-weight: 400;
   }
+  h4 {
+    font-size: 2rem;
+  }
   a {
     text-decoration: none;
     color: white;

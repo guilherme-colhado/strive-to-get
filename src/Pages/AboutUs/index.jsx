@@ -11,7 +11,12 @@ const AboutUs = () => {
         <DevBoxLeft>
           <InfoDev>
             <h2>Barbara Souza - QA </h2>
-            <h4>info: </h4>
+            <h4>
+              info: Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Culpa amet unde quam, vitae quos fuga natus, qui ipsa assumenda
+              rem consectetur minima. Molestiae libero voluptatibus beatae non
+              amet aut neque?{" "}
+            </h4>
             <div>
               <h3>Redes sociais</h3>
 
@@ -39,7 +44,11 @@ const AboutUs = () => {
         <DevBoxRight>
           <InfoDev>
             <h2>Edson Freitas - QA</h2>
-            <h4>info:</h4>
+            <h4>
+              info: Estudante e Dev front-end desde 2021, apaixonado por novas
+              tecnologias. Atualmente cursando segundo semestre de segurança da
+              informação e M2 na Kenzie Academy.
+            </h4>
             <div>
               <h3>Redes sociais</h3>
 
@@ -152,7 +161,12 @@ const AboutUs = () => {
         <DevBoxRight>
           <InfoDev>
             <h2>Wallace Júnior - QA</h2>
-            <h4>info:</h4>
+            <h4>
+              info: Wallace é desenvolvedor Front-End e Ama tecnologia.
+              Atualmente trabalha com redes e Telecomunicacao. Tem formacao em
+              Sistemas de Informacao desde o ano de 2020 e busca trabalhar como
+              desenvolvedor e crescer na área.
+            </h4>
             <div>
               <h3>Redes sociais</h3>
 
