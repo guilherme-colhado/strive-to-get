@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-export const GlobalStyle =  createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
     html, body, div, span, applet, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,
     a, abbr, acronym, address, big, cite, code,
@@ -39,9 +39,9 @@ export const GlobalStyle =  createGlobalStyle`
         --ColorCardGroupNotInscribedDark: #760000;
         --ColorCardGroupNotInscribedLigth: #BC4343;
         --plusDark: #ac0000;
-        --plusLigth: #db2121
+        --plusLigth: #db2121;
     }
     body{
         background-color: var(--MainDark);
     }
-`
+`;
