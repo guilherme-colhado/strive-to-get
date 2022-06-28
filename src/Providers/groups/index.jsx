@@ -56,8 +56,8 @@ export const GroupsProvider = ({ children }) => {
 
   return (
     <GroupsContext.Provider
-      value={
-        (groups,
+      value={{
+        groups,
         group,
         listGroups,
         listOneGroup,
@@ -65,8 +65,8 @@ export const GroupsProvider = ({ children }) => {
         editGroup,
         groupSubscription,
         buscaSubs,
-        exitGroup)
-      }
+        exitGroup,
+      }}
     >
       {children}
     </GroupsContext.Provider>
