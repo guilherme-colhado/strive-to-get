@@ -8,8 +8,8 @@ export const Search = ({cb}) => {
     // useEffect(() => {
     //     windowClick()
     // }, []);
-    return <SearchComponent>
-        <InputSearch type='text'></InputSearch>
+    return <SearchComponent onBlur={(e)=> setActive(false)} onFocus={()=>setActive(true)}>
+        <InputSearch open={active} type='text'></InputSearch>
         <ButtonSearch><BsSearch/></ButtonSearch>
     </SearchComponent>
 }

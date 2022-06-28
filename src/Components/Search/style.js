@@ -19,7 +19,7 @@ export const SearchComponent = styled.div`
 
 export const InputSearch = styled.input`
     font-size: 2.5rem;
-    width: 100;
+    width: ${props => props.open ? '200px' : '0'};
     transition: all .3s ease-in;
     padding: 0;
     color:white;
