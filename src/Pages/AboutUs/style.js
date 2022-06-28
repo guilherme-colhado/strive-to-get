@@ -11,6 +11,12 @@ export const Container = styled.div`
   height: fit-content;
   font-size: 3rem;
   background-color: var(--MainDark);
+
+  h2,
+  h3,
+  h4 {
+    font-weight: 400;
+  }
   a {
     text-decoration: none;
     color: white;

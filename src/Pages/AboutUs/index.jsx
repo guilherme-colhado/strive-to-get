@@ -10,13 +10,17 @@ const AboutUs = () => {
       <Container>
         <DevBoxLeft>
           <InfoDev>
-            <h3>Barbara Souza </h3>
-            <h2>info: </h2>
+            <h2>Barbara Souza - QA </h2>
+            <h4>info: </h4>
             <div>
               <h3>Redes sociais</h3>
 
               <span>
-                <a href="https://github.com/ibarbarasouza">
+                <a
+                  target={"_blank"}
+                  rel="noreferrer"
+                  href="https://github.com/ibarbarasouza"
+                >
                   <GitHubIcon fontSize="larger" />
                 </a>
               </span>
@@ -24,7 +28,7 @@ const AboutUs = () => {
               <span> </span>
 
               <span>
-                <a href="">
+                <a target={"_blank"} rel="noreferrer" href="">
                   <LinkedInIcon fontSize="larger" />
                 </a>
               </span>
@@ -34,13 +38,17 @@ const AboutUs = () => {
 
         <DevBoxRight>
           <InfoDev>
-            <h3>Edson Freitas</h3>
-            <h2>info:</h2>
+            <h2>Edson Freitas - QA</h2>
+            <h4>info:</h4>
             <div>
               <h3>Redes sociais</h3>
 
               <span>
-                <a href="https://github.com/edsonvin">
+                <a
+                  target={"_blank"}
+                  rel="noreferrer"
+                  href="https://github.com/edsonvin"
+                >
                   <GitHubIcon fontSize="larger" />
                 </a>
               </span>
@@ -48,7 +56,7 @@ const AboutUs = () => {
               <span> </span>
 
               <span>
-                <a href="">
+                <a target={"_blank"} rel="noreferrer" href="">
                   <LinkedInIcon fontSize="larger" />
                 </a>
               </span>
@@ -58,13 +66,17 @@ const AboutUs = () => {
 
         <DevBoxLeft>
           <InfoDev>
-            <h3>Fernanda Constância</h3>
-            <h2>info:</h2>
+            <h2>Fernanda Constância - SM</h2>
+            <h4>info:</h4>
             <div>
               <h3>Redes sociais</h3>
 
               <span>
-                <a href="https://github.com/fernandaconstancia">
+                <a
+                  target={"_blank"}
+                  rel="noreferrer"
+                  href="https://github.com/fernandaconstancia"
+                >
                   <GitHubIcon fontSize="larger" />
                 </a>
               </span>
@@ -72,7 +84,7 @@ const AboutUs = () => {
               <span> </span>
 
               <span>
-                <a href="">
+                <a target={"_blank"} rel="noreferrer" href="">
                   <LinkedInIcon fontSize="larger" />
                 </a>
               </span>
@@ -82,14 +94,18 @@ const AboutUs = () => {
 
         <DevBoxRight>
           <InfoDev>
-            <h3>Guilherme Colhado</h3>
+            <h2>Guilherme Colhado - TL</h2>
             <div>
-              <h2>info:</h2>
+              <h4>info:</h4>
 
               <h3>Redes sociais</h3>
 
               <span>
-                <a href="https://github.com/guilherme-colhado">
+                <a
+                  target={"_blank"}
+                  rel="noreferrer"
+                  href="https://github.com/guilherme-colhado"
+                >
                   <GitHubIcon fontSize="larger" />
                 </a>
               </span>
@@ -97,7 +113,7 @@ const AboutUs = () => {
               <span> </span>
 
               <span>
-                <a href="">
+                <a target={"_blank"} rel="noreferrer" href="">
                   <LinkedInIcon fontSize="larger" />
                 </a>
               </span>
@@ -107,13 +123,17 @@ const AboutUs = () => {
 
         <DevBoxLeft>
           <InfoDev>
-            <h3>Lucas Galvão</h3>
-            <h2>info:</h2>
+            <h2>Lucas Galvão - PO</h2>
+            <h4>info:</h4>
             <div>
               <h3>Redes sociais</h3>
 
               <span>
-                <a href="https://github.com/Galvs135">
+                <a
+                  target={"_blank"}
+                  rel="noreferrer"
+                  href="https://github.com/Galvs135"
+                >
                   <GitHubIcon fontSize="larger" />
                 </a>
               </span>
@@ -121,7 +141,7 @@ const AboutUs = () => {
               <span> </span>
 
               <span>
-                <a href="">
+                <a target={"_blank"} rel="noreferrer" href="">
                   <LinkedInIcon fontSize="larger" />
                 </a>
               </span>
@@ -131,13 +151,17 @@ const AboutUs = () => {
 
         <DevBoxRight>
           <InfoDev>
-            <h3>Wallace Júnior</h3>
-            <h2>info:</h2>
+            <h2>Wallace Júnior - QA</h2>
+            <h4>info:</h4>
             <div>
               <h3>Redes sociais</h3>
 
               <span>
-                <a href="">
+                <a
+                  target={"_blank"}
+                  rel="noreferrer"
+                  href="https://github.com/wallacejuniorwv"
+                >
                   <GitHubIcon fontSize="larger" />
                 </a>
               </span>
@@ -145,7 +169,7 @@ const AboutUs = () => {
               <span> </span>
 
               <span>
-                <a href="">
+                <a target={"_blank"} rel="noreferrer" href="">
                   <LinkedInIcon fontSize="larger" />
                 </a>
               </span>
