@@ -16,7 +16,7 @@ const AboutUs = () => {
               <h3>Redes sociais</h3>
 
               <span>
-                <a href="">
+                <a href="https://github.com/ibarbarasouza">
                   <GitHubIcon fontSize="larger" />
                 </a>
               </span>
@@ -40,7 +40,7 @@ const AboutUs = () => {
               <h3>Redes sociais</h3>
 
               <span>
-                <a href="">
+                <a href="https://github.com/edsonvin">
                   <GitHubIcon fontSize="larger" />
                 </a>
               </span>
@@ -64,7 +64,7 @@ const AboutUs = () => {
               <h3>Redes sociais</h3>
 
               <span>
-                <a href="">
+                <a href="https://github.com/fernandaconstancia">
                   <GitHubIcon fontSize="larger" />
                 </a>
               </span>
@@ -89,7 +89,7 @@ const AboutUs = () => {
               <h3>Redes sociais</h3>
 
               <span>
-                <a href="">
+                <a href="https://github.com/guilherme-colhado">
                   <GitHubIcon fontSize="larger" />
                 </a>
               </span>
@@ -113,7 +113,7 @@ const AboutUs = () => {
               <h3>Redes sociais</h3>
 
               <span>
-                <a href="">
+                <a href="https://github.com/Galvs135">
                   <GitHubIcon fontSize="larger" />
                 </a>
               </span>
