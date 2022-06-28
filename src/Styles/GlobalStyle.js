@@ -36,6 +36,7 @@ export const GlobalStyle = createGlobalStyle`
     ol, ul {
         list-style: none;
     }
+    
     :root{
         font-size: 8px;
         --MainDark: #031319;
