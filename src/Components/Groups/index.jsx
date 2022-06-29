@@ -4,7 +4,7 @@ import { CardHabit } from '../CardHabit'
 
 export const GroupsComponent = () => {
     const [openGroup, setOpenGroup] = useState(true);
-    return <Group open={openGroup} onClick={()=>setOpenGroup(false)}>
+    return <Group open={openGroup} onMouseEnter={()=>setOpenGroup(false)} onMouseLeave={()=>setOpenGroup(true)}>
         {
             openGroup 
             ? 
@@ -12,9 +12,6 @@ export const GroupsComponent = () => {
             :
             <div>
                 <h2>Grupos</h2>
-                <CardHabit/>
-                <CardHabit/>
-                <CardHabit/>
             </div>
         }
     </Group>
