@@ -42,7 +42,7 @@ export const GlobalStyle = createGlobalStyle`
         --MainDark: #031319;
         --MainLigth: #B2C0C6;
         --CardDark: #3B464B; 
-        --CardsLight: #D9D9D9;
+        --CardLight: #D9D9D9;
         --HeaderDark: #ac0000;
         --HeaderLight: #db2121;
         --BtnConfirmDark: #09764F;
