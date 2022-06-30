@@ -1,14 +1,14 @@
 import * as S from "./style";
 import { FiX } from "react-icons/fi";
 
-export const ChangeUserEmail = ({ onClose }) => {
+export const ChangeUserEmail = ({ onClose, onSubmit }) => {
   return (
     <S.Container>
       <S.Box>
         <form>
           <S.Header>
             <h1>Alterar Cadastro</h1>
-            <S.Close>
+            <S.Close onClick={onClose}>
               <FiX />
             </S.Close>
           </S.Header>
@@ -18,7 +18,7 @@ export const ChangeUserEmail = ({ onClose }) => {
             <label>Alterar Email</label>
             <input placeholder="Digite aqui seu novo email" />
           </S.Input>
-          <S.Button onclick={onClose}>
+          <S.Button onClick={onSubmit}>
             <span>Salvar alterações</span>
           </S.Button>
         </form>
