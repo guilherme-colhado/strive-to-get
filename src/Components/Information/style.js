@@ -141,6 +141,27 @@ export const Image = styled.section`
       height: 250px;
     }
   }
+
+  img {
+    height: 450px;
+    width: 650px;
+    @media (max-width: 1324px) {
+      height: 250px;
+      width: 350px;
+    }
+    @media (max-width: 1000px) {
+      height: 450px;
+      width: 650px;
+    }
+    @media (max-width: 800px) {
+      height: 300px;
+      width: 450px;
+    }
+    @media (max-width: 520px) {
+      width: 300px;
+      height: 250px;
+    }
+  }
 `;
 
 export const DivContainer = styled.div`
