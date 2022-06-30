@@ -7,7 +7,7 @@ import { EditPerfilStyle, Input, Button } from "./style";
 
 export const EditPerfil = () => {
   const { UpdateUser, token, UserInfos, info } = useContext(UserContext);
-  const [username, setUser] = useState("");
+  const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
 
   const {
@@ -33,7 +33,7 @@ export const EditPerfil = () => {
         <Input
           type="text"
           placeholder={info.username}
-          onChange={(e) => setUser(e.target.value)}
+          onChange={(e) => setUserName(e.target.value)}
         />
       </div>
       <Button type="submit">All Done</Button>
