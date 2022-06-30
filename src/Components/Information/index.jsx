@@ -10,9 +10,6 @@ export const Info = () => {
     <DivContainer>
       <DivInfos>
         <section>
-          <figure>
-            <img src={Logo} />
-          </figure>
           <h2>
             Start <span></span> your habits
           </h2>

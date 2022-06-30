@@ -1,3 +1,5 @@
+import { Info } from "../../Components/Information";
+
 export const Groups = () => {
-    return
-}
+  return <Info />;
+};

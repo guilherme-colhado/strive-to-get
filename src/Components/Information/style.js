@@ -101,23 +101,23 @@ export const DivInfos = styled.div`
 `;
 
 export const Image = styled.section`
-  margin-top: -383px;
+  transform: translateY(-383px);
   margin-left: 600px;
   @media (max-width: 1324px) {
-    margin-top: -215px;
+    transform: translateY(-214px);
     margin-left: 600px;
   }
   @media (max-width: 1000px) {
-    margin-top: -383px;
+    transform: translateY(-385px);
     margin-left: 100px;
   }
 
   @media (max-width: 800px) {
-    margin-top: -256px;
+    transform: translateY(-257px);
     margin-left: 0px;
   }
   @media (max-width: 520px) {
-    margin-top: -213px;
+    transform: translateY(-215px);
     margin-left: 0px;
   }
 
