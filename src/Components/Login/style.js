@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  margin-top: 10%;
+  min-height: calc(100vh - 96px);
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #031319;
-  padding: 86px 10px 10px;
+  padding: 10px;
 
   p {
     color: #ffffff;
