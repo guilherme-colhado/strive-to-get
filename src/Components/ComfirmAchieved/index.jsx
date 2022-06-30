@@ -1,6 +1,6 @@
 import * as S from "./style";
 
-export const ComfirmAchieved = ({ onClose, onAchieved }) => {
+export const ComfirmAchieved = ({ onClose, onSubmit }) => {
   return (
     <S.Container>
       <S.Box>
@@ -9,7 +9,7 @@ export const ComfirmAchieved = ({ onClose, onAchieved }) => {
           <S.ButtonNot onclick={onClose}>
             <span>Ainda não</span>
           </S.ButtonNot>
-          <S.ButtonYes onclick={onAchieved}>
+          <S.ButtonYes onclick={onSubmit}>
             <span>Arquivar</span>
           </S.ButtonYes>
         </S.BoxButton>
