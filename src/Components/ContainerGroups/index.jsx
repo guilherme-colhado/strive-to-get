@@ -1,24 +1,17 @@
-import { useContext, useEffect } from "react";
+import { useContext, useState } from "react";
 import { GroupsContext } from "../../Providers/groups";
-import { Div, DivCont, ButtonR, ButtonL } from "./style";
+import { Div, DivCont } from "./style";
 import { SingleGroup } from "../SingleGroup";
-import { AiOutlineDoubleRight } from "react-icons/ai";
-import { AiOutlineDoubleLeft } from "react-icons/ai";
+import { AiOutlineDown } from "react-icons/ai";
 
 export const AllGroups = () => {
   const { groups, PerPage } = useContext(GroupsContext);
+  const [page, setPage] = useState(3);
 
-  useEffect(() => {
-    const intersectionObserver = new IntersectionObserver((entries) => {
-      if (entries.some((entry) => entry.isIntersecting)) {
-        PerPage();
-      }
-    });
-
-    intersectionObserver.observe(document.querySelector("#sentry"));
-
-    return () => intersectionObserver.disconnect();
-  }, []);
+  const test = () => {
+    PerPage(page);
+    setPage(page + 2);
+  };
 
   return (
     <Div>
@@ -26,7 +19,9 @@ export const AllGroups = () => {
         {groups.map((element) => {
           return <SingleGroup props={element} key={element.id} />;
         })}
-        <div id="sentry"></div>
+        <div onClick={() => test()} id="sentry">
+          <AiOutlineDown />
+        </div>
       </DivCont>
     </Div>
   );
