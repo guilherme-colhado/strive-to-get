@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
+import { Api } from "../../Services/api";
 
 export const UserContext = createContext();
 
@@ -17,17 +18,13 @@ export const UserProvider = ({ children }) => {
   const [info, setInfo] = useState("");
 
   const UserInfos = (id) => {
-    axios
-      .get(`https://kenzie-habits.herokuapp.com/users/${id}/`)
-      .then((response) => setInfo(response.data));
+    Api.get(`/users/${id}/`).then((response) => setInfo(response.data));
   };
 
   const UpdateUser = (id, data) => {
-    axios
-      .patch(`https://kenzie-habits.herokuapp.com/users/${id}/`, data, {
-        headers: { authorization: `Bearer ${token}` },
-      })
-      .then((response) => console.log(response));
+    Api.patch(`/users/${id}/`, data, {
+      headers: { authorization: `Bearer ${token}` },
+    }).then((response) => console.log(response));
   };
 
   return (
