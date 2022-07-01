@@ -2,16 +2,15 @@ import styled from "styled-components";
 
 export const HeaderStyle = styled.header`
     background-color: var(--HeaderDark);
-    position: fixed;
+    position: sticky;
     top: 0;
+    z-index: 100;
     width: 100%;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     padding: 5px 86px;
-    >div{
-        display: flex;
-        align-items: center;
-    }
+    box-shadow: 0 5px 10px #000;
     figure{
         margin-right: 10px;
         width: 74px;
@@ -30,7 +29,7 @@ export const HeaderStyle = styled.header`
     
     @media (max-width: 720px) {
         padding: 10px;
-        div:nth-child(3){
+        div:nth-child(-1){
             position: fixed;
             transition: all .3s ease-in;
             max-height: ${props=>props.mobile ? '200px' : '0'};
@@ -47,6 +46,11 @@ export const HeaderStyle = styled.header`
             }
         }
     }
+`
+
+export const LogoComponent = styled.div`
+    display: flex;
+    align-items: center;
 `
 
 export const Button = styled.button`
@@ -102,7 +106,7 @@ export const Button = styled.button`
 `
 
 export const Mobile = styled.div`
-    margin-right: 50px;
+    display: none;
     input{
         position: absolute;
         opacity: 0;
@@ -113,6 +117,8 @@ export const Mobile = styled.div`
         width: 45px;
         height: 45px;
         z-index: 1;
+        margin-top: -18px;
+        margin-left: -2px;
         cursor: pointer;
     }
     span{
@@ -149,8 +155,32 @@ export const Mobile = styled.div`
         top: 0;
     }
     @media (max-width: 720px) {
+        margin-right: 50px;
+        display: flex;
         label, span{
             display: block;
+        }
+    }
+`
+
+export const Nav = styled.nav`
+    display: flex;
+    align-items: center;
+    @media (max-width: 720px) {
+        position: fixed;
+        transition: all .3s ease-in;
+        max-height: ${props=>props.mobile ? '200px' : '0'};
+        padding: 0;
+        overflow: hidden;
+        box-shadow: 0 10px 10px #000;
+        top: 85px;
+        left: 0;
+        width: 100vw;
+        background-color: var(--HeaderDark);
+        flex-direction: column;
+        >div{
+            width: 100vw;
+            box-shadow: 0 5px 10px #000;
         }
     }
 `
