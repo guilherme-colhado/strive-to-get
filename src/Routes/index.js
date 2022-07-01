@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { Groups } from "../Pages/Groups";
 import { LoginComponent } from "../Pages/Login";
-]
+
 export const RoutesComponent = () => {
   return (
     <Routes>
