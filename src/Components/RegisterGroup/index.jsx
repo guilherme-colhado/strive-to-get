@@ -1,7 +1,7 @@
 import * as S from "./style";
 import { FiX } from "react-icons/fi";
 
-export const RegisterGroup = ({ onClose }) => {
+export const RegisterGroup = ({ onClose, onSubmit }) => {
   return (
     <S.Container>
       <S.Box>
@@ -37,7 +37,7 @@ export const RegisterGroup = ({ onClose }) => {
               placeholder="Digite aqui a descrição do seu grupo"
             />
           </S.Textarea>
-          <S.Button>
+          <S.Button onClick={onSubmit}>
             <span>Cadastrar</span>
           </S.Button>
         </form>

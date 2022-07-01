@@ -1,7 +1,7 @@
 import * as S from "./style";
 import { FiX } from "react-icons/fi";
 
-export const RegisterHabit = ({ onClose }) => {
+export const RegisterHabit = ({ onClose, onSubmit }) => {
   return (
     <S.Container>
       <S.Box>
@@ -61,7 +61,7 @@ export const RegisterHabit = ({ onClose }) => {
               <option value="monthly">Mensalmente</option>
             </select>
           </S.Select>
-          <S.Button>
+          <S.Button onClick={onSubmit}>
             <span>Cadastrar</span>
           </S.Button>
         </form>

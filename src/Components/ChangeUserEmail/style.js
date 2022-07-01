@@ -6,7 +6,6 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #031319;
   padding: 86px 10px 10px;
 `;
 
@@ -32,11 +31,11 @@ export const Header = styled.div`
 
   h1 {
     color: #ffffff;
-    font-size: 5rem;
+    font-size: 4rem;
   }
 `;
 
-export const Close = styled.button`
+export const Close = styled.span`
   background: #3b464b;
   color: #ffffff;
   border: transparent;
