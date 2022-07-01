@@ -5,6 +5,7 @@ import { FiLogIn } from "react-icons/fi";
 import { HiOutlineUserAdd } from "react-icons/hi";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Clock } from "../Clock";
 
 export const Header = ({ login, logged }) => {
   const [navMobile, setNavMobile] = useState(false);
