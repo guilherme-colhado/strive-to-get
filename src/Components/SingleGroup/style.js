@@ -81,7 +81,7 @@ export const Container = styled.div`
 `;
 
 export const Button = styled.button`
-  width: 170px;
+  width: ${(props) => (props.inscribed ? "100px" : "170px")};
   height: 21px;
   border-radius: 7px;
   color: #ffffff;
@@ -94,5 +94,28 @@ export const Button = styled.button`
 
   @media (max-width: 299px) {
     width: 80%;
+  }
+`;
+
+export const Buttons = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 170px;
+  @media (max-width: 461px) {
+    width: 200px;
+  }
+`;
+
+export const ViewGroup = styled.button`
+  width: 60px;
+  height: 21px;
+  background-color: var(--BtnConfirmDark);
+  border-radius: 7px;
+  padding-top: 2px;
+  color: #ffffff;
+
+  @media (max-width: 461px) {
+    display: ${(props) => (props.mobile ? "visible" : "none")};
   }
 `;

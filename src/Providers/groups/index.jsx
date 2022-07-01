@@ -2,13 +2,19 @@ import { createContext, useState, useEffect } from "react";
 import { Api } from "../../Services/api";
 import { toast } from "react-toastify";
 import { get } from "react-hook-form";
+import jwt_decode from "jwt-decode";
 
 export const GroupsContext = createContext();
 
 export const GroupsProvider = ({ children }) => {
   const [groups, setGroups] = useState([]);
   const [group, setGroup] = useState({});
-  const [page, setPage] = useState(1);
+
+  let { user_id } = jwt_decode(
+    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU3MDcwOTU3LCJqdGkiOiJkZGY3ZTJjMWU3ZDg0ZWJmYjE5Njk1ODA3OTQ1YzQyMSIsInVzZXJfaWQiOjc4Mn0.S2tWUsQWB1o5NSuuwnWxYTjLtlL0utM6iArKhJivY_I"
+  );
+
+  console.log(user_id);
 
   const Get = (PerPage) => {
     Api.get(`/groups/?page=${PerPage}`)
@@ -16,15 +22,14 @@ export const GroupsProvider = ({ children }) => {
       .catch((err) => console.log(err));
   };
 
-  const PerPage = () => {
-    for (let i = 0; i < 2; i++) {
-      Get(page + i);
+  const PerPage = (x) => {
+    for (let i = x; i < x + 2; i++) {
+      Get(i);
     }
-    setPage(page + 1);
   };
 
   useEffect(() => {
-    PerPage();
+    PerPage(1);
   }, []);
 
   const listOneGroup = (group) => {
@@ -46,7 +51,13 @@ export const GroupsProvider = ({ children }) => {
   };
 
   const groupSubscription = (data) => {
-    Api.post(`/groups/${data.id}/subscribe/`)
+    Api.post(`/groups/${data.id}/subscribe/`, "", {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(
+          localStorage.getItem("@StriveToGet: Token" || "")
+        )}`,
+      },
+    })
       .then(toast.success("Subscribed!"))
       .catch((err) => console.log(err));
   };
@@ -58,7 +69,13 @@ export const GroupsProvider = ({ children }) => {
   };
 
   const exitGroup = (group) => {
-    Api.delete(`/groups/${group.id}/unsubscribe/`)
+    Api.delete(`/groups/${group.id}/unsubscribe/`, {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(
+          localStorage.getItem("@StriveToGet: Token" || "")
+        )}`,
+      },
+    })
       .then(toast.success("Unsubscribed sucessufully"))
       .catch((err) => console.log(err));
   };
