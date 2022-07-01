@@ -1,3 +1,5 @@
+import { AllGroups } from "../../Components/ContainerGroups";
+
 export const Groups = () => {
-    return
-}
+  return <AllGroups />;
+};

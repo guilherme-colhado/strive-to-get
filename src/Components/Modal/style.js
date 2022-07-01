@@ -10,6 +10,6 @@ export const ModalStyle = styled.div`
     display: ${props=> props.open ? 'flex' : 'none'};
     justify-content: center;
     align-items: center;
-    background-color: #00000050;
+    background-color: #00000080;
     color: wheat;
 `
