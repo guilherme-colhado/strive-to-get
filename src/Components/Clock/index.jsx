@@ -7,7 +7,7 @@ export const Clock = () => {
   useEffect(() => {
     setInterval(() => setTime(new Date()), 1000);
   }, []);
-
+  
   return (
     <ClockStyle>
       <h2>{time.toLocaleTimeString("pt-BR")}</h2>

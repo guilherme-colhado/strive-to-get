@@ -1,23 +1,25 @@
-import { Button, HeaderStyle, Mobile } from "./style";
+import { Button, HeaderStyle, LogoComponent, Mobile, Nav } from "./style";
 import { TbUsers } from "react-icons/tb";
 import Logo from "../../Imgs/Logo.gif";
-import { FiLogIn } from "react-icons/fi";
+import { FiLogIn, FiLogOut } from "react-icons/fi";
 import { HiOutlineUserAdd } from "react-icons/hi";
+import { MdOutlineGroups, MdOutlinePersonOutline } from 'react-icons/md'
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import { Clock } from "../Clock";
 
-export const Header = ({ login, logged }) => {
+export const Header = ({ login, logged, person }) => {
   const [navMobile, setNavMobile] = useState(false);
   const nav = useNavigate();
-  return (
-    <HeaderStyle mobile={navMobile}>
-      <div>
+  return <HeaderStyle>
+      <LogoComponent>
         <figure>
           <img src={Logo} alt="r4aqvW.gif" border="0" />
         </figure>
         <h1>Strive to Get</h1>
-      </div>
+      </LogoComponent>
+      <Clock/>
       <Mobile>
         <input
           onClick={() => setNavMobile(!navMobile)}
@@ -28,9 +30,27 @@ export const Header = ({ login, logged }) => {
         <label htmlFor="mobile" />
         <span />
       </Mobile>
-      <div>
+      <Nav mobile={navMobile}>
+        {
+          logged && <>
+            <div>
+              <Button link onClick={nav(`/${person.id}`)}>
+                <div>
+                  <MdOutlinePersonOutline/>{person.nome}
+                </div>
+              </Button>
+            </div>
+            <div>
+              <Button link onClick={()=>nav('/groups')}>
+                <div>
+                  <MdOutlineGroups/>Grupos
+                </div>
+              </Button>
+            </div>
+          </>
+        }
         <div>
-          <Button link={true} onClick={() => nav("aboutUs")}>
+          <Button link onClick={() => nav("/aboutUs")}>
             <div>
               <TbUsers />
               Sobre Nós
@@ -38,23 +58,12 @@ export const Header = ({ login, logged }) => {
           </Button>
         </div>
         <div>
-          <Button>
+          <Button onClick={() => nav(logged ? '/main' : login ? '/signUp' : '/login')}>
             <div>
-              {login ? (
-                <>
-                  <HiOutlineUserAdd />
-                  Cadastrar
-                </>
-              ) : (
-                <>
-                  <FiLogIn />
-                  Login
-                </>
-              )}
+              {logged ? <><FiLogOut/>Sair</> : login ? <><HiOutlineUserAdd />Cadastrar</> : <><FiLogIn />Login</>}
             </div>
           </Button>
         </div>
-      </div>
+      </Nav>
     </HeaderStyle>
-  );
-};
+}
