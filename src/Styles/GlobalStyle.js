@@ -37,6 +37,24 @@ export const GlobalStyle = createGlobalStyle`
         list-style: none;
     }
     
+    body{
+        &::-webkit-scrollbar {
+            background-color: transparent;
+            border-radius: 7px;
+            width: 5px;
+            background-color: var(--MainLigth);
+        }
+        &::-webkit-scrollbar-thumb {
+            background: linear-gradient(
+                to top,
+                transparent,
+                var(--plusDark),
+                transparent
+            );
+            border-radius: 10px;
+        }
+    }
+
     :root{
         font-size: 8px;
         --MainDark: #031319;

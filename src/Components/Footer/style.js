@@ -4,6 +4,7 @@ export const FooterTag = styled.footer`
   width: 100%;
   display: block;
   top: 83%;
+  z-index: 100;
 `;
 
 export const DivContainer = styled.div`

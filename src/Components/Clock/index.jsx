@@ -10,7 +10,7 @@ export const Clock = () => {
   
   return (
     <ClockStyle>
-      <h2>{time.toLocaleTimeString("pt-BR")}</h2>
+      <h2>{time.toLocaleTimeString("pt-BR").substring(0,5)}</h2>
     </ClockStyle>
   );
 };
