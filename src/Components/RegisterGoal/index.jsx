@@ -1,7 +1,7 @@
 import * as S from "./style";
 import { FiX } from "react-icons/fi";
 
-export const RegisterGoal = ({ onClose }) => {
+export const RegisterGoal = ({ onClose, onSubmit }) => {
   return (
     <S.Container>
       <S.Box>
@@ -29,7 +29,7 @@ export const RegisterGoal = ({ onClose }) => {
               <option value="very hard">Muito Difícil</option>
             </select>
           </S.Select>
-          <S.Button>
+          <S.Button onClick={onSubmit}>
             <span>Cadastrar</span>
           </S.Button>
         </form>

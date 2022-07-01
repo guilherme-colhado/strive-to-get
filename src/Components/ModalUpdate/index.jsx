@@ -1,7 +1,7 @@
 import * as S from "./style";
 import { FiX } from "react-icons/fi";
 
-export const ModalUpdate = ({ onClose, children }) => {
+export const ModalUpdate = ({ onClose, onSubmit, children }) => {
   return (
     <S.Container>
       <S.Box>
@@ -16,7 +16,7 @@ export const ModalUpdate = ({ onClose, children }) => {
             <label>Nome</label>
             <input placeholder="Digite aqui o nome atualizado" />
           </S.Input>
-          <S.Button>
+          <S.Button onClick={onSubmit}>
             <span>Salvar atualizações</span>
           </S.Button>
         </form>

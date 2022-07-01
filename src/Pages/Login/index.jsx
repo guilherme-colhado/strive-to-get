@@ -1,14 +1,17 @@
+import { Footer } from "../../Components/Footer";
+import { GroupsComponent } from "../../Components/Groups";
 import { Header } from "../../Components/Header";
 import { Login } from "../../Components/Login";
-import * as S from "./style";
+import { Container } from "./style";
 
 export const LoginComponent = () => {
   return (
-    <>
-      <Header />
-      <S.Container>
-        <Login></Login>
-      </S.Container>
-    </>
+    <Container>
+      <Header login/>
+      <main>
+        <Login />
+      </main>
+      <Footer/>
+    </Container>
   );
 };

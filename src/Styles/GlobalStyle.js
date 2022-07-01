@@ -37,12 +37,30 @@ export const GlobalStyle = createGlobalStyle`
         list-style: none;
     }
     
+    body{
+        &::-webkit-scrollbar {
+            background-color: transparent;
+            border-radius: 7px;
+            width: 5px;
+            background-color: var(--MainLigth);
+        }
+        &::-webkit-scrollbar-thumb {
+            background: linear-gradient(
+                to top,
+                transparent,
+                var(--plusDark),
+                transparent
+            );
+            border-radius: 10px;
+        }
+    }
+
     :root{
         font-size: 8px;
         --MainDark: #031319;
         --MainLigth: #B2C0C6;
         --CardDark: #3B464B; 
-        --CardsLight: #D9D9D9;
+        --CardLight: #D9D9D9;
         --HeaderDark: #ac0000;
         --HeaderLight: #db2121;
         --BtnConfirmDark: #09764F;

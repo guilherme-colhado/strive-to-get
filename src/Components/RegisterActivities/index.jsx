@@ -1,14 +1,14 @@
 import * as S from "./style";
 import { FiX } from "react-icons/fi";
 
-export const RegisterActivities = ({ onClose }) => {
+export const RegisterActivities = ({ onClose, onSubmit }) => {
   return (
     <S.Container>
       <S.Box>
         <form>
           <S.Header>
             <h1>Atividade</h1>
-            <S.Close>
+            <S.Close onclick={onClose}>
               <FiX />
             </S.Close>
           </S.Header>
@@ -18,7 +18,7 @@ export const RegisterActivities = ({ onClose }) => {
             <label>Realização</label>
             <input type="date" placeholder="Dia/Mês/Ano" max="2022-12-31" />
           </S.Input>
-          <S.Button onclick={onClose}>
+          <S.Button onclick={onSubmit}>
             <span>Cadastrar</span>
           </S.Button>
         </form>

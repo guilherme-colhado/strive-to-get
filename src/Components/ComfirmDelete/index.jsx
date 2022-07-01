@@ -1,6 +1,6 @@
 import * as S from "./style";
 
-export const ComfirmDelete = ({ onClose, onAchieved, children }) => {
+export const ComfirmDelete = ({ onClose, onSubmit, children }) => {
   return (
     <S.Container>
       <S.Box>
@@ -9,7 +9,7 @@ export const ComfirmDelete = ({ onClose, onAchieved, children }) => {
           <S.ButtonNot onclick={onClose}>
             <span>Ainda não</span>
           </S.ButtonNot>
-          <S.ButtonYes onclick={onAchieved}>
+          <S.ButtonYes onclick={onSubmit}>
             <span>Sim, deletar</span>
           </S.ButtonYes>
         </S.BoxButton>

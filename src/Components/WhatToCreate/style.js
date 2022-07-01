@@ -31,10 +31,10 @@ export const BoxButton = styled.div`
   padding-top: 20px;
 `;
 
-export const ButtonNot = styled.button`
+export const ButtonGoal = styled.button`
   height: 45px;
   border-radius: 8px;
-  background: #7b0000;
+  background: #ac0001;
   color: #ffffff;
   border: 2px solid #3b464b;
   font-size: 20px;
@@ -47,7 +47,7 @@ export const ButtonNot = styled.button`
   }
 `;
 
-export const ButtonYes = styled(ButtonNot)`
-  background: #0cba7b;
+export const ButtonActivities = styled(ButtonGoal)`
+  background: #8f3737;
   margin-left: 5px;
 `;

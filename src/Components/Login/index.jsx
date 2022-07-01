@@ -1,13 +1,11 @@
 import * as S from "./style";
 import * as yup from "yup";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState, useContext } from "react";
 import { FiEyeOff, FiEye } from "react-icons/fi";
 import { LoginContext } from "../../Providers/Login";
-import { toast } from "react-toastify";
-import { useEffect } from "react";
 
 export const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
