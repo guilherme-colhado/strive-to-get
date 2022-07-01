@@ -6,7 +6,8 @@ import { HiOutlineUserAdd } from "react-icons/hi";
 import { MdOutlineGroups, MdOutlinePersonOutline } from 'react-icons/md'
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Clock from "../Clock";
+
+import { Clock } from "../Clock";
 
 export const Header = ({ login, logged, person }) => {
   const [navMobile, setNavMobile] = useState(false);
@@ -65,5 +66,4 @@ export const Header = ({ login, logged, person }) => {
         </div>
       </Nav>
     </HeaderStyle>
-  
 }
