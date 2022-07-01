@@ -1,22 +1,23 @@
-import { Button, HeaderStyle, Mobile } from "./style";
+import { Button, HeaderStyle, LogoComponent, Mobile, Nav } from "./style";
 import { TbUsers } from "react-icons/tb";
 import Logo from "../../Imgs/Logo.gif";
 import { FiLogIn } from "react-icons/fi";
 import { HiOutlineUserAdd } from "react-icons/hi";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Clock from "../Clock";
 
 export const Header = ({ login, logged }) => {
   const [navMobile, setNavMobile] = useState(false);
   const nav = useNavigate();
-  return (
-    <HeaderStyle mobile={navMobile}>
-      <div>
+  return <HeaderStyle>
+      <LogoComponent>
         <figure>
           <img src={Logo} alt="r4aqvW.gif" border="0" />
         </figure>
         <h1>Strive to Get</h1>
-      </div>
+      </LogoComponent>
+      <Clock/>
       <Mobile>
         <input
           onClick={() => setNavMobile(!navMobile)}
@@ -27,7 +28,7 @@ export const Header = ({ login, logged }) => {
         <label htmlFor="mobile" />
         <span />
       </Mobile>
-      <div>
+      <Nav mobile={navMobile}>
         <div>
           <Button link={true} onClick={() => nav("aboutUs")}>
             <div>
@@ -39,21 +40,11 @@ export const Header = ({ login, logged }) => {
         <div>
           <Button>
             <div>
-              {login ? (
-                <>
-                  <HiOutlineUserAdd />
-                  Cadastrar
-                </>
-              ) : (
-                <>
-                  <FiLogIn />
-                  Login
-                </>
-              )}
+              {login ? <><HiOutlineUserAdd />Cadastrar</> : <><FiLogIn />Login</>}
             </div>
           </Button>
         </div>
-      </div>
+      </Nav>
     </HeaderStyle>
-  );
-};
+  
+}

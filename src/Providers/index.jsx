@@ -1,5 +1,10 @@
 import { LoginProvider } from "./Login";
+import { GroupsProvider } from "./groups";
 
 export const Providers = ({ children }) => {
-  return <LoginProvider>{children}</LoginProvider>;
+  return (
+    <LoginProvider>
+      <GroupsProvider>{children}</GroupsProvider>
+    </LoginProvider>
+  );
 };
