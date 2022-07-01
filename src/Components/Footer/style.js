@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const FooterTag = styled.footer`
   width: 100%;
-  position: fixed;
+  display: block;
   top: 83%;
 `;
 
@@ -12,7 +12,7 @@ export const DivContainer = styled.div`
   align-items: center;
   justify-content: flex-end;
   width: 100%;
-  height: 100px;
+  height: 40px;
   background: var(--HeaderDark);
   background: -moz-linear-gradient(top, #ac0000 0%, #700000 100%, #ac0021 100%);
   background: -webkit-linear-gradient(
