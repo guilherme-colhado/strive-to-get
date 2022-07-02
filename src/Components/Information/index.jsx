@@ -23,11 +23,9 @@ export const Info = () => {
           <button onClick={() => destiny("/")}>Join us</button>
         </section>
       </DivInfos>
-      {/* <section> */}
       <Image>
         <img src={Img} />
       </Image>
-      {/* </section> */}
     </DivContainer>
   );
 };
