@@ -85,6 +85,7 @@ export const Button = styled.button`
   height: 21px;
   border-radius: 7px;
   color: #ffffff;
+  border: 1px solid #ffffff;
   background-color: ${(props) =>
     props.inscribed ? "var(--ColorCardGroupInscribedLight)" : "var(--BtnDark)"};
   margin-bottom: 10px;
@@ -102,6 +103,8 @@ export const Buttons = styled.div`
   flex-direction: row;
   justify-content: space-between;
   width: 170px;
+  position: relative;
+  bottom: 0;
   @media (max-width: 461px) {
     width: 200px;
   }
@@ -114,6 +117,7 @@ export const ViewGroup = styled.button`
   border-radius: 7px;
   padding-top: 2px;
   color: #ffffff;
+  border: 1px solid #ffffff;
 
   @media (max-width: 461px) {
     display: ${(props) => (props.mobile ? "visible" : "none")};
