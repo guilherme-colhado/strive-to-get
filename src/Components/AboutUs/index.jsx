@@ -33,7 +33,7 @@ const AboutUs = () => {
                   rel="noreferrer"
                   href="https://github.com/ibarbarasouza"
                 >
-                  <GitHubIcon fontSize="larger" />
+                  <GitHubIcon fontSize="larger" color="rgb(51, 163, 255)" />
                 </a>
               </span>
 

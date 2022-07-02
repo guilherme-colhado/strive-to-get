@@ -33,8 +33,17 @@ export const Container = styled.div`
     border-radius: 50%;
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 480px) {
     flex-direction: column;
+    width: 480px;
+    img {
+      width: 70px;
+      height: 70px;
+    }
+
+    h2 {
+      font-size: 27px;
+    }
   }
 `;
 
@@ -50,10 +59,25 @@ export const DevBoxLeft = styled.div`
   text-align: justify;
   border: 2px solid var(--BtnDark);
   box-shadow: -10px 10px 10px var(--BtnDark);
+
+  @media (max-width: 480px) {
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    width: 90%;
+    height: 400px;
+    margin-left: 0;
+    box-shadow: none;
+  }
 `;
 export const DevBoxRight = styled(DevBoxLeft)`
   margin-left: 450px;
   box-shadow: 10px 10px 10px var(--BtnDark);
+
+  @media (max-width: 480px) {
+    margin-left: 0px;
+    box-shadow: none;
+  }
 `;
 
 export const ImgName = styled.div`
@@ -71,6 +95,19 @@ export const InfoDev = styled.div`
   height: 90%;
   width: 600px;
   margin: 0 0 0 25px;
+
+  @media (max-width: 480px) {
+    flex-flow: column wrap;
+    margin: 5px;
+    height: 80%;
+    width: fit-content;
+    padding: 5px;
+    h4 {
+      height: 70%;
+      font-size: 22px;
+      padding: 5px;
+    }
+  }
 `;
 
 export const Group = styled.div`
