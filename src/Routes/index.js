@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
-import { CardGoals } from "../Components/CardGoals";
-import { Header } from "../Components/Header";
+import { AboutUsComponent } from "../Pages/AboutUs";
 import { Groups } from "../Pages/Groups";
 import { Home } from "../Pages/Home";
 import { LoginComponent } from "../Pages/Login";
 import { Main } from "../Pages/Main";
+import { SignUpComponent } from "../Pages/SignUp";
 
 export const RoutesComponent = () => {
   return (
@@ -13,8 +13,8 @@ export const RoutesComponent = () => {
       <Route path="/:id"></Route>
       <Route path="/main" element={<Main/>}></Route>
       <Route path="/login" element={<LoginComponent />}></Route>
-      <Route path="/signUp"></Route>
-      <Route path="/aboutUs"></Route>
+      <Route path="/signUp" element={<SignUpComponent/>}></Route>
+      <Route path="/aboutUs" element={<AboutUsComponent/>}></Route>
       <Route path="/groups" element={<Groups />}></Route>
       <Route path="/groups/:id"></Route>
     </Routes>

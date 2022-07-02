@@ -1,15 +1,17 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
   background-color: var(--CardDark);
   border: none;
+  height: max-content;
   border-radius: 8px;
-  font-size: 27px;
+  font-size: 3rem;
+  margin: 10px;
   text-align: left;
   padding: 40px;
   color: #ffffff;
-  line-height: 25px;
 
   ul {
     list-style: circle;
@@ -20,8 +22,8 @@ export const Container = styled.div`
   }
 
   @media (max-width: 720px) {
-    font-size: 16px;
-    width: 80%;
+    font-size: 2rem;
+    width: 98%;
     padding: 30px;
   }
 `;

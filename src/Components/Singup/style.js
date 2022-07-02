@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  min-height: calc(100vh - 96px);
+  max-width: 600px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -12,7 +12,7 @@ export const Container = styled.div`
 
 export const Box = styled.div`
   background-color: #3b464b;
-  max-width: 400px;
+  max-width: 500px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -30,7 +30,7 @@ export const Box = styled.div`
 
   h2 {
     color: white;
-    font-size: 5rem;
+    font-size: 4rem;
     margin-bottom: 2rem;
   }
 `;

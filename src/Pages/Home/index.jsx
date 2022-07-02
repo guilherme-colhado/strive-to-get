@@ -8,6 +8,7 @@ import { CardHabit } from "../../Components/CardHabit";
 import { Modal } from "../../Components/Modal"
 import { RegisterHabit } from "../../Components/RegisterHabit";
 import { useState } from "react";
+import { Search } from '../../Components/Search'
 
 export const Home = () => {
     const nav = useNavigate()
@@ -20,6 +21,7 @@ export const Home = () => {
     <Container>
         <Header login/>
         <GroupsComponent/>
+        <Search/>
         <main>
             <BtnAdd callback={()=>setModal(true)}>Clique aqui para adicionar um novo habito</BtnAdd>
             <CardHabit/>
