@@ -1,4 +1,6 @@
 import { Routes, Route } from "react-router-dom";
+import { CardGoals } from "../Components/CardGoals";
+import { Header } from "../Components/Header";
 import { Groups } from "../Pages/Groups";
 import { Home } from "../Pages/Home";
 import { LoginComponent } from "../Pages/Login";
