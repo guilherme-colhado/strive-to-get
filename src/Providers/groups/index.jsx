@@ -8,7 +8,9 @@ export const GroupsContext = createContext();
 
 export const GroupsProvider = ({ children }) => {
   const [groups, setGroups] = useState([]);
+  const [groupsInscribed, setGroupsInscribed] = useState([]);
   const [group, setGroup] = useState({});
+
 
   let { user_id } = jwt_decode(
     "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU3MDcwOTU3LCJqdGkiOiJkZGY3ZTJjMWU3ZDg0ZWJmYjE5Njk1ODA3OTQ1YzQyMSIsInVzZXJfaWQiOjc4Mn0.S2tWUsQWB1o5NSuuwnWxYTjLtlL0utM6iArKhJivY_I"
@@ -63,8 +65,14 @@ export const GroupsProvider = ({ children }) => {
   };
 
   const buscaSubs = () => {
-    Api.get(`/groups/subscriptions/`)
-      .then(toast.success("Subed Groups"))
+    Api.get(`/groups/subscriptions/`, {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(
+          localStorage.getItem("@StriveToGet: Token" || "")
+        )}`,
+      },
+    })
+      .then((res) => setGroupsInscribed(res.data))
       .catch((err) => console.log(err));
   };
 
@@ -84,6 +92,7 @@ export const GroupsProvider = ({ children }) => {
     <GroupsContext.Provider
       value={{
         groups,
+        groupsInscribed,
         group,
         PerPage,
         listOneGroup,

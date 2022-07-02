@@ -1,11 +1,11 @@
 import { BtnAddComponent, BtnAddStyled } from "./style"
 
-export const BtnAdd = () => {
+export const BtnAdd = ({children, callback}) => {
     return <BtnAddComponent>
-        <BtnAddStyled><p>+</p></BtnAddStyled>
+        <BtnAddStyled onClick={callback}><p>+</p></BtnAddStyled>
         <div>
             <p>
-                Clique aqui para adicionar um novo habito
+                {children}
             </p> 
         </div>
     </BtnAddComponent>
