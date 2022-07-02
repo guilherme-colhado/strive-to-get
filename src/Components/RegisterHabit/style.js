@@ -28,7 +28,7 @@ export const Header = styled.div`
 
   h1 {
     color: #ffffff;
-    font-size: 5rem;
+    font-size: 4rem;
   }
 `;
 

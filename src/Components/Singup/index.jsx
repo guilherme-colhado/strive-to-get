@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FiEyeOff, FiEye } from "react-icons/fi";
 import { useState, useContext } from "react";
-// import { SignUpContext } from "../../Providers/signUp";
+import { SignUpContext } from "../../Providers/signUp";
 
 export const SingUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -41,15 +41,17 @@ export const SingUp = () => {
     setShowPasswordTwo(!showPasswordTwo);
   };
 
-  //   const { createUser } = useContext(SignUpContext);
+  const { createUser } = useContext(SignUpContext);
 
-  //   const handleSignup = (data) => createUser(data);
+  const handleSignup = (data) => {
+    const newData = {username: data.username, email: data.email, password: data.password}
+    createUser(newData)
+  };
 
-  //   onSubmit={handleSubmit(handleSignup)}
   return (
     <S.Container>
       <S.Box>
-        <form>
+        <form onSubmit={handleSubmit(handleSignup)}>
           <h2> Cadastre-se</h2>
 
           <S.Input>

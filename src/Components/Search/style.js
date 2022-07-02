@@ -6,7 +6,9 @@ export const SearchComponent = styled.div`
     padding: 7px;
     width: max-content;
     display: flex;
-    margin: 20px auto;
+    align-self: flex-end;
+    margin-top: 10px;
+    margin-right: 10px;
     transition: all .3s ease-in;
     justify-content: center;
     border-radius: 10px;
@@ -19,7 +21,7 @@ export const SearchComponent = styled.div`
 
 export const InputSearch = styled.input`
     font-size: 2.5rem;
-    width: ${props => props.open ? '200px' : '0'};
+    width: ${props => props.open ? '255px' : '0'};
     transition: all .3s ease-in;
     padding: 0;
     color:white;

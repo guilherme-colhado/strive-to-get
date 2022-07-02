@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Group } from "./style";
+import { Group, GroupMobile } from "./style"
 import { useContext } from "react";
 import { GroupsContext } from "../../Providers/groups";
 import { SingleGroup } from "../../Components/SingleGroup";
@@ -11,29 +11,23 @@ export const GroupsComponent = () => {
   useEffect(() => {
     buscaSubs();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const [openGroup, setOpenGroup] = useState(true);
-  return (
-    <Group
-      open={openGroup}
-      onMouseEnter={() => setOpenGroup(false)}
-      onMouseLeave={() => setOpenGroup(true)}
-    >
-      {openGroup ? (
-        "Grupos"
-          .split("")
-          .reverse()
-          .map((letter) => <p>{letter}</p>)
-      ) : (
-        <div>
-          <h2>Grupos</h2>
-          {groupsInscribed.length > 0 &&
-            groupsInscribed.map((element) => (
-              <SingleGroup key={element.id} props={element} />
-            ))}
-        </div>
-      )}
-    </Group>
-  );
-};
+    }, []);
+    const [openGroup, setOpenGroup] = useState(true);
+    return <>
+        <Group open={openGroup} onMouseEnter={()=>setOpenGroup(false)} onMouseLeave={()=>setOpenGroup(true)}>
+            {
+                openGroup 
+                ? 
+                'Grupos'.split('').reverse().map(letter=> <p>{letter}</p>)
+                :
+                <div>
+                    <h2>Grupos</h2>
+                    {groupsInscribed.length > 0 && groupsInscribed.map(element=><SingleGroup key={element.id} props={element}/>)}
+                </div>
+            }
+        </Group>
+        <GroupMobile>
+            <p>Grupos</p>
+        </GroupMobile>
+    </>
+}

@@ -4,6 +4,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    
     min-height: 100vh;
     main{
         margin-left: 60px;
@@ -28,6 +29,11 @@ export const Container = styled.div`
     @media (max-width: 800px) {
         main{
             grid-template-columns: repeat(2, 1fr); 
+        }
+    }
+    @media (max-width: 720px) {
+        main{
+            margin: 0;
         }
     }
     @media (max-width: 550px) {
