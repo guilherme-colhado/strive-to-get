@@ -72,7 +72,7 @@ export const SingUp = () => {
             </span>
           </S.Password>
 
-          <S.PasswordConfirm>
+          <S.Password>
             <label>Confirmar Senha</label>
             <input
               type={showPasswordTwo ? "text" : "password"}
@@ -83,7 +83,7 @@ export const SingUp = () => {
               {" "}
               {!showPasswordTwo ? <FiEyeOff /> : <FiEye />}{" "}
             </span>
-          </S.PasswordConfirm>
+          </S.Password>
 
           <S.Button type="submit">Sign Up</S.Button>
         </form>

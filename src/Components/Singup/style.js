@@ -19,6 +19,7 @@ export const Box = styled.div`
   justify-content: center;
   flex-direction: column;
   border-radius: 6px;
+
   form {
     display: flex;
     flex-direction: column;
@@ -26,6 +27,7 @@ export const Box = styled.div`
     padding: 2rem;
     align-items: center;
   }
+
   h2 {
     color: white;
     font-size: 5rem;
@@ -37,10 +39,12 @@ export const Input = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+
   label {
     color: #ffffff;
     font-size: 20px;
   }
+
   input {
     max-width: 100%;
     background-color: #031319;
@@ -52,9 +56,11 @@ export const Input = styled.div`
     border-radius: 6px;
     color: #ffffff;
     height: 45px;
+
     &:focus {
       border: 2px solid #ffffff;
     }
+
     &::placeholder {
       color: #3b464b;
     }
@@ -65,9 +71,11 @@ export const Password = styled(Input)`
   position: relative;
   flex-direction: column;
   justify-content: left;
+
   input {
     padding-right: 15%;
   }
+
   span {
     position: absolute;
     color: #ffffff;
@@ -76,14 +84,11 @@ export const Password = styled(Input)`
     right: 15px;
     transform: translateY(-10%);
     cursor: pointer;
+
     svg {
       font-size: 2.5rem;
     }
   }
-`;
-
-export const PasswordConfirm = styled(Password)`
-  background-color: transparent;
 `;
 
 export const Button = styled.button`
@@ -95,6 +100,7 @@ export const Button = styled.button`
   border-radius: 6px;
   cursor: pointer;
   border: 2px solid #3b464b;
+
   &:hover {
     border: 2px solid #ffffff;
   }
