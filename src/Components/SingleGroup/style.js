@@ -49,8 +49,8 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin-right: 5px;
   margin-left: 5px;
+  margin-right: 5px;
   margin-bottom: 10px;
   height: 200px;
   border: 1px solid var(--MainDark);
