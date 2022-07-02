@@ -28,6 +28,7 @@ export const BtnAddComponent = styled.div`
     margin: 0 auto;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-end;
     width: 70px;
     button:hover + div{
         opacity: 1;
@@ -37,7 +38,8 @@ export const BtnAddComponent = styled.div`
         display: flex;
         opacity: 0;
         visibility: hidden;
-        width: max-content;
+        width: 200px;
+        text-align: center;
         height: max-content;
         flex-direction: column;
         align-items: center;

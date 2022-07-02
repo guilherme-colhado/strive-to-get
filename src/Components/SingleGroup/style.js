@@ -49,8 +49,8 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin-right: 5px;
   margin-left: 5px;
+  margin-right: 5px;
   margin-bottom: 10px;
   height: 200px;
   border: 1px solid var(--MainDark);
@@ -81,10 +81,11 @@ export const Container = styled.div`
 `;
 
 export const Button = styled.button`
-  width: 170px;
+  width: ${(props) => (props.inscribed ? "100px" : "170px")};
   height: 21px;
   border-radius: 7px;
   color: #ffffff;
+  border: 1px solid #ffffff;
   background-color: ${(props) =>
     props.inscribed ? "var(--ColorCardGroupInscribedLight)" : "var(--BtnDark)"};
   margin-bottom: 10px;
@@ -94,5 +95,31 @@ export const Button = styled.button`
 
   @media (max-width: 299px) {
     width: 80%;
+  }
+`;
+
+export const Buttons = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 170px;
+  position: relative;
+  bottom: 0;
+  @media (max-width: 461px) {
+    width: 200px;
+  }
+`;
+
+export const ViewGroup = styled.button`
+  width: 60px;
+  height: 21px;
+  background-color: var(--BtnConfirmDark);
+  border-radius: 7px;
+  padding-top: 2px;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+
+  @media (max-width: 461px) {
+    display: ${(props) => (props.mobile ? "visible" : "none")};
   }
 `;

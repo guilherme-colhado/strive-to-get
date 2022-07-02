@@ -1,69 +1,41 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  margin-top: 50px;
+  min-height: calc(100vh - 96px);
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #031319;
   padding: 10px;
-
-  p {
-    color: #ffffff;
-    font-size: 12px;
-    margin-bottom: 3rem;
-
-    a {
-      color: #00b2d9;
-      text-decoration: none;
-      font-size: 12px;
-      margin-left: 5px;
-    }
-  }
 `;
 
 export const Box = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background-color: #3b464b;
   max-width: 400px;
   width: 100%;
-  background-color: #3b464b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   border-radius: 6px;
 
   form {
-    text-align: center;
-    padding: 2rem;
+    display: flex;
+    flex-direction: column;
     width: 100%;
+    padding: 2rem;
+    align-items: center;
+  }
 
-    h1 {
-      color: #ffffff;
-      margin-bottom: 32px;
-      font-size: 5rem;
-    }
-
-    button {
-      height: 45px;
-      border-radius: 8px;
-      background: #7b0000;
-      color: #ffffff;
-      border: transparent;
-      font-size: 20px;
-      margin-top: 16px;
-      width: 100%;
-      cursor: pointer;
-
-      &:hover {
-        border: 2px solid #ffffff;
-      }
-    }
+  h2 {
+    color: white;
+    font-size: 5rem;
+    margin-bottom: 2rem;
   }
 `;
 
 export const Input = styled.div`
-  text-align: left;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -74,20 +46,16 @@ export const Input = styled.div`
   }
 
   input {
-    background: #031319;
-    height: 45px;
-    border-radius: 6px;
     max-width: 100%;
-    margin-bottom: 2rem;
-    margin-top: 1rem;
-    border: transparent;
-    font-size: 16px;
-    color: #ffffff;
-    outline: none;
-    padding-left: 10px;
-    padding-right: 10px;
-
+    background-color: #031319;
     border: 2px solid #3b464b;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    font-size: 16px;
+    padding: 0 10px;
+    border-radius: 6px;
+    color: #ffffff;
+    height: 45px;
 
     &:focus {
       border: 2px solid #ffffff;
@@ -115,15 +83,25 @@ export const Password = styled(Input)`
     top: 50%;
     right: 15px;
     transform: translateY(-10%);
-
     cursor: pointer;
 
     svg {
       font-size: 2.5rem;
     }
+  }
+`;
 
-    &:hover {
-      opacity: 0.9;
-    }
+export const Button = styled.button`
+  background-color: #7b0000;
+  height: 45px;
+  width: 100%;
+  color: #ffffff;
+  font-size: 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 2px solid #3b464b;
+
+  &:hover {
+    border: 2px solid #ffffff;
   }
 `;
