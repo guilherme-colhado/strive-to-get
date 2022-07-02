@@ -7,9 +7,8 @@ export const Group = styled.div`
     background-color: var(--HeaderDark);
     bottom: 0;
     width: ${props=>props.open ? '57px' : '260px'};
-    z-index: 200;
-    height: 100vh;
-    margin-bottom: 50px;
+    z-index: 2;
+    height: calc(100vh - 86.4px);
     transition: all .3s ease-in;
     color: white;
     padding: 0 15px 0 5px;
@@ -38,16 +37,20 @@ export const Group = styled.div`
     }
     h2{
         font-size: 4rem;
+        margin-top: 10px;
         text-align: center;
     }
     >div{
         opacity: 0;
         animation: 2s opacity forwards;
-        max-height: 100vh;
+        max-height: calc(100vh - 86.4px);
+        >:nth-child(1){
+            margin-bottom: 10px;
+        }
         ::after{
             content: '';
             width: 100%;
-            height: 10px;
+            height: 20px;
             display: block;
         }
     }

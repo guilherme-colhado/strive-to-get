@@ -1,12 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  height: 100vh;
-  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 86px 10px 10px;
 `;
 
 export const Box = styled.div`
@@ -122,6 +119,10 @@ export const Select = styled(Input)`
     padding: 0 10px;
     border: 2px solid #3b464b;
     cursor: pointer;
+
+    &:focus {
+      border: 2px solid #ffffff;
+    }
 
     option {
       color: #ffffff;

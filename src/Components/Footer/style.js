@@ -15,21 +15,6 @@ export const DivContainer = styled.div`
   width: 100%;
   height: 40px;
   background: var(--HeaderDark);
-  background: -moz-linear-gradient(top, #ac0000 0%, #700000 100%, #ac0021 100%);
-  background: -webkit-linear-gradient(
-    top,
-    #ac0000 0%,
-    #700000 100%,
-    #ac0021 100%
-  );
-  background: linear-gradient(
-    to bottom,
-    #ac0000 0%,
-    #700000 100%,
-    #ac0021 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ac0000', endColorstr='#ac0021',GradientType=0 );
-
   a {
     cursor: pointer;
     font-size: 1.4rem;

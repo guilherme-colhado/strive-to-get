@@ -5,10 +5,10 @@ export const RegisterHabit = ({ onClose, onSubmit }) => {
   return (
     <S.Container>
       <S.Box>
-        <form>
+        <form onSubmit={onSubmit}>
           <S.Header>
             <h1>Cadastrar Hábito</h1>
-            <S.Close onclick={onClose}>
+            <S.Close onClick={onClose}>
               <FiX />
             </S.Close>
           </S.Header>
