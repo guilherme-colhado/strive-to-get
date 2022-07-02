@@ -1,4 +1,3 @@
-// import { Header } from "../Header";
 import { Container, DevBoxLeft, DevBoxRight, ImgName, InfoDev } from "./style";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -6,7 +5,6 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 const AboutUs = () => {
   return (
     <div>
-      {/* <Header /> */}
       <Container>
         <DevBoxLeft>
           <ImgName>

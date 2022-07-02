@@ -1,18 +1,21 @@
-import { GlobalStyle } from './Styles/GlobalStyle';
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom'
-import { Providers } from './Providers';
-import { RoutesComponent } from './Routes';
+import { GlobalStyle } from "./Styles/GlobalStyle";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import { Providers } from "./Providers";
+import { RoutesComponent } from "./Routes";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
+  <BrowserRouter>
     <Providers>
-      <BrowserRouter>
-        <GlobalStyle/>
-        <RoutesComponent/>
-      </BrowserRouter>
+      <ToastContainer />
+      <GlobalStyle />
+      <RoutesComponent />
     </Providers>
-  </React.StrictMode>
+  </BrowserRouter>
+  // </React.StrictMode>
 );
