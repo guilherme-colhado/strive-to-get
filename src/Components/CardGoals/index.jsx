@@ -14,7 +14,7 @@ export const CardGoals = () => {
               <span>Description:</span> <span>"Description"</span>
             </h4>
           </section>
-          <button>SingUp</button>
+          <button>SignUp</button>
         </div>
       </InfosCard>
     </CardStyle>
