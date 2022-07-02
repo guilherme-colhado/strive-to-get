@@ -49,9 +49,11 @@ export const DevBoxLeft = styled.div`
   margin: 20px 0 10px -450px;
   text-align: justify;
   border: 2px solid var(--BtnDark);
+  box-shadow: -10px 10px 10px var(--BtnDark);
 `;
 export const DevBoxRight = styled(DevBoxLeft)`
   margin-left: 450px;
+  box-shadow: 10px 10px 10px var(--BtnDark);
 `;
 
 export const ImgName = styled.div`

@@ -64,9 +64,9 @@ const AboutUs = () => {
 
           <InfoDev>
             <h4>
-              Estudante e Dev front-end desde 2021, apaixonado por novas
-              tecnologias. Atualmente cursando segundo semestre de segurança da
-              informação e M2 na Kenzie Academy.
+              Estudante e Dev front-end desde 2021, apaixonado por aprender
+              novas tecnologias. Atualmente cursa segundo semestre de segurança
+              da informação e está no segundo módulo na Kenzie Academy.
             </h4>
             <div>
               <h3>Redes sociais</h3>
