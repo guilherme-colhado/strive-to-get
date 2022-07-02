@@ -72,11 +72,11 @@ export const GlobalStyle = createGlobalStyle`
         --ColorCardGroupNotInscribedDark: #760000;
         --ColorCardGroupNotInscribedLigth: #BC4343;
         --plusDark: #ac0000;
-        --plusLigth: #db2121
+        --plusLigth: #db2121;
     }
     body{
         background-color: var(--MainDark);
-    }
+    }]
     .Toastify__toast{
         background-color: var(--CardDark);
         color: #fff;
@@ -84,5 +84,5 @@ export const GlobalStyle = createGlobalStyle`
         svg{
             color: #fff;
         }
-    }
+    }]
 `;

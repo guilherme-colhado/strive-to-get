@@ -1,3 +1,3 @@
-export const AboutUs = () => {
-    return
-}
+export const AboutUsPage = () => {
+  return;
+};
