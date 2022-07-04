@@ -5,14 +5,6 @@ export const FooterTag = styled.footer`
   display: block;
   top: 83%;
   z-index: 1;
-  @media (max-width: 550px) {
-    ::after{
-      content: '';
-      height: 60px;
-      width: 100%;
-      display: block;
-    }
-  }
 `
 
 export const DivContainer = styled.div`

@@ -5,17 +5,12 @@ export const Div = styled.div`
   display: flex;
   background-color: var(--MainDark);
   color: #ffffff;
-  height: 100vh;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 `;
 
 export const DivCont = styled.div`
-  width: 1370px;
-  height: 650px;
-  border: 1px solid var(--CardDark);
-  border-radius: 7px;
   padding: 10px 10px 10px 10px;
   margin-top: 130px;
   display: flex;

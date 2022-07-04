@@ -76,7 +76,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     body{
         background-color: var(--MainDark);
-    }]
+    }
     .Toastify__toast{
         background-color: var(--CardDark);
         color: #fff;
@@ -84,5 +84,5 @@ export const GlobalStyle = createGlobalStyle`
         svg{
             color: #fff;
         }
-    }]
+    }
 `;

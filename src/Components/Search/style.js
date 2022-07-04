@@ -12,11 +12,6 @@ export const SearchComponent = styled.div`
     transition: all .3s ease-in;
     justify-content: center;
     border-radius: 10px;
-    :focus{
-        input{
-            
-        }
-    }
 `
 
 export const InputSearch = styled.input`

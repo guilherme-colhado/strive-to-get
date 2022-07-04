@@ -10,13 +10,11 @@ export const GroupsProvider = ({ children }) => {
   const [groups, setGroups] = useState([]);
   const [groupsInscribed, setGroupsInscribed] = useState([]);
   const [group, setGroup] = useState({});
-
-
-  let { user_id } = jwt_decode(
-    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU3MDcwOTU3LCJqdGkiOiJkZGY3ZTJjMWU3ZDg0ZWJmYjE5Njk1ODA3OTQ1YzQyMSIsInVzZXJfaWQiOjc4Mn0.S2tWUsQWB1o5NSuuwnWxYTjLtlL0utM6iArKhJivY_I"
+  const [token, setToken] = useState(
+    JSON.parse(localStorage.getItem("@StriveToGet: Token")) || ""
   );
 
-  console.log(user_id);
+  let user_id = token ? jwt_decode(token).user_id : '';
 
   const Get = (PerPage) => {
     Api.get(`/groups/?page=${PerPage}`)
@@ -79,9 +77,7 @@ export const GroupsProvider = ({ children }) => {
   const exitGroup = (group) => {
     Api.delete(`/groups/${group.id}/unsubscribe/`, {
       headers: {
-        Authorization: `Bearer ${JSON.parse(
-          localStorage.getItem("@StriveToGet: Token" || "")
-        )}`,
+        Authorization: `Bearer ${JSON.parse(token)}`,
       },
     })
       .then(toast.success("Unsubscribed sucessufully"))

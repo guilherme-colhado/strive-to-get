@@ -67,11 +67,20 @@ export const Group = styled.div`
     }
 `
 
+export const Container = styled.div`
+    display: none;
+    width: 100%;
+    @media (max-width: 720px){
+        display: flex;
+    }
+`
+
 export const GroupMobile = styled.div`
     display: none;
     width: 100%;
     top: 96px;
     color: white;
+    cursor: pointer;
     padding: 5px;
     flex-direction: column;
     justify-content: center;

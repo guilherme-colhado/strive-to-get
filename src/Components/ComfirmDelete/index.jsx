@@ -6,10 +6,13 @@ export const ComfirmDelete = ({ onClose, onSubmit, children }) => {
       <S.Box>
         <p>{children}</p>
         <S.BoxButton>
-          <S.ButtonNot onclick={onClose}>
+          <S.ButtonNot onClick={onClose}>
             <span>Ainda não</span>
           </S.ButtonNot>
-          <S.ButtonYes onclick={onSubmit}>
+          <S.ButtonYes onClick={()=>{
+            onSubmit()
+            onClose()
+          }}>
             <span>Sim, deletar</span>
           </S.ButtonYes>
         </S.BoxButton>

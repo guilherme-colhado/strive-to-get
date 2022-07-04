@@ -1,11 +1,20 @@
 import styled from "styled-components";
 
 export const Card = styled.section`
-  display: flex;
-  flex-direction: column;
-  width: max-content;
-  //   margin: 10px auto;
-`;
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    margin: 10px auto;
+    animation: popUp .5s forwards;
+    @keyframes popUp {
+        from{
+            transform: scale(0);
+        }
+        to{
+            transform: scale(1);
+        }
+    }
+`
 
 export const CardTitle = styled.h1`
   background-color: var(--HeaderDark);

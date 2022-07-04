@@ -1,11 +1,25 @@
 import styled from "styled-components";
 
+
+export const Modal = styled
+
+export const ContainerLoading = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+`
+
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
     min-height: 100vh;
+    >div{
+        display: flex;
+        flex-direction: column;
+    }
     main{
         margin-left: 60px;
         display: grid;
@@ -42,6 +56,14 @@ export const Container = styled.div`
             flex-direction: column;
             align-items: center;
             justify-content: center;
+        }
+    }
+    @media (max-width: 550px) {
+        footer::after{
+            content: '';
+            height: 60px;
+            width: 100%;
+            display: block;
         }
     }
 `
