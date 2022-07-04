@@ -59,9 +59,8 @@ export const Container = styled.div`
   border-top-right-radius: 8px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  opacity: 0;
-  animation: popUp 1s forwards;
-
+  opacity: 1;
+  
   @media (max-width: 461px) {
     height: auto;
     width: 100%;
