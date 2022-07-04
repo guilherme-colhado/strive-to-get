@@ -1,3 +1,3 @@
 export const Groups = () => {
-    return
-}
+  return;
+};

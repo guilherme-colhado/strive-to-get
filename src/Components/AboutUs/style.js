@@ -1,5 +1,3 @@
-// container, devBox, h3Nome, h2Info, h2Redes, pRedes
-//
 
 import styled from "styled-components";
 

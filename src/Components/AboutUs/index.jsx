@@ -1,4 +1,3 @@
-// import { Header } from "../Header";
 import { Container, DevBoxLeft, DevBoxRight, ImgName, InfoDev } from "./style";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
