@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { GroupsContext } from "../../Providers/groups";
-import { Div, DivCont } from "./style";
+import { Div, DivCont, Border } from "./style";
 import { SingleGroup } from "../SingleGroup";
 import { AiOutlineDown } from "react-icons/ai";
 
@@ -15,14 +15,16 @@ export const AllGroups = () => {
 
   return (
     <Div>
-      <DivCont>
-        {groups.map((element) => {
-          return <SingleGroup props={element} key={element.id} />;
-        })}
+      <Border>
+        <DivCont>
+          {groups.map((element) => {
+            return <SingleGroup props={element} key={element.id} />;
+          })}
+        </DivCont>
         <div onClick={() => test()} id="sentry">
           <AiOutlineDown />
         </div>
-      </DivCont>
+      </Border>
     </Div>
   );
 };

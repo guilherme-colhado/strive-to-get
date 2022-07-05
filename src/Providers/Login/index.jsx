@@ -9,19 +9,16 @@ export const LoginProvider = ({ children }) => {
   const Login = (data) => {
     Api.post("/sessions/", data)
       .then((res) => loginFunction(res.data.access, data))
-      .catch((res) => toast.error('Não foi possivel logar, tente novamente!!'));
+      .catch((res) => toast.error("Não foi possivel logar, tente novamente!!"));
   };
 
-  const nav = useNavigate()
+  const nav = useNavigate();
 
   const loginFunction = (token, data) => {
-    localStorage.setItem(
-      "@StriveToGet: Token",
-      JSON.stringify(token)
-    )
-    toast.success('Seja bem vindo ' + data.username + '!!')
-    nav('/')
-  }
+    localStorage.setItem("@StriveToGet: Token", JSON.stringify(token));
+    toast.success("Seja bem vindo " + data.username + "!!");
+    nav("/");
+  };
 
   return (
     <LoginContext.Provider value={{ Login }}>{children}</LoginContext.Provider>

@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { AboutUsComponent } from "../Pages/AboutUs";
+import { GroupPage } from "../Pages/GroupPage";
 import { GroupsPage } from "../Pages/Groups";
 import { Home } from "../Pages/Home";
 import { LoginComponent } from "../Pages/Login";
@@ -11,12 +12,12 @@ export const RoutesComponent = () => {
     <Routes>
       <Route path="/" element={<Home />}></Route>
       <Route path="/:id"></Route>
-      <Route path="/main" element={<Main/>}></Route>
+      <Route path="/main" element={<Main />}></Route>
       <Route path="/login" element={<LoginComponent />}></Route>
-      <Route path="/signUp" element={<SignUpComponent/>}></Route>
-      <Route path="/aboutUs" element={<AboutUsComponent/>}></Route>
+      <Route path="/signUp" element={<SignUpComponent />}></Route>
+      <Route path="/aboutUs" element={<AboutUsComponent />}></Route>
       <Route path="/groups" element={<GroupsPage />}></Route>
-      <Route path="/groups/:id"></Route>
+      <Route path="/groups/:id" element={<GroupPage />}></Route>
     </Routes>
   );
 };

@@ -14,7 +14,7 @@ export const GroupsProvider = ({ children }) => {
     JSON.parse(localStorage.getItem("@StriveToGet: Token")) || ""
   );
 
-  let user_id = token ? jwt_decode(token).user_id : '';
+  let user_id = token ? jwt_decode(token).user_id : "";
 
   const Get = (PerPage) => {
     Api.get(`/groups/?page=${PerPage}`)
@@ -33,7 +33,7 @@ export const GroupsProvider = ({ children }) => {
   }, []);
 
   const listOneGroup = (group) => {
-    Api.get(`/groups/${group.id}/`)
+    Api.get(`/groups/${group}/`)
       .then((response) => setGroup(response.data))
       .catch((err) => console.log(err));
   };
@@ -77,7 +77,7 @@ export const GroupsProvider = ({ children }) => {
   const exitGroup = (group) => {
     Api.delete(`/groups/${group.id}/unsubscribe/`, {
       headers: {
-        Authorization: `Bearer ${JSON.parse(token)}`,
+        Authorization: `Bearer ${token}`,
       },
     })
       .then(toast.success("Unsubscribed sucessufully"))

@@ -13,7 +13,7 @@ export const Header = styled.section`
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
   text-align: center;
-  @media (max-width: 461px) {
+  @media (max-width: 585px) {
     width: 100%;
     font-size: 2.7rem;
     text-align: start;
@@ -36,9 +36,11 @@ export const Section = styled.section`
   p {
     font-size: 1.4rem;
     margin-bottom: 5px;
+    max-width: 180px;
+    word-wrap: break-word;
   }
 
-  @media (max-width: 461px) {
+  @media (max-width: 585px) {
     display: ${(props) => (props.mobile ? "Flex" : "none")};
     width: 80%;
   }
@@ -53,29 +55,20 @@ export const Container = styled.div`
   margin-right: 5px;
   margin-bottom: 10px;
   height: 200px;
+  width: 210.5px;
   border: 1px solid var(--MainDark);
   background-color: var(--CardDark);
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  opacity: 1;
-  
-  @media (max-width: 461px) {
+
+  @media (max-width: 585px) {
     height: auto;
     width: 100%;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     margin-right: 0px;
-  }
-
-  @keyframes popUp {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
   }
 `;
 
@@ -88,7 +81,7 @@ export const Button = styled.button`
   background-color: ${(props) =>
     props.inscribed ? "var(--ColorCardGroupInscribedLight)" : "var(--BtnDark)"};
   margin-bottom: 10px;
-  @media (max-width: 461px) {
+  @media (max-width: 585px) {
     display: ${(props) => (props.mobile ? "visible" : "none")};
   }
 
@@ -100,11 +93,11 @@ export const Button = styled.button`
 export const Buttons = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   width: 170px;
   position: relative;
   bottom: 0;
-  @media (max-width: 461px) {
+  @media (max-width: 585px) {
     width: 200px;
   }
 `;
@@ -112,13 +105,14 @@ export const Buttons = styled.div`
 export const ViewGroup = styled.button`
   width: 60px;
   height: 21px;
+  margin-left: 20px;
   background-color: var(--BtnConfirmDark);
   border-radius: 7px;
   padding-top: 2px;
   color: #ffffff;
   border: 1px solid #ffffff;
 
-  @media (max-width: 461px) {
+  @media (max-width: 585px) {
     display: ${(props) => (props.mobile ? "visible" : "none")};
   }
 `;

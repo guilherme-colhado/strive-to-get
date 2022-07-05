@@ -12,16 +12,11 @@ export const UserProvider = ({ children }) => {
     JSON.parse(localStorage.getItem("@StriveToGet: Token")) || ""
   );
 
-  const user_id = token ? jwt_decode(token).user_id : '';
-
+  const user_id = token ? jwt_decode(token).user_id : "";
 
   const UserInfos = () => {
     Api.get(`/users/${user_id}/`).then((response) => setUser(response.data));
   };
-  
-  // useEffect(() => {
-  //   UserInfos()
-  // }, []);
 
   const UpdateUser = (data) => {
     Api.patch(`/users/${user_id}/`, data, {
