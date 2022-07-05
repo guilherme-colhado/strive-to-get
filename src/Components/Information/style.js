@@ -55,16 +55,16 @@ export const DivInfos = styled.div`
     }
     @keyframes animate {
       0% {
-        content: "to do";
+        content: "a fazer";
       }
       40% {
-        content: "to plan";
+        content: "a planejar";
       }
       70% {
-        content: "to create";
+        content: "a criar";
       }
       100% {
-        content: "to make more with";
+        content: "a fazer mais com";
       }
     }
   }
@@ -118,16 +118,16 @@ export const Image = styled.section`
     margin-left: 500px;
   }
   @media screen and (max-width: 1000px) {
-    margin-top: -385px;
+    margin-top: -442px;
     margin-left: 100px;
   }
 
   @media screen and (max-width: 800px) {
-    margin-top: -257px;
+    margin-top: -325px;
     margin-left: 0px;
   }
   @media screen and (max-width: 520px) {
-    margin-top: -215px;
+    margin-top: -292px;
     margin-left: 0px;
   }
 
