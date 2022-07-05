@@ -7,7 +7,7 @@ export const Header = styled.section`
     props.inscribed ? "var(--ColorCardGroupInscribedLight)" : "var(--BtnDark)"};
   color: #ffffff;
   font-size: 2.75rem;
-  padding: 10px 0 0 0;
+  line-height: 43px;
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
   border-bottom-left-radius: 0px;
@@ -17,9 +17,9 @@ export const Header = styled.section`
     width: 100%;
     font-size: 2.7rem;
     text-align: start;
-    padding: 10px;
-    border-bottom-left-radius: 7px;
-    border-bottom-right-radius: 7px;
+    padding: 0 10px 0;
+    border-bottom-left-radius: ${(props) => (props.mobile ? "0" : "7px")};
+    border-bottom-right-radius: ${(props) => (props.mobile ? "0" : "7px")};
   }
 `;
 
@@ -54,7 +54,6 @@ export const Container = styled.div`
   margin-left: 5px;
   margin-right: 5px;
   margin-bottom: 10px;
-  height: 200px;
   width: 210.5px;
   border: 1px solid var(--MainDark);
   background-color: var(--CardDark);
@@ -95,7 +94,6 @@ export const Buttons = styled.div`
   flex-direction: row;
   justify-content: center;
   width: 170px;
-  position: relative;
   bottom: 0;
   @media (max-width: 550px) {
     width: 200px;

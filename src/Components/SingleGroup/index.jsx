@@ -28,10 +28,9 @@ export const SingleGroup = ({ props }) => {
   return (
     <Container>
       <Header
-        tabIndex="-1"
-        onFocus={() => setMobile(true)}
-        onBlur={() => setMobile(false)}
+        onClick={() => setMobile(!mobile)}
         inscribed={Inscribed}
+        mobile={mobile}
       >
         {props.name.length > 13 ? `${props.name.slice(0, 10)}...` : props.name}
       </Header>
