@@ -7,19 +7,19 @@ export const Header = styled.section`
     props.inscribed ? "var(--ColorCardGroupInscribedLight)" : "var(--BtnDark)"};
   color: #ffffff;
   font-size: 2.75rem;
-  padding: 10px 0 0 0;
+  line-height: 43px;
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
   text-align: center;
-  @media (max-width: 585px) {
+  @media (max-width: 550px) {
     width: 100%;
     font-size: 2.7rem;
     text-align: start;
-    padding: 10px;
-    border-bottom-left-radius: 7px;
-    border-bottom-right-radius: 7px;
+    padding: 0 10px 0;
+    border-bottom-left-radius: ${(props) => (props.mobile ? "0" : "7px")};
+    border-bottom-right-radius: ${(props) => (props.mobile ? "0" : "7px")};
   }
 `;
 
@@ -40,7 +40,7 @@ export const Section = styled.section`
     word-wrap: break-word;
   }
 
-  @media (max-width: 585px) {
+  @media (max-width: 550px) {
     display: ${(props) => (props.mobile ? "Flex" : "none")};
     width: 80%;
   }
@@ -54,7 +54,6 @@ export const Container = styled.div`
   margin-left: 5px;
   margin-right: 5px;
   margin-bottom: 10px;
-  height: 200px;
   width: 210.5px;
   border: 1px solid var(--MainDark);
   background-color: var(--CardDark);
@@ -63,7 +62,7 @@ export const Container = styled.div`
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 
-  @media (max-width: 585px) {
+  @media (max-width: 550px) {
     height: auto;
     width: 100%;
     border-bottom-left-radius: 8px;
@@ -81,7 +80,7 @@ export const Button = styled.button`
   background-color: ${(props) =>
     props.inscribed ? "var(--ColorCardGroupInscribedLight)" : "var(--BtnDark)"};
   margin-bottom: 10px;
-  @media (max-width: 585px) {
+  @media (max-width: 550px) {
     display: ${(props) => (props.mobile ? "visible" : "none")};
   }
 
@@ -95,9 +94,8 @@ export const Buttons = styled.div`
   flex-direction: row;
   justify-content: center;
   width: 170px;
-  position: relative;
   bottom: 0;
-  @media (max-width: 585px) {
+  @media (max-width: 550px) {
     width: 200px;
   }
 `;
@@ -112,7 +110,7 @@ export const ViewGroup = styled.button`
   color: #ffffff;
   border: 1px solid #ffffff;
 
-  @media (max-width: 585px) {
+  @media (max-width: 550px) {
     display: ${(props) => (props.mobile ? "visible" : "none")};
   }
 `;

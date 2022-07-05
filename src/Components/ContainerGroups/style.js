@@ -35,8 +35,8 @@ export const DivCont = styled.div`
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (max-width: 585px) {
-    width: 90%;
+  @media (max-width: 550px) {
+    width: 80vw;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
