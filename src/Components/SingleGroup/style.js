@@ -13,7 +13,7 @@ export const Header = styled.section`
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
   text-align: center;
-  @media (max-width: 585px) {
+  @media (max-width: 550px) {
     width: 100%;
     font-size: 2.7rem;
     text-align: start;
@@ -40,7 +40,7 @@ export const Section = styled.section`
     word-wrap: break-word;
   }
 
-  @media (max-width: 585px) {
+  @media (max-width: 550px) {
     display: ${(props) => (props.mobile ? "Flex" : "none")};
     width: 80%;
   }
@@ -63,7 +63,7 @@ export const Container = styled.div`
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 
-  @media (max-width: 585px) {
+  @media (max-width: 550px) {
     height: auto;
     width: 100%;
     border-bottom-left-radius: 8px;
@@ -81,7 +81,7 @@ export const Button = styled.button`
   background-color: ${(props) =>
     props.inscribed ? "var(--ColorCardGroupInscribedLight)" : "var(--BtnDark)"};
   margin-bottom: 10px;
-  @media (max-width: 585px) {
+  @media (max-width: 550px) {
     display: ${(props) => (props.mobile ? "visible" : "none")};
   }
 
@@ -97,7 +97,7 @@ export const Buttons = styled.div`
   width: 170px;
   position: relative;
   bottom: 0;
-  @media (max-width: 585px) {
+  @media (max-width: 550px) {
     width: 200px;
   }
 `;
@@ -112,7 +112,7 @@ export const ViewGroup = styled.button`
   color: #ffffff;
   border: 1px solid #ffffff;
 
-  @media (max-width: 585px) {
+  @media (max-width: 550px) {
     display: ${(props) => (props.mobile ? "visible" : "none")};
   }
 `;

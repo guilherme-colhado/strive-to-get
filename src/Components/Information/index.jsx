@@ -15,7 +15,7 @@ export const Info = () => {
           </h2>
           <div>
             <p>
-              Simples e efetivo, Tenha o controle da sua vida com{" "}
+              Simples e efetivo, Tenha o controle da sua vida com
               <strong>Strive To Get</strong>.
             </p>
             <p>
