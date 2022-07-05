@@ -23,12 +23,7 @@ export const Home = () => {
     const [modal, setModal] = useState(false);
     const { user } = useContext(UserContext)
     const { habits, createHabit, searchHabit } = useContext(HabitsContext);
-    const [loading, setLoading] = useState(true);
-    const loadingInterval = setInterval(()=>{
-        setLoading(false)
-        clearInterval(loadingInterval)
-    },3000)
-    return loading ? <Loading/> :
+    return habits.length <= 0 ? <Loading/> :
         <>
             <Container >
                 <div>
