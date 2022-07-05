@@ -19,7 +19,7 @@ export const Header = ({ login, logged, person }) => {
     }  
   }, [user]);
   return <HeaderStyle>
-      <LogoComponent>
+      <LogoComponent onClick={()=>nav('/')}>
         <figure>
           <img src={Logo} alt="r4aqvW.gif" border="0" />
         </figure>
@@ -64,7 +64,10 @@ export const Header = ({ login, logged, person }) => {
           </Button>
         </div>
         <div>
-          <Button onClick={() => nav(logged ? '/main' : login ? '/signUp' : '/login')}>
+          <Button onClick={() => {
+              if(logged) localStorage.removeItem('@StriveToGet: Token')
+              nav(logged ? '/login' : login ? '/signUp' : '/login')
+            }}>
             <div>
               {logged ? <><FiLogOut/>Sair</> : login ? <><HiOutlineUserAdd />Cadastrar</> : <><FiLogIn />Login</>}
             </div>

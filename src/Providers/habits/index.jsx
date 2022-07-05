@@ -7,6 +7,7 @@ export const HabitsContext = createContext();
 
 export const HabitsProvider = ({ children }) => {
   const [habits, setHabits] = useState([]);
+  const [habitsAchieved, setHabitsAchieved] = useState([]);
   const [token, setToken] = useState(
     JSON.parse(localStorage.getItem("@StriveToGet: Token")) || ""
   );
@@ -21,6 +22,22 @@ export const HabitsProvider = ({ children }) => {
       })
       .catch((err) => console.log(err));
   };
+
+  const listHabitsArchived = () => {
+    Api.get('/habits/personal/', {headers: {Authorization: `Bearer ${token}` }})
+      .then((response) => {
+        const habitsArchived = response.data.filter(habit=>habit.achieved)
+        setHabitsAchieved(habitsArchived)
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    if(token){
+      listHabitsNotArchived()
+      listHabitsArchived()
+    }
+  }, []);
 
   const searchHabit = (title) => {
     Api.get('/habits/personal/', {headers: {Authorization: `Bearer ${token}` }})
@@ -90,7 +107,7 @@ export const HabitsProvider = ({ children }) => {
 
   return (
     <HabitsContext.Provider
-      value={{habits, searchHabit, listHabitsNotArchived, createHabit, archiveHabit, checkInHabit, deleteHabit}}
+      value={{habits, habitsAchieved, searchHabit, listHabitsNotArchived, createHabit, archiveHabit, checkInHabit, deleteHabit}}
     >
       {children}
     </HabitsContext.Provider>

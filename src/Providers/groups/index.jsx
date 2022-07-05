@@ -29,7 +29,10 @@ export const GroupsProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    PerPage(1);
+    if(token){
+      PerPage(1);
+      buscaSubs()
+    }
   }, []);
 
   const listOneGroup = (group) => {
@@ -40,34 +43,30 @@ export const GroupsProvider = ({ children }) => {
 
   const createGroup = (data) => {
     Api.post("/groups/", data)
-      .then(toast.success("Group Created!"))
+      .then(toast.success("Grupo criado!"))
       .catch((err) => console.log(err));
   };
 
   const editGroup = (data) => {
     Api.patch(`/groups/${data.id}/`, data)
-      .then(toast.success("Group edited!"))
+      .then(toast.success("Grupo editado!"))
       .catch((err) => console.log(err));
   };
 
   const groupSubscription = (data) => {
     Api.post(`/groups/${data.id}/subscribe/`, "", {
       headers: {
-        Authorization: `Bearer ${JSON.parse(
-          localStorage.getItem("@StriveToGet: Token" || "")
-        )}`,
+        Authorization: `Bearer ${token}`,
       },
     })
-      .then(toast.success("Subscribed!"))
+      .then(toast.success("Inscrito!"))
       .catch((err) => console.log(err));
   };
 
   const buscaSubs = () => {
     Api.get(`/groups/subscriptions/`, {
       headers: {
-        Authorization: `Bearer ${JSON.parse(
-          localStorage.getItem("@StriveToGet: Token" || "")
-        )}`,
+        Authorization: `Bearer ${token}`,
       },
     })
       .then((res) => setGroupsInscribed(res.data))
@@ -77,10 +76,10 @@ export const GroupsProvider = ({ children }) => {
   const exitGroup = (group) => {
     Api.delete(`/groups/${group.id}/unsubscribe/`, {
       headers: {
-        Authorization: `Bearer ${JSON.parse(token)}`,
+        Authorization: `Bearer ${token}`,
       },
     })
-      .then(toast.success("Unsubscribed sucessufully"))
+      .then(toast.success(`Saiu do grupo ${group.name}!`))
       .catch((err) => console.log(err));
   };
 

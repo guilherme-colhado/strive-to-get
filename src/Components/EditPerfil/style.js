@@ -3,8 +3,6 @@ import styled from "styled-components";
 export const EditPerfilStyle = styled.form`
   transition: 0.8s;
   background-color: var(--HeaderDark);
-  position: fixed;
-  top: 0;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
@@ -33,8 +31,6 @@ export const EditPerfilStyle = styled.form`
 
   &:hover {
     background-color: var(--HeaderDark);
-    position: fixed;
-    top: 0;
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -65,6 +61,7 @@ export const EditPerfilStyle = styled.form`
 
 export const Input = styled.input`
   width: 120px;
+  padding: 5px;
   height: 20px;
   border: none;
   border-radius: 5px;

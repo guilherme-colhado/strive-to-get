@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { Api } from "../../Services/api";
 
@@ -16,12 +15,16 @@ export const UserProvider = ({ children }) => {
 
 
   const UserInfos = () => {
+    
+    let { user_id } = jwt_decode(token);
     Api.get(`/users/${user_id}/`).then((response) => setUser(response.data));
   };
   
-  // useEffect(() => {
-  //   UserInfos()
-  // }, []);
+  useEffect(() => {
+    if(token){
+      UserInfos()
+    }
+  }, []);
 
   const UpdateUser = (data) => {
     Api.patch(`/users/${user_id}/`, data, {

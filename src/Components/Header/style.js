@@ -51,6 +51,7 @@ export const HeaderStyle = styled.header`
 export const LogoComponent = styled.div`
     display: flex;
     align-items: center;
+    cursor: pointer;
 `
 
 export const Button = styled.button`

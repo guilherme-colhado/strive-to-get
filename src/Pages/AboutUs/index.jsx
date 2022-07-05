@@ -4,9 +4,10 @@ import { Header } from "../../Components/Header";
 import { Container } from "./style";
 
 export const AboutUsComponent = () => {
+  let logged = localStorage.getItem('@StriveToGet: Token')
   return (
     <Container>
-      <Header login/>
+      <Header logged={logged} person/>
       <main>
         <AboutUs/>
       </main>
