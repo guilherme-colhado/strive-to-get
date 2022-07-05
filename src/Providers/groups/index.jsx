@@ -14,7 +14,7 @@ export const GroupsProvider = ({ children }) => {
     JSON.parse(localStorage.getItem("@StriveToGet: Token")) || ""
   );
 
-  let user_id = token ? jwt_decode(token).user_id : '';
+  let user_id = token ? jwt_decode(token).user_id : "";
 
   const Get = (PerPage) => {
     Api.get(`/groups/?page=${PerPage}`)
@@ -33,20 +33,38 @@ export const GroupsProvider = ({ children }) => {
   }, []);
 
   const listOneGroup = (group) => {
-    Api.get(`/groups/${group.id}/`)
+    Api.get(`/groups/${group.id}/`, {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(
+          localStorage.getItem("@StriveToGet: Token" || "")
+        )}`,
+      },
+    })
       .then((response) => setGroup(response.data))
       .catch((err) => console.log(err));
   };
 
   const createGroup = (data) => {
-    Api.post("/groups/", data)
-      .then(toast.success("Group Created!"))
+    Api.post("/groups/", data, {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(
+          localStorage.getItem("@StriveToGet: Token" || "")
+        )}`,
+      },
+    })
+      .then(toast.success("Grupo Criado!"))
       .catch((err) => console.log(err));
   };
 
   const editGroup = (data) => {
-    Api.patch(`/groups/${data.id}/`, data)
-      .then(toast.success("Group edited!"))
+    Api.patch(`/groups/${data.id}/`, data, {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(
+          localStorage.getItem("@StriveToGet: Token" || "")
+        )}`,
+      },
+    })
+      .then(toast.success("Grupo editado!"))
       .catch((err) => console.log(err));
   };
 
@@ -58,7 +76,7 @@ export const GroupsProvider = ({ children }) => {
         )}`,
       },
     })
-      .then(toast.success("Subscribed!"))
+      .then(toast.success("Incrito com sucesso!"))
       .catch((err) => console.log(err));
   };
 
@@ -80,7 +98,7 @@ export const GroupsProvider = ({ children }) => {
         Authorization: `Bearer ${JSON.parse(token)}`,
       },
     })
-      .then(toast.success("Unsubscribed sucessufully"))
+      .then(toast.success("Você saiu com sucesso!"))
       .catch((err) => console.log(err));
   };
 
