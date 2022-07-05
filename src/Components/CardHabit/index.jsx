@@ -15,14 +15,7 @@ export const CardHabit = ({ element }) => {
   return (
     <>
       <Card>
-        <CardTitle
-          tabIndex="-1"
-          onFocus={() => setMobile(true)}
-          onBlur={() => {
-            setMobile(false);
-          }}
-          mobile={mobile}
-        >
+        <CardTitle onClick={() => setMobile(!mobile)} mobile={mobile}>
           {element.title}{" "}
           <button onClick={() => setDelet(true)}>
             <AiOutlineDelete />
