@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import { AboutUsComponent } from "../Pages/AboutUs";
-import { GroupPage } from "../Pages/GroupPage";
 import { GroupsPage } from "../Pages/Groups";
 import { Home } from "../Pages/Home";
 import { LoginComponent } from "../Pages/Login";
@@ -17,7 +16,7 @@ export const RoutesComponent = () => {
       <Route path="/signUp" element={<SignUpComponent />}></Route>
       <Route path="/aboutUs" element={<AboutUsComponent />}></Route>
       <Route path="/groups" element={<GroupsPage />}></Route>
-      <Route path="/groups/:id" element={<GroupPage />}></Route>
+      <Route path="/groups/:id"></Route>
     </Routes>
   );
 };
