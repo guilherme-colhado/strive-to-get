@@ -1,4 +1,3 @@
-
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -6,7 +5,6 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: fit-content;
   padding-bottom: 20px;
   width: 100%;
   font-size: 3rem;
@@ -59,7 +57,6 @@ export const DevBoxLeft = styled.div`
   flex-direction: column;
   justify-content: center;
   background-color: var(--CardDark);
-  height: 300px;
   width: 55%;
   border-radius: 15px;
   margin: 20px 0 10px -37%;
@@ -87,7 +84,7 @@ export const DevBoxLeft = styled.div`
     margin-left: 0;
     box-shadow: none;
     font-size: 4.3vw;
-    h4{
+    h4 {
       font-size: 4vw;
     }
   }
