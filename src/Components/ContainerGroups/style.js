@@ -5,7 +5,7 @@ export const Div = styled.div`
   display: flex;
   background-color: var(--MainDark);
   color: #ffffff;
-  height: 80vh;
+  height: 85vh;
   flex-direction: column;
   align-items: center;
   justify-content: center;

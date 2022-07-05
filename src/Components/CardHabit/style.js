@@ -4,7 +4,7 @@ export const Card = styled.section`
   display: flex;
   flex-direction: column;
   width: max-content;
-  margin: 10px auto;
+  margin: 10px 5px 0 5px;
   animation: popUp 0.5s forwards;
   @keyframes popUp {
     from {
