@@ -69,15 +69,18 @@ export const DivInfos = styled.div`
     }
   }
 
-  @media (max-width: 1324px) {
+  @media screen and (max-width: 1324px) {
     width: 1000px;
     height: 500px;
   }
-  @media (max-width: 1000px) {
+  @media screen and (max-width: 1280px) {
+    transform: scale(0.8);
+  }
+  @media screen and (max-width: 1000px) {
     width: 800px;
     height: 900px;
   }
-  @media (max-width: 800px) {
+  @media screen and (max-width: 800px) {
     width: 520px;
     height: 900px;
     img {
@@ -93,73 +96,97 @@ export const DivInfos = styled.div`
       margin-left: 20px;
       margin-right: 20px;
     }
-    @media (max-width: 520px) {
+    @media screen and (max-width: 520px) {
       width: 350px;
       height: 950px;
+    }
+    @media screen and (max-width: 360px) {
+      transform: scale(0.8);
     }
   }
 `;
 
 export const Image = styled.section`
-  transform: translateY(-383px);
+  margin-top: -383px;
   margin-left: 600px;
-  @media (max-width: 1324px) {
-    transform: translateY(-214px);
+  @media screen and (max-width: 1324px) {
+    margin-top: -214px;
     margin-left: 600px;
   }
-  @media (max-width: 1000px) {
-    transform: translateY(-385px);
+  @media screen and (max-width: 1280px) {
+    margin-top: -247px;
+    margin-left: 500px;
+  }
+  @media screen and (max-width: 1000px) {
+    margin-top: -385px;
     margin-left: 100px;
   }
 
-  @media (max-width: 800px) {
-    transform: translateY(-257px);
+  @media screen and (max-width: 800px) {
+    margin-top: -257px;
     margin-left: 0px;
   }
-  @media (max-width: 520px) {
-    transform: translateY(-215px);
+  @media screen and (max-width: 520px) {
+    margin-top: -215px;
     margin-left: 0px;
+  }
+
+  @media screen and (max-width: 360px) {
+    transform: scale(0.8);
+    margin-top: -279px;
   }
 
   img {
     height: 450px;
     width: 650px;
-    @media (max-width: 1324px) {
+    @media screen and (max-width: 1324px) {
       height: 250px;
       width: 350px;
     }
-    @media (max-width: 1000px) {
+    @media screen and (max-width: 1280px) {
+      transform: scale(0.8);
+    }
+    @media screen and (max-width: 1000px) {
       height: 450px;
       width: 650px;
     }
-    @media (max-width: 800px) {
+    @media screen and (max-width: 800px) {
       height: 300px;
       width: 450px;
     }
-    @media (max-width: 520px) {
+    @media screen and (max-width: 520px) {
       width: 300px;
       height: 250px;
+    }
+    @media screen and (max-width: 360px) {
+      transform: scale(0.8);
     }
   }
 
   img {
     height: 450px;
     width: 650px;
-    @media (max-width: 1324px) {
+    @media screen and (max-width: 1324px) {
       height: 250px;
       width: 350px;
     }
-    @media (max-width: 1000px) {
+    @media screen and (max-width: 1280px) {
+      transform: scale(0.8);
+    }
+    @media screen and (max-width: 1000px) {
       height: 450px;
       width: 650px;
     }
-    @media (max-width: 800px) {
+    @media screen and (max-width: 800px) {
       height: 300px;
       width: 450px;
     }
-    @media (max-width: 520px) {
+    @media screen and (max-width: 520px) {
       width: 300px;
       height: 250px;
+    }
+    @media screen and (max-width: 360px) {
+      transform: scale(0.8);
     }
   }
 `;
@@ -171,5 +198,9 @@ export const DivContainer = styled.div`
   align-items: center;
   align-content: center;
   justify-content: center;
-  margin-top: 200px;
+  margin-top: 60px;
+
+  @media screen and (max-width: 1280px) {
+    margin-top: 30px;
+  }
 `;

@@ -2,13 +2,19 @@ import { createContext, useState, useEffect } from "react";
 import { Api } from "../../Services/api";
 import { toast } from "react-toastify";
 import { get } from "react-hook-form";
+import jwt_decode from "jwt-decode";
 
 export const GroupsContext = createContext();
 
 export const GroupsProvider = ({ children }) => {
   const [groups, setGroups] = useState([]);
+  const [groupsInscribed, setGroupsInscribed] = useState([]);
   const [group, setGroup] = useState({});
-  const [page, setPage] = useState(1);
+  const [token, setToken] = useState(
+    JSON.parse(localStorage.getItem("@StriveToGet: Token")) || ""
+  );
+
+  let user_id = token ? jwt_decode(token).user_id : '';
 
   const Get = (PerPage) => {
     Api.get(`/groups/?page=${PerPage}`)
@@ -16,15 +22,14 @@ export const GroupsProvider = ({ children }) => {
       .catch((err) => console.log(err));
   };
 
-  const PerPage = () => {
-    for (let i = 0; i < 2; i++) {
-      Get(page + i);
+  const PerPage = (x) => {
+    for (let i = x; i < x + 2; i++) {
+      Get(i);
     }
-    setPage(page + 1);
   };
 
   useEffect(() => {
-    PerPage();
+    PerPage(1);
   }, []);
 
   const listOneGroup = (group) => {
@@ -46,19 +51,35 @@ export const GroupsProvider = ({ children }) => {
   };
 
   const groupSubscription = (data) => {
-    Api.post(`/groups/${data.id}/subscribe/`)
+    Api.post(`/groups/${data.id}/subscribe/`, "", {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(
+          localStorage.getItem("@StriveToGet: Token" || "")
+        )}`,
+      },
+    })
       .then(toast.success("Subscribed!"))
       .catch((err) => console.log(err));
   };
 
   const buscaSubs = () => {
-    Api.get(`/groups/subscriptions/`)
-      .then(toast.success("Subed Groups"))
+    Api.get(`/groups/subscriptions/`, {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(
+          localStorage.getItem("@StriveToGet: Token" || "")
+        )}`,
+      },
+    })
+      .then((res) => setGroupsInscribed(res.data))
       .catch((err) => console.log(err));
   };
 
   const exitGroup = (group) => {
-    Api.delete(`/groups/${group.id}/unsubscribe/`)
+    Api.delete(`/groups/${group.id}/unsubscribe/`, {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(token)}`,
+      },
+    })
       .then(toast.success("Unsubscribed sucessufully"))
       .catch((err) => console.log(err));
   };
@@ -67,6 +88,7 @@ export const GroupsProvider = ({ children }) => {
     <GroupsContext.Provider
       value={{
         groups,
+        groupsInscribed,
         group,
         PerPage,
         listOneGroup,

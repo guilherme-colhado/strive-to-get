@@ -9,7 +9,7 @@ export const HeaderStyle = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 5px 86px;
+    padding: 5px 30px;
     box-shadow: 0 5px 10px #000;
     figure{
         margin-right: 10px;
@@ -58,7 +58,7 @@ export const Button = styled.button`
     color: #ffffff;
     font-size: 2rem;
     cursor: pointer;
-    padding: 10px 30px;
+    padding: ${props=> props.link ? '10px' : '7px 20px'};
     border-radius: 10px;
     border: none;
     margin-right: 10px;

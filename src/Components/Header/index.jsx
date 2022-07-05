@@ -4,13 +4,20 @@ import Logo from "../../Imgs/Logo.gif";
 import { FiLogIn, FiLogOut } from "react-icons/fi";
 import { HiOutlineUserAdd } from "react-icons/hi";
 import { MdOutlineGroups, MdOutlinePersonOutline } from 'react-icons/md'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Clock from "../Clock";
+import { Clock } from "../Clock";
 
 export const Header = ({ login, logged, person }) => {
   const [navMobile, setNavMobile] = useState(false);
+  const [user, setUser] = useState(false);
   const nav = useNavigate();
+  
+  useEffect(() => {
+    if(user){
+        nav(`/${person.id}`)
+    }  
+  }, [user]);
   return <HeaderStyle>
       <LogoComponent>
         <figure>
@@ -33,9 +40,9 @@ export const Header = ({ login, logged, person }) => {
         {
           logged && <>
             <div>
-              <Button link onClick={nav(`/${person.id}`)}>
+              <Button link onClick={(()=>setUser(true))}>
                 <div>
-                  <MdOutlinePersonOutline/>{person.nome}
+                  <MdOutlinePersonOutline/>{person.username}
                 </div>
               </Button>
             </div>
@@ -65,5 +72,4 @@ export const Header = ({ login, logged, person }) => {
         </div>
       </Nav>
     </HeaderStyle>
-  
 }
