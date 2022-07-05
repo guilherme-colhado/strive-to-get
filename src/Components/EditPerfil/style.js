@@ -7,6 +7,30 @@ export const EditPerfilStyle = styled.form`
   display: flex;
   justify-content: space-evenly;
   padding: 10px 200px 10px 200px;
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px 10px 20px;
+
+    > :first-child {
+      margin-right: 105px;
+    }
+
+    > button {
+      transform: translateX(110px);
+      margin-top: -8px;
+    }
+
+    > :last-child {
+      transform: translateY(-5px);
+      margin-right: 70px;
+    }
+    :hover {
+      transition: 0.3s;
+    }
+  }
+
   > div {
     transition: 0.3s;
     display: flex;
@@ -34,8 +58,6 @@ export const EditPerfilStyle = styled.form`
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-    padding: 10px 200px 10px 200px;
-    height: 40px;
     > div {
       transition: 0.3s;
       opacity: 1;
@@ -52,7 +74,7 @@ export const EditPerfilStyle = styled.form`
       }
     }
     > button {
-      transition: 0.3s;
+      transition: 0.1s;
       opacity: 1;
       height: 20px;
     }
