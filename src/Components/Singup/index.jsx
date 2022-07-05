@@ -44,8 +44,12 @@ export const SingUp = () => {
   const { createUser } = useContext(SignUpContext);
 
   const handleSignup = (data) => {
-    const newData = {username: data.username, email: data.email, password: data.password}
-    createUser(newData)
+    const newData = {
+      username: data.username,
+      email: data.email,
+      password: data.password,
+    };
+    createUser(newData);
   };
 
   return (
@@ -87,7 +91,7 @@ export const SingUp = () => {
             </span>
           </S.Password>
 
-          <S.Button type="submit">Sign Up</S.Button>
+          <S.Button type="submit">Cadastrar</S.Button>
         </form>
       </S.Box>
     </S.Container>
