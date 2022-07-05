@@ -36,6 +36,8 @@ export const Section = styled.section`
   p {
     font-size: 1.4rem;
     margin-bottom: 5px;
+    max-width: 180px;
+    word-wrap: break-word;
   }
 
   @media (max-width: 461px) {
@@ -53,14 +55,13 @@ export const Container = styled.div`
   margin-right: 5px;
   margin-bottom: 10px;
   height: 200px;
+  width: 210.5px;
   border: 1px solid var(--MainDark);
   background-color: var(--CardDark);
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  opacity: 0;
-  animation: popUp 1s forwards;
 
   @media (max-width: 461px) {
     height: auto;
@@ -68,15 +69,6 @@ export const Container = styled.div`
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     margin-right: 0px;
-  }
-
-  @keyframes popUp {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
   }
 `;
 
@@ -101,7 +93,7 @@ export const Button = styled.button`
 export const Buttons = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   width: 170px;
   position: relative;
   bottom: 0;
@@ -113,6 +105,7 @@ export const Buttons = styled.div`
 export const ViewGroup = styled.button`
   width: 60px;
   height: 21px;
+  margin-left: 20px;
   background-color: var(--BtnConfirmDark);
   border-radius: 7px;
   padding-top: 2px;

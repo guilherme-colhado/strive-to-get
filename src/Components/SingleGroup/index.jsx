@@ -26,17 +26,30 @@ export const SingleGroup = ({ props }) => {
 
   return (
     <Container>
-      <Header onClick={() => setMobile(!mobile)} inscribed={Inscribed}>
+      <Header
+        tabIndex="-1"
+        onFocus={() => setMobile(true)}
+        onBlur={() => setMobile(false)}
+        inscribed={Inscribed}
+      >
         {props.name.length > 15 ? `${props.name.slice(0, 15)}...` : props.name}
       </Header>
       <Section mobile={mobile}>
         <div>
           <h2>Categoria:</h2>
-          <p>{props.category}</p>
+          <p>
+            {props.category.length > 35
+              ? `${props.category.slice(0, 35)}...`
+              : props.category}
+          </p>
         </div>
         <div>
           <h3>Descrição:</h3>
-          <p>{props.description}</p>
+          <p>
+            {props.description.length > 50
+              ? `${props.description.slice(0, 50)}...`
+              : props.description}
+          </p>
         </div>
       </Section>
       <Buttons>
