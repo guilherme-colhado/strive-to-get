@@ -48,14 +48,14 @@ export const ActivitiesProvider = ({ children }) => {
 
   return (
     <ActivitiesContext.Provider
-      value={
-        (activities,
+      value={{
+        activities,
         listActivities,
         createActivity,
         buscaActivities,
         attActivity,
-        deleteActivity)
-      }
+        deleteActivity,
+      }}
     >
       {children}
     </ActivitiesContext.Provider>

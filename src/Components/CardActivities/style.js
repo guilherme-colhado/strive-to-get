@@ -8,7 +8,6 @@ export const CardStyle = styled.div`
   color: #ffffff;
   background-color: var(--CardDark);
   border-radius: 8px;
-  margin: 10px;
   @media (max-width: 480px) {
     width: 312px;
     height: 60px;
@@ -26,7 +25,6 @@ export const HeaderCard = styled.div`
   border: 1px solid var(--HeaderDark);
   background-color: var(--HeaderDark);
   font-size: 3.75rem;
-  text-align: center;
   @media (max-width: 480px) {
     width: auto;
   }
