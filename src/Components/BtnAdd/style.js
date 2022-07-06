@@ -66,10 +66,12 @@ export const BtnAddComponent = styled.div`
         z-index: 200;
         background-color: var(--HeaderDark);
         height: 62px;
-        width: 100%;
+        width: 100vw;
         flex-direction: column-reverse;
         button{
-            transform: translate(0, -78px);
+            position: fixed;
+            bottom: 0;
+            height: 50px;
             color: var(--HeaderDark);
             font-size: 8rem;
             width: 55px;

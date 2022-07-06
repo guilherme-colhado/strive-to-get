@@ -3,9 +3,9 @@ import { BsSearch } from 'react-icons/bs'
 import { useState } from "react";
 
 export const Search = ({cb}) => {
-    const [active, setActive] = useState(true);
+    const [active, setActive] = useState(false);
     const [search, setSearch] = useState('')
-    return <SearchComponent onBlur={(e)=> setActive(false)} onFocus={()=>setActive(true)}>
+    return <SearchComponent tabIndex='-1' onBlur={(e)=> setActive(false)} onFocus={()=>setActive(true)}>
         <form onSubmit={(e)=>{
             e.preventDefault()
             if(active) {

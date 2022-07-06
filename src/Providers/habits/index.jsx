@@ -74,6 +74,7 @@ export const HabitsProvider = ({ children }) => {
       .then(()=>{
         toast.success("Habito arquivado!")
         listHabitsNotArchived()
+        listHabitsArchived()
       })
       .catch((err) => console.log(err));
   };

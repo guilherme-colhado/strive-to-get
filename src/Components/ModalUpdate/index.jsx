@@ -21,7 +21,7 @@ export const ModalUpdate = ({ onClose, onSubmit, children }) => {
         <form onSubmit={onSubmitFunction}>
           <S.Header>
             <h1>{children}</h1>
-            <S.Close onclick={onClose}>
+            <S.Close onClick={onClose}>
               <FiX />
             </S.Close>
           </S.Header>

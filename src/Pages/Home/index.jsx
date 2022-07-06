@@ -14,16 +14,10 @@ import { UserContext } from "../../Providers/usersFunctions";
 import { Loading } from "../../Components/ContainerLoading";
 
 export const Home = () => {
-    const nav = useNavigate()
-    useEffect(() => {
-        if(!localStorage.getItem('@StriveToGet: Token')){
-            nav('/main')
-        }  
-    }, []);
     const [modal, setModal] = useState(false);
     const { user } = useContext(UserContext)
     const { habits, createHabit, searchHabit } = useContext(HabitsContext);
-    return habits.length <= 0 ? <Loading/> :
+    return !user.username ? <Loading/> :
         <>
             <Container >
                 <div>

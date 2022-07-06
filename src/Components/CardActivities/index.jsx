@@ -4,6 +4,7 @@ import { ActivitiesContext } from "../../Providers/activities";
 
 export const CardActivities = ({ activity }) => {
   const { attActivity, deleteActivity } = useContext(ActivitiesContext);
+  console.log(activity)
   return (
     <CardStyle>
       <HeaderCard> <span>{activity.title}</span></HeaderCard>

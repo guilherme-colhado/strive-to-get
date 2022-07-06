@@ -36,7 +36,7 @@ export const GroupsProvider = ({ children }) => {
   }, []);
 
   const listOneGroup = (group) => {
-    Api.get(`/groups/${group.id}/`, {
+    Api.get(`/groups/${group}/`, {
       headers: {
         Authorization: `Bearer ${JSON.parse(
           localStorage.getItem("@StriveToGet: Token" || "")
@@ -55,7 +55,10 @@ export const GroupsProvider = ({ children }) => {
         )}`,
       },
     })
-      .then(toast.success("Grupo Criado!"))
+      .then(()=>{
+        toast.success("Grupo Criado!")
+        buscaSubs()
+      })
       .catch((err) => console.log(err));
   };
 
@@ -77,7 +80,10 @@ export const GroupsProvider = ({ children }) => {
         Authorization: `Bearer ${token}`,
       },
     })
-      .then(toast.success("Incrito com sucesso!"))
+      .then(()=>{
+        toast.success("Incrito com sucesso!")
+        buscaSubs()
+      })
       .catch((err) => console.log(err));
   };
 

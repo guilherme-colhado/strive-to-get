@@ -12,14 +12,17 @@ export const Header = ({ login, logged, person }) => {
   const [navMobile, setNavMobile] = useState(false);
   const [user, setUser] = useState(false);
   const nav = useNavigate();
-  
   useEffect(() => {
     if(user){
         nav(`/${person.id}`)
     }  
   }, [user]);
   return <HeaderStyle>
-      <LogoComponent onClick={()=>nav('/')}>
+      <LogoComponent onClick={()=>{
+        if(person){
+          nav('/')
+        }else nav('/main')
+      }}>
         <figure>
           <img src={Logo} alt="r4aqvW.gif" border="0" />
         </figure>
@@ -40,7 +43,7 @@ export const Header = ({ login, logged, person }) => {
         {
           logged && <>
             <div>
-              <Button link onClick={(()=>setUser(true))}>
+              <Button link onClick={(()=>nav(`/${person.id}`))}>
                 <div>
                   <MdOutlinePersonOutline/>{person.username}
                 </div>

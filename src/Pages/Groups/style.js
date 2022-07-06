@@ -5,4 +5,12 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: space-between;
     min-height: 100vh;
+    @media (max-width: 550px) {
+        footer::after{
+            content: '';
+            height: 60px;
+            width: 100%;
+            display: block;
+        }
+    }
 `

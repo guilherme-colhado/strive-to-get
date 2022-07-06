@@ -3,8 +3,8 @@ import { MembersComponent } from "./style"
 export const Members = ({members}) => {
     return <MembersComponent>
         <ul>
-            {members.map(member=>{
-                return <li>{member}</li>
+            {members && members.map(member=>{
+                return <li key={member.id}>{member.username}</li>
             })}
         </ul>
     </MembersComponent>

@@ -8,7 +8,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   padding: 10px;
-`;
+  `;
 
 export const Card = styled.div`
   width: 100%;
@@ -29,10 +29,5 @@ export const Card = styled.div`
 
   li {
     margin-bottom: 15px;
-  }
-  @media (max-width: 720px) {
-    font-size: 2rem;
-    width: 98%;
-    padding: 30px;
   }
 `;
