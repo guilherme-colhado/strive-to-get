@@ -7,6 +7,7 @@ export const EditPerfilStyle = styled.form`
   display: flex;
   justify-content: space-evenly;
   padding: 10px 200px 10px 200px;
+  z-index: 200;
 
   @media (max-width: 1000px) {
     flex-direction: column;
@@ -51,13 +52,15 @@ export const EditPerfilStyle = styled.form`
     transition: 0.3s;
     opacity: 0;
     height: 5px;
+    margin-left: -35px;
   }
 
   &:hover {
     background-color: var(--HeaderDark);
     width: 100%;
-    display: flex;
     justify-content: space-evenly;
+    padding: 30px 200px 10px 200px;
+
     > div {
       transition: 0.3s;
       opacity: 1;
@@ -98,11 +101,20 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  width: 60px;
+  width: max-content;
   height: 20px;
   outline: none;
   border: 1px solid var(--MainDark);
   border-radius: 5px;
   background-color: #ffffff;
   color: var(--MainDark);
+`;
+
+export const Section = styled.section`
+  font-size: 1.75rem;
+  color: #ffffff;
+  > :last-child {
+    width: 100%;
+    background-color: var(--HeaderDark);
+  }
 `;
