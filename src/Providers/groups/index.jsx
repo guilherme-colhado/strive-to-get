@@ -14,7 +14,7 @@ export const GroupsProvider = ({ children }) => {
     JSON.parse(localStorage.getItem("@StriveToGet: Token")) || ""
   );
 
-  let user_id = token ? jwt_decode(token).user_id : '';
+  let user_id = token ? jwt_decode(token).user_id : "";
 
   const Get = (PerPage) => {
     Api.get(`/groups/?page=${PerPage}`)
@@ -36,19 +36,37 @@ export const GroupsProvider = ({ children }) => {
   }, []);
 
   const listOneGroup = (group) => {
-    Api.get(`/groups/${group.id}/`)
+    Api.get(`/groups/${group.id}/`, {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(
+          localStorage.getItem("@StriveToGet: Token" || "")
+        )}`,
+      },
+    })
       .then((response) => setGroup(response.data))
       .catch((err) => console.log(err));
   };
 
   const createGroup = (data) => {
-    Api.post("/groups/", data)
-      .then(toast.success("Grupo criado!"))
+    Api.post("/groups/", data, {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(
+          localStorage.getItem("@StriveToGet: Token" || "")
+        )}`,
+      },
+    })
+      .then(toast.success("Grupo Criado!"))
       .catch((err) => console.log(err));
   };
 
   const editGroup = (data) => {
-    Api.patch(`/groups/${data.id}/`, data)
+    Api.patch(`/groups/${data.id}/`, data, {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(
+          localStorage.getItem("@StriveToGet: Token" || "")
+        )}`,
+      },
+    })
       .then(toast.success("Grupo editado!"))
       .catch((err) => console.log(err));
   };
@@ -59,7 +77,7 @@ export const GroupsProvider = ({ children }) => {
         Authorization: `Bearer ${token}`,
       },
     })
-      .then(toast.success("Inscrito!"))
+      .then(toast.success("Incrito com sucesso!"))
       .catch((err) => console.log(err));
   };
 
