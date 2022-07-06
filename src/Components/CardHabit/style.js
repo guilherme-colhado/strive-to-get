@@ -36,7 +36,7 @@ export const CardTitle = styled.h1`
   }
 
   @media (max-width: 550px) {
-    width: 87vw;
+    width: 86vw;
     height: ${(props) => (props.mobile ? "" : "43px")};
     border-bottom-left-radius: ${(props) => (props.mobile ? "0" : "7px")};
     border-bottom-right-radius: ${(props) => (props.mobile ? "0" : "7px")};
@@ -46,13 +46,13 @@ export const CardTitle = styled.h1`
   }
 
   @media (max-width: 487px) {
-    width: 85vw;
+    width: 83vw;
   }
   @media (max-width: 400px) {
-    width: 82vw;
+    width: 80vw;
   }
   @media (max-width: 340px) {
-    width: 80vw;
+    width: 78vw;
   }
 `;
 
