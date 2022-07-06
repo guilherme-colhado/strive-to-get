@@ -1,16 +1,25 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { GroupsContext } from "../../Providers/groups";
-import { Div, DivCont, Border } from "./style";
+import {
+  Div,
+  DivCont,
+  Border,
+  SearchComponent,
+  InputSearch,
+  ButtonSearch,
+} from "./style";
 import { SingleGroup } from "../SingleGroup";
 import { AiOutlineDown } from "react-icons/ai";
 import { BtnAdd } from "../BtnAdd";
 import { Modal } from "../Modal";
 import { RegisterGroup } from "../RegisterGroup";
+import { BsSearch } from "react-icons/bs";
 
 export const AllGroups = () => {
   const { groups, PerPage, createGroup } = useContext(GroupsContext);
+  const [active, setActive] = useState(false);
   const [page, setPage] = useState(3);
-
+  const [search, setSearch] = useState("");
   const [modal, setModal] = useState(false);
 
   const test = () => {
@@ -18,15 +27,55 @@ export const AllGroups = () => {
     setPage(page + 2);
   };
 
+  const [render, setRender] = useState([]);
+
+  const newRender = () => {
+    setRender(groups);
+  };
+
+  const searchRender = () => {
+    setRender(
+      render.filter((render) =>
+        render.name.toLowerCase().includes(search.toLowerCase())
+      )
+    );
+  };
+
+  const normalRender = (x) => {
+    if (x === "") {
+      newRender();
+    } else {
+      setSearch(x);
+    }
+  };
+
+  useEffect(() => {
+    setRender([]);
+    newRender();
+  }, [groups.length]);
+
   return (
     <>
       <Div>
+        <SearchComponent
+          onFocus={() => setActive(true)}
+          onBlur={() => setActive(false)}
+        >
+          <InputSearch
+            open={active}
+            type="text"
+            onChange={(e) => normalRender(e.target.value)}
+          />
+          <ButtonSearch onClick={() => searchRender()}>
+            <BsSearch />
+          </ButtonSearch>
+        </SearchComponent>
         <Border>
           <DivCont>
             <BtnAdd callback={() => setModal(true)} key={"Botao ADD"}>
               Criar novo Grupo
             </BtnAdd>
-            {groups.map((element) => {
+            {render.map((element) => {
               return <SingleGroup props={element} key={element.id} />;
             })}
           </DivCont>
