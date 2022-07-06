@@ -1,8 +1,18 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  max-width: 500px;
+  width: 500px;
+  max-width: 600px;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+`;
+
+export const Card = styled.div`
+  width: 100%;
+  height: 503px;
   background-color: var(--CardDark);
   border: none;
   height: max-content;
@@ -20,7 +30,6 @@ export const Container = styled.div`
   li {
     margin-bottom: 15px;
   }
-
   @media (max-width: 720px) {
     font-size: 2rem;
     width: 98%;
