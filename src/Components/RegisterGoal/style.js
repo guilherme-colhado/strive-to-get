@@ -113,7 +113,7 @@ export const Select = styled(Input)`
     margin-top: 1rem;
     border: transparent;
     font-size: 16px;
-    color: #3b464b;
+    color: #ffffff;
     padding: 0 10px;
     border: 2px solid #3b464b;
     cursor: pointer;
