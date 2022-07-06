@@ -11,7 +11,7 @@ export const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const schema = yup.object().shape({
-    name: yup.string().required("Campo obrigatório!"),
+    username: yup.string().required("Campo obrigatório!"),
     password: yup
       .string()
       .min(6, "Mínimo de 6 dígitos")
@@ -27,7 +27,6 @@ export const Login = () => {
   });
 
   const { Login } = useContext(LoginContext);
-  console.log(LoginContext);
 
   const onSubmitFunction = (data) => Login(data);
 
@@ -43,23 +42,23 @@ export const Login = () => {
           <S.Input>
             <label>Nome de usuário</label>
             <input
-              error={errors.name?.message}
+              error={errors.username?.message}
               placeholder="Digite aqui seu nome de usuário"
-              {...register("name")}
+              {...register("username")}
             />
-            <S.Password>
-              <label>Senha</label>
-              <input
-                error={errors.password?.message}
-                placeholder="Digite aqui sua senha"
-                type={showPassword ? "text" : "password"}
-                {...register("password")}
-              />
-              <span onClick={togglePassword}>
-                {!showPassword ? <FiEyeOff /> : <FiEye />}
-              </span>
-            </S.Password>
           </S.Input>
+          <S.Password>
+            <label>Senha</label>
+            <input
+              error={errors.password?.message}
+              placeholder="Digite aqui sua senha"
+              type={showPassword ? "text" : "password"}
+              {...register("password")}
+            />
+            <span onClick={togglePassword}>
+              {!showPassword ? <FiEyeOff /> : <FiEye />}
+            </span>
+          </S.Password>
           <button type="submit">
             <span>Fazer login</span>
           </button>

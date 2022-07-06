@@ -28,6 +28,7 @@ export const BtnAddComponent = styled.div`
     margin: 0 auto;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-end;
     width: 70px;
     button:hover + div{
         opacity: 1;
@@ -37,7 +38,8 @@ export const BtnAddComponent = styled.div`
         display: flex;
         opacity: 0;
         visibility: hidden;
-        width: max-content;
+        width: 200px;
+        text-align: center;
         height: max-content;
         flex-direction: column;
         align-items: center;
@@ -56,6 +58,35 @@ export const BtnAddComponent = styled.div`
             height: 20px;
             transform: rotate(45deg);
             background-color: var(--CardDark);
+        }
+    }
+    @media (max-width: 550px) {
+        position: fixed;
+        bottom: 0;
+        z-index: 200;
+        background-color: var(--HeaderDark);
+        height: 62px;
+        width: 100%;
+        flex-direction: column-reverse;
+        button{
+            transform: translate(0, -78px);
+            color: var(--HeaderDark);
+            font-size: 8rem;
+            width: 55px;
+            background-color: var(--MainDark);
+            p{
+                margin-bottom: 17px;
+            }
+        }
+        >div{
+            transform: translate(0, -72px);
+            p{
+                transform: translate(0, 15px);
+            }
+            flex-direction: column-reverse;
+        }
+        ::before{
+
         }
     }
 `
