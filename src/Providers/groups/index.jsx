@@ -10,13 +10,11 @@ export const GroupsProvider = ({ children }) => {
   const [groups, setGroups] = useState([]);
   const [groupsInscribed, setGroupsInscribed] = useState([]);
   const [group, setGroup] = useState({});
-
-
-  let { user_id } = jwt_decode(
-    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU3MDcwOTU3LCJqdGkiOiJkZGY3ZTJjMWU3ZDg0ZWJmYjE5Njk1ODA3OTQ1YzQyMSIsInVzZXJfaWQiOjc4Mn0.S2tWUsQWB1o5NSuuwnWxYTjLtlL0utM6iArKhJivY_I"
+  const [token, setToken] = useState(
+    JSON.parse(localStorage.getItem("@StriveToGet: Token")) || ""
   );
 
-  console.log(user_id);
+  let user_id = token ? jwt_decode(token).user_id : "";
 
   const Get = (PerPage) => {
     Api.get(`/groups/?page=${PerPage}`)
@@ -31,45 +29,62 @@ export const GroupsProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    PerPage(1);
+    if(token){
+      PerPage(1);
+      buscaSubs()
+    }
   }, []);
 
   const listOneGroup = (group) => {
-    Api.get(`/groups/${group.id}/`)
-      .then((response) => setGroup(response.data))
-      .catch((err) => console.log(err));
-  };
-
-  const createGroup = (data) => {
-    Api.post("/groups/", data)
-      .then(toast.success("Group Created!"))
-      .catch((err) => console.log(err));
-  };
-
-  const editGroup = (data) => {
-    Api.patch(`/groups/${data.id}/`, data)
-      .then(toast.success("Group edited!"))
-      .catch((err) => console.log(err));
-  };
-
-  const groupSubscription = (data) => {
-    Api.post(`/groups/${data.id}/subscribe/`, "", {
+    Api.get(`/groups/${group.id}/`, {
       headers: {
         Authorization: `Bearer ${JSON.parse(
           localStorage.getItem("@StriveToGet: Token" || "")
         )}`,
       },
     })
-      .then(toast.success("Subscribed!"))
+      .then((response) => setGroup(response.data))
+      .catch((err) => console.log(err));
+  };
+
+  const createGroup = (data) => {
+    Api.post("/groups/", data, {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(
+          localStorage.getItem("@StriveToGet: Token" || "")
+        )}`,
+      },
+    })
+      .then(toast.success("Grupo Criado!"))
+      .catch((err) => console.log(err));
+  };
+
+  const editGroup = (data) => {
+    Api.patch(`/groups/${data.id}/`, data, {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(
+          localStorage.getItem("@StriveToGet: Token" || "")
+        )}`,
+      },
+    })
+      .then(toast.success("Grupo editado!"))
+      .catch((err) => console.log(err));
+  };
+
+  const groupSubscription = (data) => {
+    Api.post(`/groups/${data.id}/subscribe/`, "", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then(toast.success("Incrito com sucesso!"))
       .catch((err) => console.log(err));
   };
 
   const buscaSubs = () => {
     Api.get(`/groups/subscriptions/`, {
       headers: {
-        Authorization: `Bearer ${JSON.parse(
-          localStorage.getItem("@StriveToGet: Token" || "")
-        )}`,
+        Authorization: `Bearer ${token}`,
       },
     })
       .then((res) => setGroupsInscribed(res.data))
@@ -79,12 +94,10 @@ export const GroupsProvider = ({ children }) => {
   const exitGroup = (group) => {
     Api.delete(`/groups/${group.id}/unsubscribe/`, {
       headers: {
-        Authorization: `Bearer ${JSON.parse(
-          localStorage.getItem("@StriveToGet: Token" || "")
-        )}`,
+        Authorization: `Bearer ${token}`,
       },
     })
-      .then(toast.success("Unsubscribed sucessufully"))
+      .then(toast.success(`Saiu do grupo ${group.name}!`))
       .catch((err) => console.log(err));
   };
 

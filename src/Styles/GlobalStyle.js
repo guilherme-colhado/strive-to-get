@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     html, body, div, span, applet, object, iframe,
@@ -76,7 +76,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     body{
         background-color: var(--MainDark);
-    }]
+    }
     .Toastify__toast{
         background-color: var(--CardDark);
         color: #fff;
@@ -84,5 +84,13 @@ export const GlobalStyle = createGlobalStyle`
         svg{
             color: #fff;
         }
-    }]
+    }
 `;
+
+export const ContainerLoading = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+`

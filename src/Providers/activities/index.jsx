@@ -24,38 +24,38 @@ export const ActivitiesProvider = ({ children }) => {
 
   const createActivity = (data) => {
     Api.post("activities/", data)
-      .then(toast.success("Activity Created!"))
+      .then(toast.success("Atividade criada!"))
       .catch((err) => console.log(err));
   };
 
   const buscaActivities = (group) => {
     Api.get(`activities/?group=${group.id}`)
-      .then(toast.success("Listing habits"))
+      .then(toast.success("Exibindo atividades"))
       .catch((err) => console.log(err));
   };
 
   const attActivity = (data) => {
     Api.patch(`activities/${data.id}/`, data)
-      .then(toast.success("Activity edited!"))
+      .then(toast.success("Editado com sucesso!"))
       .catch((err) => console.log(err));
   };
 
   const deleteActivity = (data) => {
     Api.delete(`activities/${data.id}/`)
-      .then(toast.success("Deleted sucessufully"))
+      .then(toast.success("Deletado!"))
       .catch((err) => console.log(err));
   };
 
   return (
     <ActivitiesContext.Provider
-      value={
-        (activities,
+      value={{
+        activities,
         listActivities,
         createActivity,
         buscaActivities,
         attActivity,
-        deleteActivity)
-      }
+        deleteActivity,
+      }}
     >
       {children}
     </ActivitiesContext.Provider>

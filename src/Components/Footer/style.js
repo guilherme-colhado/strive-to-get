@@ -5,7 +5,7 @@ export const FooterTag = styled.footer`
   display: block;
   top: 83%;
   z-index: 1;
-`;
+`
 
 export const DivContainer = styled.div`
   display: flex;

@@ -1,15 +1,19 @@
 import { ButtonSearch, InputSearch, SearchComponent } from "./style"
 import { BsSearch } from 'react-icons/bs'
 import { useState } from "react";
-import { useEffect } from "react";
+
 export const Search = ({cb}) => {
-    const [active, setActive] = useState(false);
-    // const windowClick = () => window.onClick(()=>setActive(false))
-    // useEffect(() => {
-    //     windowClick()
-    // }, []);
+    const [active, setActive] = useState(true);
+    const [search, setSearch] = useState('')
     return <SearchComponent onBlur={(e)=> setActive(false)} onFocus={()=>setActive(true)}>
-        <InputSearch open={active} type='text'></InputSearch>
-        <ButtonSearch><BsSearch/></ButtonSearch>
+        <form onSubmit={(e)=>{
+            e.preventDefault()
+            if(active) {
+                cb(search)
+            }
+        }}>
+            <InputSearch open={active} onChange={(e)=>setSearch(e.target.value)} type='text'></InputSearch>
+            <ButtonSearch type="submit"><BsSearch/></ButtonSearch>
+        </form>
     </SearchComponent>
 }

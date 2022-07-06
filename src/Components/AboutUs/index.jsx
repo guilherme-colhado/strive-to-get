@@ -2,7 +2,7 @@ import { Container, DevBoxLeft, DevBoxRight, ImgName, InfoDev } from "./style";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
-const AboutUs = () => {
+export const AboutUs = () => {
   return (
     <Container>
       <DevBoxLeft>
@@ -271,5 +271,3 @@ const AboutUs = () => {
     </Container>
   );
 };
-
-export default AboutUs;
