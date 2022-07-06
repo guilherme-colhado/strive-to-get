@@ -18,6 +18,7 @@ export const RoutesComponent = () => {
       <Route path="/aboutUs" element={<AboutUsComponent/>}></Route>
       <Route path="/groups" element={<GroupsPage />}></Route>
       <Route path="/groups/:id"></Route>
+      <Route path="/teste" element={<CardActivities/>}></Route>
     </Routes>
   );
 };
