@@ -14,7 +14,8 @@ export const GroupName = () => {
     <Container>
       <Infos>
         <EditName>
-          <h1>{group.name}</h1> <AiOutlineEdit onClick={() => ""} />
+          <h1>{group.name}</h1>{" "}
+          <AiOutlineEdit onClick={() => editGroup(groupId)} />
         </EditName>
         <h3>{group.category}</h3>
         <h2>{group.description}</h2>

@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  position: absolute;
-  top: 10px;
-  left: 100px;
+  margin-left: 100px;
+  margin-top: 20px;
   color: #ffffff;
   max-width: 870px;
 `;
@@ -47,7 +46,7 @@ export const EditName = styled.section`
   h1 {
     font-size: 7rem;
     text-decoration: underline;
-    width: 870px;
+    width: max-content;
     height: 68px;
     overflow: hidden;
     :hover {
