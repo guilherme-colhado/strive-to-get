@@ -16,6 +16,18 @@ export const GroupsProvider = ({ children }) => {
 
   let user_id = token ? jwt_decode(token).user_id : "";
 
+  const searchGroups = (input) => {
+    // if (input === "") {
+    //   setGroups([]);
+
+    //   PerPage(1);
+    // } else {
+    Api.get(`/groups/?search=${input}`)
+      .then((response) => setGroups(response.data.results))
+      .catch((err) => console.log(err));
+    // }
+  };
+
   const Get = (PerPage) => {
     Api.get(`/groups/?page=${PerPage}`)
       .then((response) => setGroups((pv) => [...pv, ...response.data.results]))
@@ -29,9 +41,9 @@ export const GroupsProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    if(token){
+    if (token) {
       PerPage(1);
-      buscaSubs()
+      buscaSubs();
     }
   }, []);
 
@@ -55,9 +67,9 @@ export const GroupsProvider = ({ children }) => {
         )}`,
       },
     })
-      .then(()=>{
-        toast.success("Grupo Criado!")
-        buscaSubs()
+      .then(() => {
+        toast.success("Grupo Criado!");
+        buscaSubs();
       })
       .catch((err) => console.log(err));
   };
@@ -80,9 +92,9 @@ export const GroupsProvider = ({ children }) => {
         Authorization: `Bearer ${token}`,
       },
     })
-      .then(()=>{
-        toast.success("Incrito com sucesso!")
-        buscaSubs()
+      .then(() => {
+        toast.success("Incrito com sucesso!");
+        buscaSubs();
       })
       .catch((err) => console.log(err));
   };
@@ -113,6 +125,7 @@ export const GroupsProvider = ({ children }) => {
         groups,
         groupsInscribed,
         group,
+        searchGroups,
         PerPage,
         listOneGroup,
         createGroup,

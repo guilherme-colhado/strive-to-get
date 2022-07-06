@@ -16,43 +16,28 @@ import { RegisterGroup } from "../RegisterGroup";
 import { BsSearch } from "react-icons/bs";
 
 export const AllGroups = () => {
-  const { groups, PerPage, createGroup } = useContext(GroupsContext);
+  const { groups, PerPage, createGroup, searchGroups } =
+    useContext(GroupsContext);
   const [active, setActive] = useState(false);
   const [page, setPage] = useState(3);
   const [search, setSearch] = useState("");
   const [modal, setModal] = useState(false);
 
-  const test = () => {
+  const more = () => {
     PerPage(page);
     setPage(page + 2);
   };
 
-  const [render, setRender] = useState([]);
-
-  const newRender = () => {
-    setRender(groups);
-  };
-
-  const searchRender = () => {
-    setRender(
-      render.filter((render) =>
-        render.name.toLowerCase().includes(search.toLowerCase())
-      )
-    );
-  };
-
-  const normalRender = (x) => {
-    if (x === "") {
-      newRender();
+  const searchRender = (search) => {
+    if (search === "") {
+      searchGroups(search);
+      setTimeout(() => {
+        more();
+      }, 200);
     } else {
-      setSearch(x);
+      searchGroups(search);
     }
   };
-
-  useEffect(() => {
-    setRender([]);
-    newRender();
-  }, [groups.length]);
 
   return (
     <>
@@ -64,9 +49,9 @@ export const AllGroups = () => {
           <InputSearch
             open={active}
             type="text"
-            onChange={(e) => normalRender(e.target.value)}
+            onChange={(e) => searchRender(e.target.value)}
           />
-          <ButtonSearch onClick={() => searchRender()}>
+          <ButtonSearch>
             <BsSearch />
           </ButtonSearch>
         </SearchComponent>
@@ -75,11 +60,11 @@ export const AllGroups = () => {
             <BtnAdd callback={() => setModal(true)} key={"Botao ADD"}>
               Criar novo Grupo
             </BtnAdd>
-            {render.map((element) => {
+            {groups.map((element) => {
               return <SingleGroup props={element} key={element.id} />;
             })}
           </DivCont>
-          <div onClick={() => test()} id="sentry">
+          <div onClick={() => more()} id="sentry">
             <AiOutlineDown />
           </div>
         </Border>
