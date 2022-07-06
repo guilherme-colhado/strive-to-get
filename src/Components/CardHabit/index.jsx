@@ -12,19 +12,20 @@ export const CardHabit = ({ element }) => {
   const [archive, setArchive] = useState(false);
   const [howMuch, setHowMuch] = useState(element.how_much_achieved);
   const [mobile, setMobile] = useState(false);
+  console.log(element)
   return (
     <>
       <Card>
         <CardTitle onClick={() => setMobile(!mobile)} mobile={mobile}>
-          {element.title.length > 13
-            ? `${element.title.slice(0, 10)}...`
+          {element.title.length > 6
+            ? `${element.title.slice(0, 6)}...`
             : element.title}{" "}
           <button onClick={() => setDelet(true)}>
             <AiOutlineDelete />
           </button>
         </CardTitle>
-        <CardInfo mobile={mobile}>
-          <Infos>
+        <CardInfo archive={element.achieved} mobile={mobile}>
+          <Infos archive={element.achieved}>
             <div>
               <span>Categoria:</span> <span>{element.category}</span>
             </div>
@@ -38,8 +39,16 @@ export const CardHabit = ({ element }) => {
               <span>Faltam: {howMuch}</span>
               <button
                 onClick={() => {
-                  setHowMuch((previus) => previus - 1);
-                  checkInHabit(element, howMuch - 1);
+                  const num = element.frequency === "Mensalmente" ? 30 
+                  : element.frequency === 'Semanalmente' ? 7 
+                  : 1
+                  if(howMuch - num > 0){
+                    setHowMuch((previus) => previus - num);
+                    checkInHabit(element, howMuch - num);
+                  }else{
+                    setHowMuch(0);
+                    checkInHabit(element, 0);
+                  }
                 }}
               >
                 <AiOutlineCheckCircle /> Checkin

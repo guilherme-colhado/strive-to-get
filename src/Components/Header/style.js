@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 export const HeaderStyle = styled.header`
     background-color: var(--HeaderDark);
-    position: sticky;
+    position: fixed;
     top: 0;
+    height: 86.4px;
     z-index: 100;
     width: 100%;
     display: flex;

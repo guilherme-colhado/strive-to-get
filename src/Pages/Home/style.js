@@ -6,9 +6,15 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: space-between;
     min-height: 100vh;
+    padding-top: 86.4px;
     >div{
         display: flex;
         flex-direction: column;
+        >h1{
+            color: white;
+            font-size: 4rem;
+            text-align: center;
+        }
     }
     main{
         margin-left: 60px;

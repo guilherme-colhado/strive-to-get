@@ -21,7 +21,7 @@ export const User = () => {
         setLoading(false)
         clearInterval(loadingInterval)
     },3000)
-    return loading ? <Loading/> : 
+    return !user.username ? <Loading/> : 
     <Container>
         <div>
             <Header logged person={user}/>

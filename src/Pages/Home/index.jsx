@@ -30,6 +30,7 @@ export const Home = () => {
                     <Header logged person={user}/>
                     <GroupsComponent/>
                     <Search cb={searchHabit}/>
+                    <h1>Habitos</h1>
                 </div>
                 <main>
                     <BtnAdd callback={()=>setModal(true)}>Clique aqui para adicionar um novo habito</BtnAdd>

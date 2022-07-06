@@ -5,6 +5,7 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: space-between;
     min-height: 100vh;
+    padding-top: 86.4px;
     @media (max-width: 550px) {
         footer::after{
             content: '';

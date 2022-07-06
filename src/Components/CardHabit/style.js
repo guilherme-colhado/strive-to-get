@@ -57,7 +57,7 @@ export const CardTitle = styled.h1`
 `;
 
 export const CardInfo = styled.div`
-  padding: 10px 15px 20px;
+  padding: ${props => props.archive ? '10px 15px 10px' : '10px 15px 20px'} ;
   background-color: var(--CardDark);
   border-radius: 0 0 10px 10px;
   button {
@@ -77,7 +77,9 @@ export const CardInfo = styled.div`
       margin-top: 2px;
     }
   }
-
+  >button{
+    display: ${props => props.archive ? 'none' : 'flex'}
+  }
   @media (max-width: 550px) {
     display: ${(props) => (props.mobile ? "visible" : "none")};
   }
@@ -96,5 +98,8 @@ export const Infos = styled.div`
       background-color: var(--BtnConfirmDark);
     }
   }
+  div:nth-child(4){
+    display: ${props => props.archive ? 'none' : 'flex'};
+  };
   min-width: 200px;
 `;

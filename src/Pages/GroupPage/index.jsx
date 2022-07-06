@@ -11,11 +11,11 @@ import { Header } from "../../Components/Header"
 import { Members } from "../../Components/Members"
 import { GroupsContext } from "../../Providers/groups"
 import { UserContext } from "../../Providers/usersFunctions"
-import { Container } from "./style"
+import { Container, Principal } from "./style"
 
 export const GroupPage = () => {
     const { user } = useContext(UserContext)
-    const {id} = useParams();
+    const { id } = useParams();
     const { group, listOneGroup } = useContext(GroupsContext)
     useEffect(() => {
         listOneGroup(id)
@@ -23,11 +23,19 @@ export const GroupPage = () => {
     return !user.username ? <Loading/> : <Container>
         <Header logged person={user}></Header>
         <main>
-            <GroupName/>
-            <BtnAdd>Adicione uma nova meta ou atividade</BtnAdd>
-            {group.activities?.map((activitie)=><CardActivities activity={activitie}/>)}
-            <CardGoals/>
-            <CardGoalsInscribed/>
+            <Principal>
+                <GroupName/>
+                <div>
+                    <BtnAdd>Adicione uma nova meta ou atividade</BtnAdd>
+                    <div>
+                        {group.activities?.map((activitie)=><CardActivities activity={activitie}/>)}
+                    </div>
+                </div>
+            </Principal>
+            <div>
+                <CardGoals/>
+                <CardGoalsInscribed/>
+            </div>
             <Members members={group?.users_on_group}/>
         </main>
         <Footer/>
