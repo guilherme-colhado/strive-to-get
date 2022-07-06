@@ -7,30 +7,36 @@ import { BtnAdd } from "../../Components/BtnAdd";
 import { CardHabit } from "../../Components/CardHabit";
 import { Modal } from "../../Components/Modal"
 import { RegisterHabit } from "../../Components/RegisterHabit";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { Search } from '../../Components/Search'
+import { HabitsContext } from "../../Providers/habits";
+import { UserContext } from "../../Providers/usersFunctions";
+import { Loading } from "../../Components/ContainerLoading";
 
 export const Home = () => {
     const nav = useNavigate()
-    if(!localStorage.getItem('@StriveToGet: Token')){
-        nav('/main')
-    }
+    useEffect(() => {
+        if(!localStorage.getItem('@StriveToGet: Token')){
+            nav('/main')
+        }  
+    }, []);
     const [modal, setModal] = useState(false);
-
-    return (
-    <Container>
-        <Header login/>
-        <GroupsComponent/>
-        <main>
-            <BtnAdd callback={()=>setModal(true)}>Clique aqui para adicionar um novo habito</BtnAdd>
-            <CardHabit/>
-            <CardHabit/>
-            <CardHabit/>
-            <CardHabit/>
-            <CardHabit/>
-            <CardHabit/>
-        </main>
-        <Footer/>
-        <Modal open={modal}><RegisterHabit onClose={()=>setModal(false)}/></Modal>
-    </Container>
-    );
+    const { user } = useContext(UserContext)
+    const { habits, createHabit, searchHabit } = useContext(HabitsContext);
+    return habits.length <= 0 ? <Loading/> :
+        <>
+            <Container >
+                <div>
+                    <Header logged person={user}/>
+                    <GroupsComponent/>
+                    <Search cb={searchHabit}/>
+                </div>
+                <main>
+                    <BtnAdd callback={()=>setModal(true)}>Clique aqui para adicionar um novo habito</BtnAdd>
+                    {habits && habits.map(habit => <CardHabit key={habit.id} element={habit}/>)}
+                </main>
+                <Footer/>
+            </Container>
+            <Modal open={modal}><RegisterHabit onSubmit={createHabit} onClose={()=>setModal(false)}/></Modal>
+        </>
 };

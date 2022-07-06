@@ -11,23 +11,24 @@ export const Info = () => {
       <DivInfos>
         <section>
           <h2>
-            Start <span></span> your habits
+            Comece <span></span> seus hábitos.
           </h2>
           <div>
             <p>
-              Simply and effective, take control off your life with{" "}
+              Simples e efetivo, Tenha o controle da sua vida com
               <strong>Strive To Get</strong>.
             </p>
-            <p>Join us, and we make it more ease for you.</p>
+            <p>
+              Especializados em ajudar a pessoas a atingir seus objetivos, venha
+              fazer parte do nosso time.
+            </p>
           </div>
-          <button onClick={() => destiny("/")}>Join us</button>
+          <button onClick={() => destiny("/signUp")}>Junte-se agora</button>
         </section>
       </DivInfos>
-      {/* <section> */}
       <Image>
         <img src={Img} />
       </Image>
-      {/* </section> */}
     </DivContainer>
   );
 };

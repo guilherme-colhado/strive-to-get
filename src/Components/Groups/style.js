@@ -62,5 +62,35 @@ export const Group = styled.div`
             opacity: 1;
         }
     }
+    @media (max-width: 720px){
+        display: none;
+    }
+`
 
+export const Container = styled.div`
+    display: none;
+    width: 100%;
+    @media (max-width: 720px){
+        display: flex;
+    }
+`
+
+export const GroupMobile = styled.div`
+    display: none;
+    width: 100%;
+    top: 96px;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    background-color: var(--HeaderDark);
+    p{
+        font-size: 2.5rem;
+    }
+    @media (max-width: 720px){
+        display: flex;
+    }
 `

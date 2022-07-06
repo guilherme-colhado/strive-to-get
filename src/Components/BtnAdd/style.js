@@ -60,4 +60,33 @@ export const BtnAddComponent = styled.div`
             background-color: var(--CardDark);
         }
     }
+    @media (max-width: 550px) {
+        position: fixed;
+        bottom: 0;
+        z-index: 200;
+        background-color: var(--HeaderDark);
+        height: 62px;
+        width: 100%;
+        flex-direction: column-reverse;
+        button{
+            transform: translate(0, -78px);
+            color: var(--HeaderDark);
+            font-size: 8rem;
+            width: 55px;
+            background-color: var(--MainDark);
+            p{
+                margin-bottom: 17px;
+            }
+        }
+        >div{
+            transform: translate(0, -72px);
+            p{
+                transform: translate(0, 15px);
+            }
+            flex-direction: column-reverse;
+        }
+        ::before{
+
+        }
+    }
 `

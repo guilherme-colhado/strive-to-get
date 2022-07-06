@@ -6,10 +6,10 @@ export const ComfirmAchieved = ({ onClose, onSubmit }) => {
       <S.Box>
         <p>Você tem certeza que quer arquivar este hábito?</p>
         <S.BoxButton>
-          <S.ButtonNot onclick={onClose}>
+          <S.ButtonNot onClick={onClose}>
             <span>Ainda não</span>
           </S.ButtonNot>
-          <S.ButtonYes onclick={onSubmit}>
+          <S.ButtonYes onClick={onSubmit}>
             <span>Arquivar</span>
           </S.ButtonYes>
         </S.BoxButton>

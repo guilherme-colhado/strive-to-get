@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     html, body, div, span, applet, object, iframe,
@@ -72,7 +72,7 @@ export const GlobalStyle = createGlobalStyle`
         --ColorCardGroupNotInscribedDark: #760000;
         --ColorCardGroupNotInscribedLigth: #BC4343;
         --plusDark: #ac0000;
-        --plusLigth: #db2121
+        --plusLigth: #db2121;
     }
     body{
         background-color: var(--MainDark);
@@ -86,3 +86,11 @@ export const GlobalStyle = createGlobalStyle`
         }
     }
 `;
+
+export const ContainerLoading = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+`
