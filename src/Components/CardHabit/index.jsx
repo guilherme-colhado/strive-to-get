@@ -16,7 +16,9 @@ export const CardHabit = ({ element }) => {
     <>
       <Card>
         <CardTitle onClick={() => setMobile(!mobile)} mobile={mobile}>
-          {element.title}{" "}
+          {element.title.length > 13
+            ? `${element.title.slice(0, 10)}...`
+            : element.title}{" "}
           <button onClick={() => setDelet(true)}>
             <AiOutlineDelete />
           </button>

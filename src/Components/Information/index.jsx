@@ -16,7 +16,7 @@ export const Info = () => {
           <div>
             <p>
               Simples e efetivo, Tenha o controle da sua vida com
-              <strong>Strive To Get</strong>.
+              <strong> Strive To Get</strong>.
             </p>
             <p>
               Especializados em ajudar a pessoas a atingir seus objetivos, venha
