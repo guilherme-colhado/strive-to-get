@@ -1,22 +1,29 @@
 import * as S from "./style";
 import { FiX } from "react-icons/fi";
 import { useState } from "react";
-import { toast } from 'react-toastify'
+import { toast } from "react-toastify";
 
 export const RegisterHabit = ({ onClose, onSubmit }) => {
-  const [title, setTitle] = useState('');
-  const [category, setCategory] = useState('Estudo');
-  const [difficulty, setDifficulty] = useState('Fácil');
-  const [frequency, setFrequency] = useState('Diariamente');
-  const achieved = false
-  const [how_much_achieved, setHow_much_achieved] = useState('1')
+  const [title, setTitle] = useState("");
+  const [category, setCategory] = useState("Estudo");
+  const [difficulty, setDifficulty] = useState("Fácil");
+  const [frequency, setFrequency] = useState("Diariamente");
+  const achieved = false;
+  const [how_much_achieved, setHow_much_achieved] = useState("1");
   const onSubmitFunction = (e) => {
-    e.preventDefault()
-    const data = {title, category, difficulty, frequency, achieved, how_much_achieved}
-    if(!data.title) return toast.error('Por favor digite algo no titulo!!')
-    onSubmit(data)
-    onClose()
-  }
+    e.preventDefault();
+    const data = {
+      title,
+      category,
+      difficulty,
+      frequency,
+      achieved,
+      how_much_achieved,
+    };
+    if (!data.title) return toast.error("Por favor digite algo no titulo!");
+    onSubmit(data);
+    onClose();
+  };
   return (
     <S.Container>
       <S.Box>
@@ -29,21 +36,25 @@ export const RegisterHabit = ({ onClose, onSubmit }) => {
           </S.Header>
           <S.Input>
             <label>Hábito:</label>
-            <input placeholder="Digite aqui seu hábito" onChange={(e)=>setTitle(e.target.value)}/>
+            <input
+              placeholder="Digite aqui seu hábito"
+              onChange={(e) => setTitle(e.target.value)}
+            />
           </S.Input>
           <S.Select>
             <label>Categoria:</label>
-            <select onChange={(e)=>setCategory(e.target.value)}>
+            <select onChange={(e) => setCategory(e.target.value)}>
               <option value="" disabled>
                 Selecione a categoria
               </option>
               <option value="Estudo">Estudo</option>
               <option value="Saúde">Saúde</option>
               <option value="Trabalho">Trabalho</option>
+              <option value="Entretenimento">Entretenimento</option>
             </select>
 
             <label>Dificuldade:</label>
-            <select onChange={(e)=>setDifficulty(e.target.value)}>
+            <select onChange={(e) => setDifficulty(e.target.value)}>
               <option value="" disabled>
                 Selecione a dificuldade
               </option>
@@ -54,19 +65,21 @@ export const RegisterHabit = ({ onClose, onSubmit }) => {
               <option value="Muito Difícil">Muito Difícil</option>
             </select>
             <label>Quantas vezes:</label>
-            <select onChange={(e)=>setHow_much_achieved(e.target.value)}>
+            <select onChange={(e) => setHow_much_achieved(e.target.value)}>
               <option value="" disabled>
                 Selecione a duração
               </option>
               <option value={1}>Um dia</option>
               <option value={7}>Uma semana</option>
+              <option value={15}>Uma quinzena</option>
               <option value={30}>Um mês</option>
+              <option value={90}>Um trimestre</option>
               <option value={180}>Um semestre</option>
               <option value={365}>Um ano </option>
             </select>
 
             <label>Frequência:</label>
-            <select onChange={(e)=>setFrequency(e.target.value)}>
+            <select onChange={(e) => setFrequency(e.target.value)}>
               <option value="" disabled>
                 Selecione a frequência
               </option>
