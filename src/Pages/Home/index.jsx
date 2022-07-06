@@ -16,6 +16,12 @@ import { Loading } from "../../Components/ContainerLoading";
 export const Home = () => {
     const [modal, setModal] = useState(false);
     const { user } = useContext(UserContext)
+    const nav = useNavigate()
+    useEffect(() => {
+        if(!localStorage.getItem('@StriveToGet: Token')){
+            nav('/main')
+        }
+    }, []);
     const { habits, createHabit, searchHabit } = useContext(HabitsContext);
     return !user.username ? <Loading/> :
         <>
