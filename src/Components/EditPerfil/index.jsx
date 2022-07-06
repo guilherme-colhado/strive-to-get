@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
-import { UserContext } from "../../Providers/SignUp";
+import { UserContext } from "../../Providers/usersFunctions";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import jwt_decode from "jwt-decode";
 import { EditPerfilStyle, Input, Button } from "./style";
 
 export const EditPerfil = () => {
-  const { UpdateUser, token, UserInfos, info } = useContext(UserContext);
-  const [username, setUser] = useState("");
-  const [email, setEmail] = useState("");
+  const { UpdateUser, token, UserInfos, user } = useContext(UserContext);
+  const [username, setUser] = useState(user.username);
+  const [email, setEmail] = useState(user.email);
 
   const {
     handleSubmit,
@@ -16,15 +15,9 @@ export const EditPerfil = () => {
   } = useForm({});
 
   const submit = () => {
-    let { user_id } = jwt_decode(token);
-
-    UpdateUser(user_id, { username, email });
+    UserInfos()
+    UpdateUser({ username, email });
   };
-
-  //   useEffect(() => {
-  //     let { user_id } = jwt_decode(token);
-  //     UserInfos(user_id);
-  //   }, []);
 
   return (
     <EditPerfilStyle onSubmit={handleSubmit(submit)}>
@@ -32,7 +25,7 @@ export const EditPerfil = () => {
         <h2>UserName: </h2>
         <Input
           type="text"
-          placeholder={info.username}
+          placeholder={user.username}
           onChange={(e) => setUser(e.target.value)}
         />
       </div>
@@ -41,7 +34,7 @@ export const EditPerfil = () => {
         <h2>Email: </h2>
         <Input
           type="text"
-          placeholder={info.email}
+          placeholder={user.email}
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>

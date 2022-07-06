@@ -20,12 +20,6 @@ export const Box = styled.div`
   background-color: #7b0000;
   border-radius: 6px;
   padding: 2rem;
-
-  @media screen and (min-width: 720px) {
-    & {
-      max-width: 530px;
-    }
-  }
 `;
 
 export const Header = styled.div`
@@ -34,6 +28,7 @@ export const Header = styled.div`
   align-items: center;
   width: 100%;
   margin-bottom: 32px;
+  padding-left: 15rem;
 
   h2 {
     color: #ffffff;
@@ -64,12 +59,7 @@ export const Cards = styled.div`
   display: flex;
   flex-flow: row wrap;
   gap: 20px;
-  justify-content: flex-start;
-
-  @media screen and (min-width: 720px) {
-    & {
-    }
-  }
+  justify-content: center;
 
   &::-webkit-scrollbar {
     background-color: rgba(0, 0, 0, 0.2);

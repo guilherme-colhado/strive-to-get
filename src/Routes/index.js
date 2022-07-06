@@ -5,18 +5,20 @@ import { Home } from "../Pages/Home";
 import { LoginComponent } from "../Pages/Login";
 import { Main } from "../Pages/Main";
 import { SignUpComponent } from "../Pages/SignUp";
+import { User } from "../Pages/User";
 
 export const RoutesComponent = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />}></Route>
-      <Route path="/:id"></Route>
+      <Route path="/:id" element={<User/>}></Route>
       <Route path="/main" element={<Main/>}></Route>
       <Route path="/login" element={<LoginComponent />}></Route>
       <Route path="/signUp" element={<SignUpComponent/>}></Route>
       <Route path="/aboutUs" element={<AboutUsComponent/>}></Route>
       <Route path="/groups" element={<GroupsPage />}></Route>
       <Route path="/groups/:id"></Route>
+      <Route path="/teste" element={<CardActivities/>}></Route>
     </Routes>
   );
 };

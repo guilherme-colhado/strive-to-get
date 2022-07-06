@@ -5,6 +5,7 @@ import { GroupsContext } from "../../Providers/groups";
 import { SingleGroup } from "../../Components/SingleGroup";
 import { useEffect } from "react";
 import { FiX } from "react-icons/fi";
+import { CardHabit } from "../CardHabit";
 
 export const ModalGroups = ({ onClose }) => {
   const { buscaSubs, groupsInscribed } = useContext(GroupsContext);

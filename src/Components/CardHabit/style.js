@@ -1,20 +1,20 @@
 import styled from "styled-components";
 
 export const Card = styled.section`
-    display: flex;
-    flex-direction: column;
-    width: max-content;
-    margin: 10px auto;
-    animation: popUp .5s forwards;
-    @keyframes popUp {
-        from{
-            transform: scale(0);
-        }
-        to{
-            transform: scale(1);
-        }
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  margin: 10px 5px 0 5px;
+  animation: popUp 0.5s forwards;
+  @keyframes popUp {
+    from {
+      transform: scale(0);
     }
-`
+    to {
+      transform: scale(1);
+    }
+  }
+`;
 
 export const CardTitle = styled.h1`
   background-color: var(--HeaderDark);
@@ -33,6 +33,26 @@ export const CardTitle = styled.h1`
     color: white;
     cursor: pointer;
     padding-top: 5px;
+  }
+
+  @media (max-width: 550px) {
+    width: 87vw;
+    height: ${(props) => (props.mobile ? "" : "43px")};
+    border-bottom-left-radius: ${(props) => (props.mobile ? "0" : "7px")};
+    border-bottom-right-radius: ${(props) => (props.mobile ? "0" : "7px")};
+    button {
+      display: ${(props) => (props.mobile ? "visible" : "none")};
+    }
+  }
+
+  @media (max-width: 487px) {
+    width: 85vw;
+  }
+  @media (max-width: 400px) {
+    width: 82vw;
+  }
+  @media (max-width: 340px) {
+    width: 80vw;
   }
 `;
 
@@ -56,6 +76,10 @@ export const CardInfo = styled.div`
       margin-right: 2px;
       margin-top: 2px;
     }
+  }
+
+  @media (max-width: 550px) {
+    display: ${(props) => (props.mobile ? "visible" : "none")};
   }
 `;
 

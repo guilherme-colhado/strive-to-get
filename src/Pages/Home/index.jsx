@@ -1,7 +1,7 @@
 import { Footer } from "../../Components/Footer";
 import { Header } from "../../Components/Header";
 import { GroupsComponent } from "../../Components/Groups";
-import { Container, ContainerLoading } from "./style";
+import { Container } from "./style";
 import { useNavigate } from "react-router-dom";
 import { BtnAdd } from "../../Components/BtnAdd";
 import { CardHabit } from "../../Components/CardHabit";
@@ -11,31 +11,19 @@ import { useContext, useEffect, useState } from "react";
 import { Search } from '../../Components/Search'
 import { HabitsContext } from "../../Providers/habits";
 import { UserContext } from "../../Providers/usersFunctions";
-import { CircularProgress } from "@mui/material";
+import { Loading } from "../../Components/ContainerLoading";
 
 export const Home = () => {
     const nav = useNavigate()
     useEffect(() => {
-        UserInfos()
-        listHabitsNotArchived()
         if(!localStorage.getItem('@StriveToGet: Token')){
             nav('/main')
         }  
     }, []);
     const [modal, setModal] = useState(false);
-    const { user, UserInfos } = useContext(UserContext)
-    const { habits, createHabit, searchHabit, listHabitsNotArchived} = useContext(HabitsContext);
-    const [loading, setLoading] = useState(true);
-    const loadingInterval = setInterval(()=>{
-        setLoading(false)
-        clearInterval(loadingInterval)
-    },3000)
-    return (
-        loading ? 
-        <ContainerLoading>
-            <CircularProgress style={{width: '10vw', height: '10vw', color: 'red'}}/>
-        </ContainerLoading> 
-        :
+    const { user } = useContext(UserContext)
+    const { habits, createHabit, searchHabit } = useContext(HabitsContext);
+    return habits.length <= 0 ? <Loading/> :
         <>
             <Container >
                 <div>
@@ -51,5 +39,4 @@ export const Home = () => {
             </Container>
             <Modal open={modal}><RegisterHabit onSubmit={createHabit} onClose={()=>setModal(false)}/></Modal>
         </>
-    );
 };
