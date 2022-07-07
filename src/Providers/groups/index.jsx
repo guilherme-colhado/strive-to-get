@@ -68,7 +68,7 @@ export const GroupsProvider = ({ children }) => {
       .catch((err) => console.log(err));
   };
 
-  const editGroup = (data) => {
+  const editGroup = (data, _) => {
     let { id } = data;
     let newdata = { name: data.name };
 
