@@ -8,16 +8,16 @@ import { AiOutlineHome } from "react-icons/ai";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Clock } from "../Clock";
+import { useContext } from "react";
+import { UserContext } from "../../Providers/usersFunctions";
 
 export const Header = ({ login, logged, person }) => {
   const [navMobile, setNavMobile] = useState(false);
-  const [user, setUser] = useState(false);
+  
+  const { setToken, setUser } = useContext(UserContext)
+  
   const nav = useNavigate();
-  useEffect(() => {
-    if(user){
-        nav(`/${person.id}`)
-    }  
-  }, [user]);
+  
   return <HeaderStyle>
       <LogoComponent onClick={()=>{
         if(person){
@@ -78,6 +78,10 @@ export const Header = ({ login, logged, person }) => {
           <Button onClick={() => {
               if(logged) localStorage.removeItem('@StriveToGet: Token')
               nav(logged ? '/login' : login ? '/signUp' : '/login')
+              if(logged){
+                setToken('')
+                setUser('')
+              }
             }}>
             <div>
               {logged ? <><FiLogOut/>Sair</> : login ? <><HiOutlineUserAdd />Cadastrar</> : <><FiLogIn />Login</>}

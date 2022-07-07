@@ -43,6 +43,7 @@ export const AllGroups = () => {
     <>
       <Div>
         <SearchComponent
+          tabIndex={'-1'}
           onFocus={() => setActive(true)}
           onBlur={() => setActive(false)}
         >

@@ -63,6 +63,7 @@ export const BtnAddComponent = styled.div`
     @media (max-width: 550px) {
         position: fixed;
         bottom: 0;
+        left: 0;
         z-index: 200;
         background-color: var(--HeaderDark);
         height: 62px;
@@ -86,9 +87,6 @@ export const BtnAddComponent = styled.div`
                 transform: translate(0, 15px);
             }
             flex-direction: column-reverse;
-        }
-        ::before{
-
         }
     }
 `

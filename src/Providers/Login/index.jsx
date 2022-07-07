@@ -3,6 +3,8 @@ import { Api } from "../../Services/api";
 import { toast } from "react-toastify";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../usersFunctions";
 export const LoginContext = createContext();
 
 export const LoginProvider = ({ children }) => {
@@ -12,6 +14,8 @@ export const LoginProvider = ({ children }) => {
       .catch((res) => toast.error('Não foi possivel logar, tente novamente!!'));
   };
 
+  const { setToken } = useContext(UserContext)
+
   const nav = useNavigate()
 
   const loginFunction = (token, data) => {
@@ -19,6 +23,7 @@ export const LoginProvider = ({ children }) => {
       "@StriveToGet: Token",
       JSON.stringify(token)
     )
+    setToken(token)
     toast.success('Seja bem vindo ' + data.username + '!!')
     nav("/")
     // window.location.reload(false)

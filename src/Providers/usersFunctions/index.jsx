@@ -11,19 +11,19 @@ export const UserProvider = ({ children }) => {
   const [token, setToken] = useState(
     JSON.parse(localStorage.getItem("@StriveToGet: Token")) || ""
   );
-
+  
   const user_id = token ? jwt_decode(token).user_id : "";
-
+  
   const UserInfos = () => {
     let { user_id } = jwt_decode(token);
     Api.get(`/users/${user_id}/`).then((response) => setUser(response.data));
   };
-
+  console.log(token)
   useEffect(() => {
     if (token) {
       UserInfos();
     }
-  }, []);
+  }, [token]);
 
   const UpdateUser = (data) => {
     Api.patch(`/users/${user_id}/`, data, {
@@ -40,6 +40,8 @@ export const UserProvider = ({ children }) => {
         returnInfo,
         token,
         user,
+        setUser,
+        setToken,
         UserInfos,
         UpdateUser,
       }}

@@ -2,15 +2,16 @@ import { createContext, useState, useEffect } from "react";
 import jwt_decode from "jwt-decode";
 import { Api } from "../../Services/api";
 import { toast } from "react-toastify";
+import { useContext } from "react";
+import { UserContext } from "../usersFunctions";
 
 export const HabitsContext = createContext();
 
 export const HabitsProvider = ({ children }) => {
   const [habits, setHabits] = useState([]);
   const [habitsAchieved, setHabitsAchieved] = useState([]);
-  const [token, setToken] = useState(
-    JSON.parse(localStorage.getItem("@StriveToGet: Token")) || ""
-  );
+  
+  const { token } = useContext(UserContext)
 
   const user_id = token ? jwt_decode(token).user_id : '';
 
@@ -37,7 +38,7 @@ export const HabitsProvider = ({ children }) => {
       listHabitsNotArchived()
       listHabitsArchived()
     }
-  }, []);
+  }, [token]);
 
   const searchHabit = (title) => {
     Api.get('/habits/personal/', {headers: {Authorization: `Bearer ${token}` }})

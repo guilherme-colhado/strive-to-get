@@ -3,6 +3,8 @@ import { Api } from "../../Services/api";
 import { toast } from "react-toastify";
 import { get } from "react-hook-form";
 import jwt_decode from "jwt-decode";
+import { useContext } from "react";
+import { UserContext } from "../usersFunctions";
 
 export const GroupsContext = createContext();
 
@@ -10,11 +12,7 @@ export const GroupsProvider = ({ children }) => {
   const [groups, setGroups] = useState([]);
   const [groupsInscribed, setGroupsInscribed] = useState([]);
   const [group, setGroup] = useState({});
-  const [token, setToken] = useState(
-    JSON.parse(localStorage.getItem("@StriveToGet: Token")) || ""
-  );
-
-  let user_id = token ? jwt_decode(token).user_id : "";
+  const { token } = useContext(UserContext)
 
   const searchGroups = (input) => {
     Api.get(`/groups/?search=${input}`)
@@ -34,12 +32,14 @@ export const GroupsProvider = ({ children }) => {
     }
   };
 
+
+
   useEffect(() => {
     if (token) {
       PerPage(1);
       buscaSubs();
     }
-  }, []);
+  }, [token]);
 
   const listOneGroup = (group) => {
     Api.get(`/groups/${group}/`, {

@@ -8,20 +8,20 @@ import { GoalsProvider } from "./Goals";
 
 export const Providers = ({ children }) => {
   return (
-    <LoginProvider>
-      <SignUpProvider>
+                <UserProvider>
+    <SignUpProvider>
         <HabitsProvider>
           <GroupsProvider>
             <ActivitiesProvider>
               <GoalsProvider>
-                <UserProvider>
+        <LoginProvider>
                   {children}
-                </UserProvider>
+    </LoginProvider>
               </GoalsProvider>
             </ActivitiesProvider>
           </GroupsProvider>
         </HabitsProvider>
       </SignUpProvider>
-    </LoginProvider>
+                </UserProvider>
   );
 };
