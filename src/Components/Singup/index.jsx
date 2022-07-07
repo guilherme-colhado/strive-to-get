@@ -59,36 +59,55 @@ export const SingUp = () => {
           <h2> Cadastre-se</h2>
 
           <S.Input>
-            <label>Nome de Usuario</label>
-            <input placeholder="Nome de Usuario" {...register("username")} />
-            {<span>{errors.name && errors.name.message}</span>}
-            <label>Email</label>
-            <input placeholder="Email" type="email" {...register("email")} />
+            <label>
+              Nome de Usuário <S.Error>{errors.username?.message}</S.Error>
+            </label>
+            <input
+              name="username"
+              placeholder="Nome de Usuário"
+              {...register("username")}
+            />
+            {/* {<span>{errors.name && errors.name.message}</span>} */}
+            <label>
+              Email <S.Error>{errors.email?.message}</S.Error>
+            </label>
+            <input
+              name="email"
+              placeholder="Email"
+              type="email"
+              {...register("email")}
+            />
           </S.Input>
           <S.Password>
-            <label>Senha</label>
+            <label>
+              Senha <S.Error>{errors.password?.message}</S.Error>
+            </label>
             <input
+              name="password"
               type={showPassword ? "text" : "password"}
               placeholder="Senha"
               {...register("password")}
             />
-            <span onClick={changePassword}>
+            <S.Yey onClick={changePassword}>
               {" "}
               {!showPassword ? <FiEyeOff /> : <FiEye />}{" "}
-            </span>
+            </S.Yey>
           </S.Password>
 
           <S.Password>
-            <label>Confirmar Senha</label>
+            <label>
+              Confirmar Senha <S.Error>{errors.passwordConf?.message}</S.Error>
+            </label>
             <input
+              name="passwordConf"
               type={showPasswordTwo ? "text" : "password"}
               placeholder="Confirmar senha"
               {...register("passwordConf")}
             />
-            <span onClick={changePasswordTwo}>
+            <S.Yey onClick={changePasswordTwo}>
               {" "}
               {!showPasswordTwo ? <FiEyeOff /> : <FiEye />}{" "}
-            </span>
+            </S.Yey>
           </S.Password>
 
           <S.Button type="submit">Cadastrar</S.Button>

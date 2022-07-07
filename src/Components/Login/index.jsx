@@ -38,29 +38,32 @@ export const Login = () => {
     <S.Container>
       <S.Box>
         <form onSubmit={handleSubmit(onSubmitFunction)}>
-          <h1>Login</h1>
+          <h1>Entrar</h1>
           <S.Input>
-            <label>Nome de usuário</label>
+            <label>
+              Nome de usuário <S.Error>{errors.username?.message}</S.Error>
+            </label>
             <input
-              error={errors.username?.message}
               placeholder="Digite aqui seu nome de usuário"
+              name="username"
               {...register("username")}
             />
           </S.Input>
           <S.Password>
-            <label>Senha</label>
+            <label>
+              Senha <S.Error>{errors.password?.message}</S.Error>
+            </label>
             <input
-              error={errors.password?.message}
               placeholder="Digite aqui sua senha"
               type={showPassword ? "text" : "password"}
               {...register("password")}
             />
-            <span onClick={togglePassword}>
+            <S.Yey onClick={togglePassword}>
               {!showPassword ? <FiEyeOff /> : <FiEye />}
-            </span>
+            </S.Yey>
           </S.Password>
           <button type="submit">
-            <span>Fazer login</span>
+            <span>Entrar</span>
           </button>
         </form>
         <div>

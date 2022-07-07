@@ -67,6 +67,11 @@ export const Input = styled.div`
   }
 `;
 
+export const Error = styled.span`
+  color: #db2121;
+  font-size: 13px;
+`;
+
 export const Password = styled(Input)`
   position: relative;
   flex-direction: column;
@@ -76,7 +81,7 @@ export const Password = styled(Input)`
     padding-right: 15%;
   }
 
-  span {
+  /* span {
     position: absolute;
     color: #ffffff;
     opacity: 0.8;
@@ -88,6 +93,25 @@ export const Password = styled(Input)`
     svg {
       font-size: 2.5rem;
     }
+  } */
+`;
+
+export const Yey = styled.span`
+  position: absolute;
+  color: #ffffff;
+  opacity: 0.8;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-10%);
+
+  cursor: pointer;
+
+  svg {
+    font-size: 2.5rem;
+  }
+
+  &:hover {
+    opacity: 0.9;
   }
 `;
 

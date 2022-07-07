@@ -78,7 +78,7 @@ export const Input = styled.div`
     height: 45px;
     border-radius: 6px;
     max-width: 100%;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     margin-top: 1rem;
     border: transparent;
     font-size: 16px;
@@ -99,6 +99,11 @@ export const Input = styled.div`
   }
 `;
 
+export const Error = styled.span`
+  color: #db2121;
+  font-size: 13px;
+`;
+
 export const Password = styled(Input)`
   position: relative;
   flex-direction: column;
@@ -109,21 +114,24 @@ export const Password = styled(Input)`
   }
 
   span {
-    position: absolute;
-    color: #ffffff;
-    opacity: 0.8;
-    top: 50%;
-    right: 15px;
-    transform: translateY(-10%);
+  }
+`;
 
-    cursor: pointer;
+export const Yey = styled.span`
+  position: absolute;
+  color: #ffffff;
+  opacity: 0.8;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-10%);
 
-    svg {
-      font-size: 2.5rem;
-    }
+  cursor: pointer;
 
-    &:hover {
-      opacity: 0.9;
-    }
+  svg {
+    font-size: 2.5rem;
+  }
+
+  &:hover {
+    opacity: 0.9;
   }
 `;

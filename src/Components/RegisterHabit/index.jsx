@@ -20,6 +20,7 @@ export const RegisterHabit = ({ onClose, onSubmit }) => {
       achieved,
       how_much_achieved,
     };
+    setTitle("");
     if (!data.title) return toast.error("Por favor digite algo no titulo!");
     onSubmit(data);
     onClose();
@@ -30,15 +31,22 @@ export const RegisterHabit = ({ onClose, onSubmit }) => {
         <form onSubmit={onSubmitFunction}>
           <S.Header>
             <h1>Cadastrar Hábito</h1>
-            <S.Close onClick={onClose}>
+            <S.Close
+              onClick={() => {
+                setTitle("");
+                onClose();
+              }}
+            >
               <FiX />
             </S.Close>
           </S.Header>
           <S.Input>
             <label>Hábito:</label>
             <input
-              placeholder="Digite aqui seu hábito"
+              placeholder="Digite seu hábito"
               onChange={(e) => setTitle(e.target.value)}
+              maxLength={10}
+              value={title}
             />
           </S.Input>
           <S.Select>
@@ -64,7 +72,7 @@ export const RegisterHabit = ({ onClose, onSubmit }) => {
               <option value="Difícil">Difícil</option>
               <option value="Muito Difícil">Muito Difícil</option>
             </select>
-            <label>Quantas vezes:</label>
+            <label>Por quanto tempo:</label>
             <select onChange={(e) => setHow_much_achieved(e.target.value)}>
               <option value="" disabled>
                 Selecione a duração
