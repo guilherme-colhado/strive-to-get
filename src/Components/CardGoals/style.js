@@ -2,17 +2,16 @@ import styled from "styled-components";
 
 export const CardStyle = styled.div`
   width: 198px;
-  height: 183px;
   display: flex;
   flex-direction: column;
   color: #ffffff;
+  margin: 3px;
   background-color: var(--CardDark);
   border-radius: 8px;
 `;
 
 export const HeaderCard = styled.div`
   width: 198px;
-  height: 45px;
   border-radius: 8px 8px 0 0;
   border: 1px solid var(--HeaderDark);
   background-color: var(--HeaderDark);
@@ -23,7 +22,7 @@ export const HeaderCard = styled.div`
 
 export const InfosCard = styled.div`
   width: 198px;
-  height: 143px;
+  padding: 0 0 10px;
   border-radius: 0 0 8px 8px;
   font-size: 18px;
   display: flex;
@@ -35,12 +34,15 @@ export const InfosCard = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90px;
+    margin: 10px 0;
   }
 
   button {
-    width: 150px;
-    height: 30px;
+    padding: 5px;
+    width: 50%;
+    border: 1px solid white;
+    cursor: pointer;
+    font-size: 2rem;
     background-color: var(--HeaderDark);
     color: #ffff;
     bottom: 30px;

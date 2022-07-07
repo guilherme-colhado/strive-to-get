@@ -9,11 +9,17 @@ export const GoalsContext = createContext();
 export const GoalsProvider = ({ children }) => {
   const [returnGoals, setReturnGoals] = useState([]);
   const { listOneGroup } = useContext(GroupsContext)
-  const createGoals = (data) => {
-    Api.post("/goals/", data)
+  const createGoals = (data, id) => {
+    Api.post("/goals/", data, {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(
+          localStorage.getItem("@StriveToGet: Token" || "")
+          )}`,
+        },
+      })
       .then((response) => {
-        console.log(response);
-        setReturnGoals(response.statusText);
+        toast.success('Meta criada!!');
+        listOneGroup(id)
       })
       .catch((err) => {
         console.log(err);
@@ -30,7 +36,7 @@ export const GoalsProvider = ({ children }) => {
       },
     })
       .then(()=>{
-        toast.success("Meta editada!")
+        toast.success("Meta arquivada!")
         listOneGroup(groupId)
       })
       .catch((err) => {

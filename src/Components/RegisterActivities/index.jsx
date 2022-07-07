@@ -3,20 +3,22 @@ import { FiX } from "react-icons/fi";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
-export const RegisterActivities = ({ onClose, onSubmit }) => {
-  const [activities, setActivities] = useState("");
-  const [date, setDate] = useState("");
+export const RegisterActivities = ({ onClose, onSubmit, id }) => {
+  const [title, setTitle] = useState("");
+  const [realization_time, setRealization_Time] = useState("");
 
   const onSubmitFunction = (e) => {
     e.preventDefault();
     const data = {
-      activities,
-      date,
+      title,
+      realization_time,
+      group: id
     };
 
-    if (!data.activities) return toast.error("Por favor digite sua meta!");
+    if (!data.title) return toast.error("Por favor digite sua meta!");
+    if (!data.realization_time) return toast.error("Por favor escolha a data de realização!");
 
-    onSubmit(data);
+    onSubmit(data, id);
     onClose();
   };
 
@@ -34,14 +36,14 @@ export const RegisterActivities = ({ onClose, onSubmit }) => {
             <label>Nome da atividade</label>
             <input
               placeholder="Digite aqui sua atividade"
-              onChange={(e) => setActivities(e.target.value)}
+              onChange={(e) => setTitle(e.target.value)}
             />
             <label>Realização</label>
             <input
-              type="date"
+              type="datetime-local"
               placeholder="Dia/Mês/Ano"
               max="2022-12-31"
-              onChange={(e) => setDate(e.target.value)}
+              onChange={(e) => setRealization_Time(e.target.value)}
             />
           </S.Input>
           <S.Button onClick={onSubmit}>

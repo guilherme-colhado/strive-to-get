@@ -20,7 +20,7 @@ export const GroupName = ({ setModal }) => {
     <Container>
       <Infos>
         <EditName>
-          <h1>{group.name}</h1>{" "}
+          <h1>{group.name}</h1>
           {group.creator.id === user ? (
             <AiOutlineEdit onClick={() => setModal(true)} />
           ) : (

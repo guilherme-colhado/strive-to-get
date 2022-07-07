@@ -12,10 +12,16 @@ export const WhatToCreate = ({ onGoal, onActivities, onClose }) => {
           </S.Close>
         </S.Header>
         <S.BoxButton>
-          <S.ButtonGoal onClick={onGoal}>
+          <S.ButtonGoal onClick={()=>{
+            onGoal()
+            onClose()
+          }}>
             <span>Meta</span>
           </S.ButtonGoal>
-          <S.ButtonActivities onClick={onActivities}>
+          <S.ButtonActivities onClick={()=>{
+            onActivities()
+            onClose()
+          }}>
             <span>Atividade</span>
           </S.ButtonActivities>
         </S.BoxButton>

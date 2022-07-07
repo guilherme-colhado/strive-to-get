@@ -1,9 +1,8 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { toast } from "react-toastify";
 import { Api } from "../../Services/api";
-import { useContext } from "react";
 import { GroupsContext } from "../groups";
 
 export const ActivitiesContext = createContext();
@@ -24,10 +23,19 @@ export const ActivitiesProvider = ({ children }) => {
   useEffect(() => {
     listActivities();
   }, []);
-
-  const createActivity = (data) => {
-    Api.post("activities/", data)
-      .then(toast.success("Atividade criada!"))
+  const createActivity = (data, id) => {
+    console.log(data)
+    Api.post("/activities/", data, {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(
+          localStorage.getItem("@StriveToGet: Token" || "")
+          )}`,
+        },
+      })
+      .then(()=>{
+        toast.success("Atividade criada!")
+        listOneGroup(id)
+      })
       .catch((err) => console.log(err));
   };
 

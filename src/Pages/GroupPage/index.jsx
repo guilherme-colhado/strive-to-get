@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom"
 import { BtnAdd } from "../../Components/BtnAdd"
 import { CardActivities } from "../../Components/CardActivities"
 import { CardGoals } from "../../Components/CardGoals"
-import { CardGoalsInscribed } from "../../Components/CardGoalsInscribed"
 import { Loading } from "../../Components/ContainerLoading"
 import { GroupName } from "../../Components/EditGroup"
 import { Footer } from "../../Components/Footer"
@@ -16,20 +15,27 @@ import { GroupsContext } from "../../Providers/groups"
 import { UserContext } from "../../Providers/usersFunctions"
 import { Container, Principal } from "./style"
 import {WhatToCreate} from '../../Components/WhatToCreate'
+import { RegisterActivities } from '../../Components/RegisterActivities'
+import { RegisterGoal } from '../../Components/RegisterGoal'
 import { GoalsContext } from "../../Providers/Goals"
+import { ActivitiesContext } from "../../Providers/activities"
 
 export const GroupPage = () => {
-    const { user } = useContext(UserContext)
     const { id } = useParams();
+    const { user } = useContext(UserContext)
     const { group, listOneGroup } = useContext(GroupsContext)
     const { editGroup } = useContext(GroupsContext);
+    const { createGoals } = useContext(GoalsContext)
+    const { createActivity } = useContext(ActivitiesContext)
     const [modalCreate, setModalCreate] = useState(false)
     const [modal, setModal] = useState(false);
+    const [modalActivities, setModalActivities] = useState(false);
+    const [modalGoal, setModalGoal] = useState(false)
     useEffect(() => {
         listOneGroup(id)
     }, []);
     console.log(group)
-    return !user.username ? <Loading/> : <>
+    return !group.creator ? <Loading/> : <>
         <Container>
             <Header logged person={user}></Header>
             <main>
@@ -40,11 +46,11 @@ export const GroupPage = () => {
                         <div>
                             {group.activities?.map((activitie)=><CardActivities key={activitie.id} activity={activitie}/>)}
                         </div>
+                        <div>
+                        {group.goals?.map(goal=><CardGoals key={goal.id} goals={goal}/>)}
+                        </div>
                     </div>
                 </Principal>
-                <div>
-                {group.goals?.map(goal=><CardGoals key={goal.id} goals={goal}/>)}
-                </div>
                 <Members members={group?.users_on_group}/>
             </main>
             <Footer/>
@@ -58,7 +64,12 @@ export const GroupPage = () => {
             />
         </Modal>
         <Modal open={modalCreate}>
-            <WhatToCreate on/>
+            <WhatToCreate 
+            onClose={()=>setModalCreate(false)} 
+            onActivities={()=>setModalActivities(true)}
+            onGoal={()=>setModalGoal(true)}/>
         </Modal>
+        <Modal open={modalActivities}><RegisterActivities onClose={()=>setModalActivities(false)} onSubmit={createActivity} id={id}/></Modal>
+        <Modal open={modalGoal}><RegisterGoal onClose={()=>setModalGoal(false)} onSubmit={createGoals} id={id}/></Modal>
     </>
 }

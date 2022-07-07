@@ -6,16 +6,22 @@ export const MembersComponent = styled.div`
     background-color: var(--CardDark);
     border-radius: 10px;
     width: max-content;
-    max-width: 320px;
-    ul{ 
-        margin-left: 15px;
+    height: max-content;
+    padding: 20px 10px;
+    margin-top: 20px;
+    width: 99%; 
+    h1{
         color: white;
-        padding-bottom: 10px;
+        font-size: 3rem;
+    }
+    ul{ 
+        color: white;
         font-size: 2rem;
-        list-style: circle;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
     }
     li{
-        margin-top: 10px;
+        margin: 5px 10px;
     }
-
 `

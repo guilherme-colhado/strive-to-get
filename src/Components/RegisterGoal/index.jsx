@@ -3,20 +3,23 @@ import { FiX } from "react-icons/fi";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
-export const RegisterGoal = ({ onClose, onSubmit }) => {
-  const [goal, setGoal] = useState("");
+export const RegisterGoal = ({ onClose, onSubmit, id }) => {
+  const [title, setTitle] = useState("");
   const [difficulty, setDifficulty] = useState("Fácil");
 
   const onSubmitFunction = (e) => {
     e.preventDefault();
     const data = {
-      goal,
+      title,
       difficulty,
+      how_much_achieved: 1,
+      achieved: false,
+      group: id
     };
 
-    if (!data.goal) return toast.error("Por favor digite sua meta!");
+    if (!data.title) return toast.error("Por favor digite sua meta!");
 
-    onSubmit(data);
+    onSubmit(data, id);
     onClose();
   };
 
@@ -34,7 +37,7 @@ export const RegisterGoal = ({ onClose, onSubmit }) => {
             <label>Meta:</label>
             <input
               placeholder="Digite aqui sua meta"
-              onChange={(e) => setGoal(e.target.value)}
+              onChange={(e) => setTitle(e.target.value)}
             />
           </S.Input>
           <S.Select>
