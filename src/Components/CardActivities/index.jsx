@@ -7,24 +7,22 @@ import { ModalUpdate } from "../ModalUpdate";
 
 export const CardActivities = ({ activity }) => {
   const { attActivity, deleteActivity } = useContext(ActivitiesContext);
-  const [modalDeletar, setModalDeletar] = useState(false)
+  const [modalDeletar, setModalDeletar] = useState(false);
   const [mobile, setMobile] = useState(false);
-  const [modalUpdate, setModalUpdate] = useState(false)
+  const [modalUpdate, setModalUpdate] = useState(false);
   return (
     <>
       <CardContainer>
         <Header onClick={() => setMobile(!mobile)} mobile={mobile}>
           <span>
-            {activity.title.length >= 11
-              ? `${activity.title.slice(0, 12).concat("...")}`
+            {activity.title.length >= 10
+              ? `${activity.title.slice(0, 10).concat("...")}`
               : activity.title}
           </span>
         </Header>
         <Infos mobile={mobile}>
           <div>
-            <p>
-              Concluído:
-            </p>
+            <p>Concluído:</p>
             <span>
               {activity.realization_time
                 .slice(0, 10)
@@ -39,8 +37,19 @@ export const CardActivities = ({ activity }) => {
           </div>
         </Infos>
       </CardContainer>
-      <Modal open={modalDeletar}><ComfirmDelete onClose={()=> setModalDeletar(false)} onSubmit={()=> deleteActivity(activity)}>Tem certeza que deseja deletar esta atividade</ComfirmDelete></Modal>
-      <Modal open={modalUpdate}><ModalUpdate onClose={()=> setModalUpdate(false)}>Tem certeza que deseja deletar esta atividade</ModalUpdate></Modal>
+      <Modal open={modalDeletar}>
+        <ComfirmDelete
+          onClose={() => setModalDeletar(false)}
+          onSubmit={() => deleteActivity(activity)}
+        >
+          Tem certeza que deseja deletar esta atividade
+        </ComfirmDelete>
+      </Modal>
+      <Modal open={modalUpdate}>
+        <ModalUpdate onClose={() => setModalUpdate(false)}>
+          Tem certeza que deseja deletar esta atividade
+        </ModalUpdate>
+      </Modal>
     </>
   );
 };
