@@ -9,7 +9,7 @@ export const MembersComponent = styled.div`
     height: max-content;
     padding: 20px 10px;
     margin-top: 20px;
-    width: 99%; 
+    width: 80vw; 
     h1{
         color: white;
         font-size: 3rem;

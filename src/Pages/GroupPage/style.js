@@ -31,7 +31,11 @@ export const Principal = styled.div`
         }
         >div:nth-child(2){
             height: 200px;
+            border-radius: 10px;
             overflow-y: scroll;
+            padding: 3px;
+            margin-right: 5px;
+            border: 1px solid var(--CardDark);
             width: 40%;
             display: flex;
             flex-wrap: wrap;
@@ -54,8 +58,11 @@ export const Principal = styled.div`
         }
         >div:nth-child(3){
             height: 200px;
+            border-radius: 10px;
             overflow-y: scroll;
             width: 40%;
+            padding: 3px;
+            border: 1px solid var(--CardDark);
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
