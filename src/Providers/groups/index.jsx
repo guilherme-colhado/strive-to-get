@@ -68,7 +68,6 @@ export const GroupsProvider = ({ children }) => {
       .catch((err) => console.log(err));
   };
 
-  // dfkjaishndijanbd
   const editGroup = (data) => {
     let { id } = data;
     let newdata = { name: data.name };
