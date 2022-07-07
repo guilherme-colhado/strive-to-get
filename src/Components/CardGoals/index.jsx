@@ -1,21 +1,12 @@
 import { CardStyle, HeaderCard, InfosCard } from "./style";
 
-export const CardGoals = () => {
+export const CardGoals = ({ goals }) => {
   return (
     <CardStyle>
-      <HeaderCard>"Name"</HeaderCard>
+      <HeaderCard>{goals.title}</HeaderCard>
       <InfosCard>
-        <div>
-          <section>
-            <h3>
-              <span>Categoria:</span> <span>"Categoria"</span>
-            </h3>
-            <h4>
-              <span>Description:</span> <span>"Description"</span>
-            </h4>
-          </section>
-          <button>SignUp</button>
-        </div>
+        <span>Dificuldade: {goals.difficulty} </span>
+        <button>Arquivar</button>
       </InfosCard>
     </CardStyle>
   );
