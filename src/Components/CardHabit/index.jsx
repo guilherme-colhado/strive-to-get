@@ -78,7 +78,9 @@ export const CardHabit = ({ element }) => {
             archiveHabit(element);
             setArchive(false);
           }}
-        />
+        >
+          Você tem certeza que quer arquivar este hábito?
+        </ComfirmAchieved>
       </Modal>
     </>
   );

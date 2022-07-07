@@ -3,22 +3,29 @@ import { useParams } from "react-router-dom";
 import { GoalsContext } from "../../Providers/Goals";
 import { CardStyle, HeaderCard, InfosCard } from "./style";
 import { useState } from 'react'
-import { Modal }
+import { Modal } from '../Modal'
+import { ComfirmAchieved } from '../ComfirmAchieved'
 
 export const CardGoals = ({ goals }) => {
   const { updateGoals } = useContext(GoalsContext);
   const {id} = useParams() 
-  const [ modal, setModal ] = useState()
+  const [ modal, setModal ] = useState(false)
   return (
     !goals.achieved && <>
       <CardStyle>
         <HeaderCard>{goals.title}</HeaderCard>
         <InfosCard>
           <span>Dificuldade: {goals.difficulty} </span>
-          <button onClick={()=>updateGoals(goals, id)}>Arquivar</button>
+          <button onClick={()=> setModal(true)}>Arquivar</button>
         </InfosCard>
       </CardStyle>
-      <Modal></Modal>
+      <Modal open={modal}>
+        <ComfirmAchieved onClose={()=>setModal(false)} onSubmit={()=>{
+          updateGoals(goals, id)
+        }}>
+          Você tem certeza que quer arquivar esta atividade?
+        </ComfirmAchieved>
+      </Modal>
     </> 
   );
 };
