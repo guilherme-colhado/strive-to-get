@@ -30,19 +30,18 @@ export const Card = styled.div`
     margin-bottom: 15px;
   }
 
+  @media (max-width: 900px) {
+    font-size: 2.5rem;
+  }
   @media (max-width: 768px) {
-    font-size: 21px;
+    font-size: 2.05rem;
   }
 
-  @media (max-width: 425px) {
-    font-size: 23px;
+  @media (max-width: 550px) {
+    font-size: 1.8rem;
   }
 
-  @media (max-width: 375px) {
-    font-size: 21px;
-  }
-
-  @media (max-width: 320px) {
-    font-size: 18px;
+  @media (max-width: 500px) {
+    font-size: 2.3rem;
   }
 `;
