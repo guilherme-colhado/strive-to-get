@@ -24,7 +24,7 @@ export const EditPerfil = () => {
     <Section>
       <EditPerfilStyle onSubmit={handleSubmit(submit)}>
         <div>
-          <h2>UserName: </h2>
+          <h2>Usuário: </h2>
           <Input
             type="text"
             placeholder={user.username}

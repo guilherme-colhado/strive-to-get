@@ -8,16 +8,29 @@ export const CardStyle = styled.div`
   margin: 3px;
   background-color: var(--CardDark);
   border-radius: 8px;
+  @media (max-width: 480px) {
+    width: 97%;
+  }
 `;
 
 export const HeaderCard = styled.div`
-  width: 198px;
+  width: 100%;
   border-radius: 8px 8px 0 0;
   border: 1px solid var(--HeaderDark);
   background-color: var(--HeaderDark);
   font-size: 3.75rem;
   display: flex;
   justify-content: center;
+
+  @media (max-width: 480px) {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 8px;
+  }
 `;
 
 export const InfosCard = styled.div`
@@ -47,5 +60,9 @@ export const InfosCard = styled.div`
     color: #ffff;
     bottom: 30px;
     border-radius: 8px;
+  }
+
+  @media (max-width: 480px) {
+    display: ${(props) => (props.mobile ? "visible" : "none")};
   }
 `;
