@@ -17,15 +17,9 @@ export const GroupsProvider = ({ children }) => {
   let user_id = token ? jwt_decode(token).user_id : "";
 
   const searchGroups = (input) => {
-    // if (input === "") {
-    //   setGroups([]);
-
-    //   PerPage(1);
-    // } else {
     Api.get(`/groups/?search=${input}`)
       .then((response) => setGroups(response.data.results))
       .catch((err) => console.log(err));
-    // }
   };
 
   const Get = (PerPage) => {
