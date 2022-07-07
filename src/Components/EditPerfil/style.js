@@ -15,7 +15,7 @@ export const EditPerfilStyle = styled.form`
     padding: 10px 20px 10px 20px;
 
     > :first-child {
-      margin-right: 105px;
+      margin-right: 85px;
     }
 
     > button {
@@ -30,6 +30,10 @@ export const EditPerfilStyle = styled.form`
     :hover {
       transition: 0.3s;
     }
+  }
+
+  @media (max-width: 550px) {
+    width: 100vw;
   }
 
   > div {
@@ -52,14 +56,13 @@ export const EditPerfilStyle = styled.form`
     transition: 0.3s;
     opacity: 0;
     height: 5px;
-    margin-left: -35px;
+    margin-left: -10px;
   }
 
   &:hover {
     background-color: var(--HeaderDark);
     width: 100%;
     justify-content: space-evenly;
-    padding: 30px 200px 10px 200px;
 
     > div {
       transition: 0.3s;

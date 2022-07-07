@@ -72,7 +72,7 @@ export const EditName = styled.section`
   margin-bottom: 5px;
   width: max-content;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   flex-direction: row;
 
