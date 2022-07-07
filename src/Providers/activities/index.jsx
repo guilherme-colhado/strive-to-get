@@ -3,10 +3,13 @@ import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { toast } from "react-toastify";
 import { Api } from "../../Services/api";
+import { useContext } from "react";
+import { GroupsContext } from "../groups";
 
 export const ActivitiesContext = createContext();
 
 export const ActivitiesProvider = ({ children }) => {
+  const { listOneGroup } = useContext(GroupsContext);
   const [activities, setActivities] = useState({});
   const [token, setToken] = useState(
     localStorage.getItem("@StriveToGet: Token") || ""
@@ -34,14 +37,31 @@ export const ActivitiesProvider = ({ children }) => {
       .catch((err) => console.log(err));
   };
 
-  const attActivity = (data) => {
-    Api.patch(`activities/${data.id}/`, data)
-      .then(toast.success("Editado com sucesso!"))
+  const attActivity = (data, Id) => {
+    let { id } = data;
+
+    Api.patch(`activities/${id}/`, data, {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(
+          localStorage.getItem("@StriveToGet: Token" || "")
+        )}`,
+      },
+    })
+      .then(() => {
+        listOneGroup(Id);
+        toast.success("Editado com sucesso!");
+      })
       .catch((err) => console.log(err));
   };
 
   const deleteActivity = (data) => {
-    Api.delete(`activities/${data.id}/`)
+    Api.delete(`activities/${data.id}/`, {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(
+          localStorage.getItem("@StriveToGet: Token" || "")
+        )}`,
+      },
+    })
       .then(toast.success("Deletado!"))
       .catch((err) => console.log(err));
   };

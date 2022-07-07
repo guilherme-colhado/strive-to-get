@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   margin-left: 100px;
-  margin-top: 20px;
   color: #ffffff;
   max-width: 870px;
 
@@ -10,8 +9,7 @@ export const Container = styled.div`
     margin-left: 10px;
   }
   @media (max-width: 500px) {
-    margin-left: -40px;
-    transform: scale(0.7);
+    margin-left: 0px;
   }
 `;
 

@@ -1,18 +1,28 @@
 import * as S from "./style";
 import { FiX } from "react-icons/fi";
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 
 export const ModalUpdate = ({ onClose, onSubmit, children, Id }) => {
+  const group = useParams();
   const [name, setName] = useState("");
-
+  let data = {};
   const onSubmitFunction = (e) => {
     e.preventDefault();
-    const data = {
-      name: name,
-      id: Id,
-    };
 
-    onSubmit(data);
+    if (children === "Atividade") {
+      data = {
+        title: name,
+        id: Id,
+      };
+    } else {
+      data = {
+        name: name,
+        id: Id,
+      };
+    }
+    console.log(group);
+    onSubmit(data, group.id);
     onClose();
   };
 
