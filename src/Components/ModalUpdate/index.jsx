@@ -2,13 +2,14 @@ import * as S from "./style";
 import { FiX } from "react-icons/fi";
 import { useState } from "react";
 
-export const ModalUpdate = ({ onClose, onSubmit, children }) => {
+export const ModalUpdate = ({ onClose, onSubmit, children, Id }) => {
   const [name, setName] = useState("");
 
   const onSubmitFunction = (e) => {
     e.preventDefault();
     const data = {
-      name,
+      name: name,
+      id: Id,
     };
 
     onSubmit(data);

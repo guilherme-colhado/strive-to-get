@@ -69,14 +69,20 @@ export const GroupsProvider = ({ children }) => {
   };
 
   const editGroup = (data) => {
-    Api.patch(`/groups/${data.id}/`, data, {
+    let { id } = data;
+    let newdata = { name: data.name };
+
+    Api.patch(`/groups/${id}/`, newdata, {
       headers: {
         Authorization: `Bearer ${JSON.parse(
           localStorage.getItem("@StriveToGet: Token" || "")
         )}`,
       },
     })
-      .then(toast.success("Grupo editado!"))
+      .then(() => {
+        listOneGroup(id);
+        toast.success("Grupo editado!");
+      })
       .catch((err) => console.log(err));
   };
 
