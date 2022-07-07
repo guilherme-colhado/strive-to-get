@@ -33,7 +33,7 @@ export const ModalUpdate = ({ onClose, onSubmit, children, Id }) => {
               onChange={(e) => setName(e.target.value)}
             />
           </S.Input>
-          <S.Button onClick={onSubmit}>
+          <S.Button onClick={onSubmitFunction}>
             <span>Salvar atualizações</span>
           </S.Button>
         </form>

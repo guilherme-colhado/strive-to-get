@@ -28,7 +28,9 @@ export const Login = () => {
 
   const { Login } = useContext(LoginContext);
 
-  const onSubmitFunction = (data) => Login(data);
+  const onSubmitFunction = (data) => {
+    Login(data)
+  };
 
   const togglePassword = () => {
     setShowPassword(!showPassword);

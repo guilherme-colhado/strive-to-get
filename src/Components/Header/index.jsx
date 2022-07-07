@@ -1,9 +1,10 @@
 import { Button, HeaderStyle, LogoComponent, Mobile, Nav } from "./style";
-import { TbUsers } from "react-icons/tb";
 import Logo from "../../Imgs/Logo.gif";
+import { TbUsers } from "react-icons/tb";
 import { FiLogIn, FiLogOut } from "react-icons/fi";
 import { HiOutlineUserAdd } from "react-icons/hi";
 import { MdOutlineGroups, MdOutlinePersonOutline } from 'react-icons/md'
+import { AiOutlineHome } from "react-icons/ai";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Clock } from "../Clock";
@@ -42,6 +43,13 @@ export const Header = ({ login, logged, person }) => {
       <Nav mobile={navMobile}>
         {
           logged && <>
+            <div>
+              <Button link onClick={(()=>nav(`/`))}>
+                <div>
+                  <AiOutlineHome/>Habitos
+                </div>
+              </Button>
+            </div>
             <div>
               <Button link onClick={(()=>nav(`/${person.id}`))}>
                 <div>

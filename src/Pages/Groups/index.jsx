@@ -17,7 +17,7 @@ export const GroupsPage = () => {
     }, []);
     const { user } = useContext(UserContext)
     const { groups } = useContext(GroupsContext);
-    return groups.length <= 0 ? <Loading/> : 
+    return user <= 0 ? <Loading/> : 
     <Container>
       <Header logged={!!localStorage.getItem('@StriveToGet: Token')} person={user}/>
       <main>

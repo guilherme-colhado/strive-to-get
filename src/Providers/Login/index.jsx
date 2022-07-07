@@ -20,7 +20,8 @@ export const LoginProvider = ({ children }) => {
       JSON.stringify(token)
     )
     toast.success('Seja bem vindo ' + data.username + '!!')
-    nav('/')
+    nav("/")
+    // window.location.reload(false)
   }
 
   return (

@@ -8,14 +8,10 @@ import { ModalUpdate } from "../ModalUpdate";
 import { Modal } from "../Modal";
 import { Loading } from "../ContainerLoading";
 
-export const GroupName = () => {
-  const groupId = useParams();
+export const GroupName = ({setModal}) => {
   const { editGroup, group } = useContext(GroupsContext);
-  const [modal, setModal] = useState(false);
 
-  return group.length <= 0 ? (
-    <Loading />
-  ) : (
+  return (
     <Container>
       <Infos>
         <EditName>
@@ -24,14 +20,6 @@ export const GroupName = () => {
         <h3>{group.category}</h3>
         <h2>{group.description}</h2>
       </Infos>
-      <Modal open={modal}>
-        <ModalUpdate
-          onClose={() => setModal(false)}
-          onSubmit={editGroup}
-          children={"groups"}
-          Id={group.id}
-        />
-      </Modal>
     </Container>
   );
 };

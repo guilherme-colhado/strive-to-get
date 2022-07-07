@@ -71,8 +71,9 @@ export const GlobalStyle = createGlobalStyle`
         --ColorCardGroupInscribedLight: #EB7736;
         --ColorCardGroupNotInscribedDark: #760000;
         --ColorCardGroupNotInscribedLigth: #BC4343;
-        --plusDark: #ac0000;
-        --plusLigth: #db2121;
+        --PlusDark: #ac0000;
+        --PlusLigth: #db2121;
+        --Activitie: #8F3737;
     }
     body{
         background-color: var(--MainDark);

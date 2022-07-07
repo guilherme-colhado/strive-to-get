@@ -28,7 +28,7 @@ export const HeaderStyle = styled.header`
         text-align: center;
     }
     
-    @media (max-width: 720px) {
+    @media (max-width: 860px) {
         padding: 10px;
         div:nth-child(-1){
             position: fixed;
@@ -91,7 +91,7 @@ export const Button = styled.button`
             border-radius: 10px;
         }
     }
-    @media (max-width: 720px) {
+    @media (max-width: 860px) {
         div{
             flex-direction: row;
             margin: 0 auto;
@@ -156,7 +156,7 @@ export const Mobile = styled.div`
         transform: rotate(45deg);
         top: 0;
     }
-    @media (max-width: 720px) {
+    @media (max-width: 860px) {
         margin-right: 50px;
         display: flex;
         label, span{
@@ -168,7 +168,7 @@ export const Mobile = styled.div`
 export const Nav = styled.nav`
     display: flex;
     align-items: center;
-    @media (max-width: 720px) {
+    @media (max-width: 860px) {
         position: fixed;
         transition: all .3s ease-in;
         max-height: ${props=>props.mobile ? '200px' : '0'};
