@@ -9,10 +9,6 @@ export const Container = styled.div`
   @media (max-width: 1249px) {
     margin-left: 10px;
   }
-  @media (max-width: 500px) {
-    margin-left: -40px;
-    transform: scale(0.7);
-  }
 `;
 
 export const Infos = styled.section`
