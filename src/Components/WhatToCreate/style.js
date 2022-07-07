@@ -15,11 +15,35 @@ export const Box = styled.div`
   background: #3b464b;
   border-radius: 6px;
   text-align: center;
-  padding: 3rem;
+  padding: 2rem;
+`;
+
+export const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 
   p {
     color: #ffffff;
     font-size: 4rem;
+  }
+`;
+
+export const Close = styled.span`
+  background: #3b464b;
+  color: #ffffff;
+  border: transparent;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: 2px solid #ffffff;
+  border-radius: 100%;
+  margin-bottom: 50px;
+
+  &:hover {
+    opacity: 0.3;
   }
 `;
 
