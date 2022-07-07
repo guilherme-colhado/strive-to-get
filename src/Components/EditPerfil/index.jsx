@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import { UserContext } from "../../Providers/SignUp";
+import { UserContext } from "../../Providers/usersFunctions";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import jwt_decode from "jwt-decode";
-import { EditPerfilStyle, Input, Button } from "./style";
+import { EditPerfilStyle, Input, Button, Section } from "./style";
+import { AiFillCaretDown } from "react-icons/ai";
 
 export const EditPerfil = () => {
-  const { UpdateUser, token, UserInfos, info } = useContext(UserContext);
-  const [username, setUser] = useState("");
-  const [email, setEmail] = useState("");
+  const { UpdateUser, token, UserInfos, user } = useContext(UserContext);
+  const [username, setUser] = useState(user.username);
+  const [email, setEmail] = useState(user.email);
 
   const {
     handleSubmit,
@@ -16,35 +16,33 @@ export const EditPerfil = () => {
   } = useForm({});
 
   const submit = () => {
-    let { user_id } = jwt_decode(token);
-
-    UpdateUser(user_id, { username, email });
+    UserInfos();
+    UpdateUser({ username, email });
   };
 
-  //   useEffect(() => {
-  //     let { user_id } = jwt_decode(token);
-  //     UserInfos(user_id);
-  //   }, []);
-
   return (
-    <EditPerfilStyle onSubmit={handleSubmit(submit)}>
-      <div>
-        <h2>UserName: </h2>
-        <Input
-          type="text"
-          placeholder={info.username}
-          onChange={(e) => setUser(e.target.value)}
-        />
-      </div>
-      <Button type="submit">All Done</Button>
-      <div>
-        <h2>Email: </h2>
-        <Input
-          type="text"
-          placeholder={info.email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </div>
-    </EditPerfilStyle>
+    <Section>
+      <EditPerfilStyle onSubmit={handleSubmit(submit)}>
+        <div>
+          <h2>Usuário: </h2>
+          <Input
+            type="text"
+            placeholder={user.username}
+            onChange={(e) => setUser(e.target.value)}
+          />
+        </div>
+        <Button type="submit">Confirmar</Button>
+
+        <div>
+          <h2>Email: </h2>
+          <Input
+            type="text"
+            placeholder={user.email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+      </EditPerfilStyle>
+      <AiFillCaretDown />
+    </Section>
   );
 };

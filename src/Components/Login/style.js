@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  height: 100vh;
-  width: 100vw;
+  margin-top: 50px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #031319;
+  padding: 10px;
 
   p {
     color: #ffffff;
@@ -27,15 +28,15 @@ export const Box = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 350px;
-  max-width: 100%;
+  max-width: 400px;
+  width: 100%;
   background-color: #3b464b;
   border-radius: 6px;
 
   form {
-    width: 340px;
     text-align: center;
     padding: 2rem;
+    width: 100%;
 
     h1 {
       color: #ffffff;
@@ -63,8 +64,9 @@ export const Box = styled.div`
 
 export const Input = styled.div`
   text-align: left;
+  display: flex;
   flex-direction: column;
-  width: 96%;
+  width: 100%;
 
   label {
     color: #ffffff;
@@ -75,14 +77,17 @@ export const Input = styled.div`
     background: #031319;
     height: 45px;
     border-radius: 6px;
-    width: 100%;
-    margin-bottom: 2rem;
+    max-width: 100%;
+    margin-bottom: 2.5rem;
     margin-top: 1rem;
     border: transparent;
     font-size: 16px;
     color: #ffffff;
     outline: none;
     padding-left: 10px;
+    padding-right: 10px;
+
+    border: 2px solid #3b464b;
 
     &:focus {
       border: 2px solid #ffffff;
@@ -94,27 +99,39 @@ export const Input = styled.div`
   }
 `;
 
-export const Password = styled.div`
+export const Error = styled.span`
+  color: #db2121;
+  font-size: 13px;
+`;
+
+export const Password = styled(Input)`
   position: relative;
   flex-direction: column;
   justify-content: left;
 
+  input {
+    padding-right: 15%;
+  }
+
   span {
-    position: absolute;
-    color: #ffffff;
-    opacity: 0.8;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-10%);
+  }
+`;
 
-    cursor: pointer;
+export const Yey = styled.span`
+  position: absolute;
+  color: #ffffff;
+  opacity: 0.8;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-10%);
 
-    svg {
-      font-size: 2.5rem;
-    }
+  cursor: pointer;
 
-    &:hover {
-      opacity: 0.9;
-    }
+  svg {
+    font-size: 2.5rem;
+  }
+
+  &:hover {
+    opacity: 0.9;
   }
 `;

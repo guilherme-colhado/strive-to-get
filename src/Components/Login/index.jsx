@@ -1,13 +1,11 @@
 import * as S from "./style";
 import * as yup from "yup";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState, useContext } from "react";
 import { FiEyeOff, FiEye } from "react-icons/fi";
 import { LoginContext } from "../../Providers/Login";
-import { toast } from "react-toastify";
-import { useEffect } from "react";
 
 export const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -30,8 +28,10 @@ export const Login = () => {
 
   const { Login } = useContext(LoginContext);
 
-  const onSubmitFunction = (data) => Login(data)
-  
+  const onSubmitFunction = (data) => {
+    Login(data)
+  };
+
   const togglePassword = () => {
     setShowPassword(!showPassword);
   };
@@ -40,29 +40,32 @@ export const Login = () => {
     <S.Container>
       <S.Box>
         <form onSubmit={handleSubmit(onSubmitFunction)}>
-          <h1>Login</h1>
+          <h1>Entrar</h1>
           <S.Input>
-            <label>Nome de usuário</label>
+            <label>
+              Nome de usuário <S.Error>{errors.username?.message}</S.Error>
+            </label>
             <input
-              error={errors.username?.message}
               placeholder="Digite aqui seu nome de usuário"
+              name="username"
               {...register("username")}
             />
-            <S.Password>
-              <label>Senha</label>
-              <input
-                error={errors.password?.message}
-                placeholder="Digite aqui sua senha"
-                type={showPassword ? "text" : "password"}
-                {...register("password")}
-              />
-              <span onClick={togglePassword}>
-                {!showPassword ? <FiEyeOff /> : <FiEye />}
-              </span>
-            </S.Password>
           </S.Input>
+          <S.Password>
+            <label>
+              Senha <S.Error>{errors.password?.message}</S.Error>
+            </label>
+            <input
+              placeholder="Digite aqui sua senha"
+              type={showPassword ? "text" : "password"}
+              {...register("password")}
+            />
+            <S.Yey onClick={togglePassword}>
+              {!showPassword ? <FiEyeOff /> : <FiEye />}
+            </S.Yey>
+          </S.Password>
           <button type="submit">
-            <span>Fazer login</span>
+            <span>Entrar</span>
           </button>
         </form>
         <div>

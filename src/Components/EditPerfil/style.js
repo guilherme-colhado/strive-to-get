@@ -3,12 +3,39 @@ import styled from "styled-components";
 export const EditPerfilStyle = styled.form`
   transition: 0.8s;
   background-color: var(--HeaderDark);
-  position: fixed;
-  top: 0;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
   padding: 10px 200px 10px 200px;
+  z-index: 200;
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px 10px 20px;
+
+    > :first-child {
+      margin-right: 85px;
+    }
+
+    > button {
+      transform: translateX(110px);
+      margin-top: -8px;
+    }
+
+    > :last-child {
+      transform: translateY(-5px);
+      margin-right: 70px;
+    }
+    :hover {
+      transition: 0.3s;
+    }
+  }
+
+  @media (max-width: 550px) {
+    width: 100vw;
+  }
+
   > div {
     transition: 0.3s;
     display: flex;
@@ -29,17 +56,14 @@ export const EditPerfilStyle = styled.form`
     transition: 0.3s;
     opacity: 0;
     height: 5px;
+    margin-left: -10px;
   }
 
   &:hover {
     background-color: var(--HeaderDark);
-    position: fixed;
-    top: 0;
     width: 100%;
-    display: flex;
     justify-content: space-evenly;
-    padding: 10px 200px 10px 200px;
-    height: 40px;
+
     > div {
       transition: 0.3s;
       opacity: 1;
@@ -56,7 +80,7 @@ export const EditPerfilStyle = styled.form`
       }
     }
     > button {
-      transition: 0.3s;
+      transition: 0.1s;
       opacity: 1;
       height: 20px;
     }
@@ -65,6 +89,7 @@ export const EditPerfilStyle = styled.form`
 
 export const Input = styled.input`
   width: 120px;
+  padding: 5px;
   height: 20px;
   border: none;
   border-radius: 5px;
@@ -79,11 +104,20 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  width: 60px;
+  width: max-content;
   height: 20px;
   outline: none;
   border: 1px solid var(--MainDark);
   border-radius: 5px;
   background-color: #ffffff;
   color: var(--MainDark);
+`;
+
+export const Section = styled.section`
+  font-size: 1.75rem;
+  color: #ffffff;
+  > :last-child {
+    width: 100%;
+    background-color: var(--HeaderDark);
+  }
 `;

@@ -1,31 +1,16 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { ClockStyle } from "./style";
 
-export default class Clock extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { date: new Date() };
-  }
+export const Clock = () => {
+  const [time, setTime] = useState(new Date());
 
-  componentDidMount() {
-    this.timerID = setInterval(() => this.tick(), 1000);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.timerID);
-  }
-
-  tick() {
-    this.setState({
-      date: new Date(),
-    });
-  }
-
-  render() {
-    return (
-      <ClockStyle>
-        <h2>{this.state.date.toLocaleTimeString().slice(0, -3)}</h2>
-      </ClockStyle>
-    );
-  }
-}
+  useEffect(() => {
+    setInterval(() => setTime(new Date()), 1000);
+  }, []);
+  
+  return (
+    <ClockStyle>
+      <h2>{time.toLocaleTimeString("pt-BR").substring(0,5)}</h2>
+    </ClockStyle>
+  );
+};

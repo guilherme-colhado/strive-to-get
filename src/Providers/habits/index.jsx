@@ -2,26 +2,54 @@ import { createContext, useState, useEffect } from "react";
 import jwt_decode from "jwt-decode";
 import { Api } from "../../Services/api";
 import { toast } from "react-toastify";
+import { useContext } from "react";
+import { UserContext } from "../usersFunctions";
 
 export const HabitsContext = createContext();
 
 export const HabitsProvider = ({ children }) => {
-  const [habits, setHabits] = useState({});
-  const [token, setToken] = useState(
-    localStorage.getItem("@StriveToGet: Token") || ""
-  );
+  const [habits, setHabits] = useState([]);
+  const [habitsAchieved, setHabitsAchieved] = useState([]);
+  
+  const { token } = useContext(UserContext)
 
-  const { user_id } = jwt_decode(token);
+  const user_id = token ? jwt_decode(token).user_id : '';
 
-  const listHabits = () => {
-    Api.get("habits/personal")
-      .then((response) => setHabits(response.data))
+  const listHabitsNotArchived = () => {
+    Api.get('/habits/personal/', {headers: {Authorization: `Bearer ${token}` }})
+      .then((response) => {
+        const habitsNotArchived = response.data.filter(habit=>!habit.achieved)
+        setHabits(habitsNotArchived)
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const listHabitsArchived = () => {
+    Api.get('/habits/personal/', {headers: {Authorization: `Bearer ${token}` }})
+      .then((response) => {
+        const habitsArchived = response.data.filter(habit=>habit.achieved)
+        setHabitsAchieved(habitsArchived)
+      })
       .catch((err) => console.log(err));
   };
 
   useEffect(() => {
-    listHabits();
-  }, []);
+    if(token){
+      listHabitsNotArchived()
+      listHabitsArchived()
+    }
+  }, [token]);
+
+  const searchHabit = (title) => {
+    Api.get('/habits/personal/', {headers: {Authorization: `Bearer ${token}` }})
+      .then((response) => {
+        const habitsNotArchived = response.data.filter(habit=>!habit.achieved)
+        const habitsSearch = habitsNotArchived.filter(habit=>habit.title.toLowerCase().includes(title.toLowerCase()))
+        setHabits(habitsSearch)
+        habitsSearch.length > 0 ? title.length>0 && toast.success(`${habitsSearch.length} habitos achados`) : toast.error('Nenhum habito achado') 
+      })
+      .catch((err) => console.log(err));
+  };
 
   const createHabit = (data) => {
     data = { ...data, user: user_id };
@@ -30,19 +58,37 @@ export const HabitsProvider = ({ children }) => {
         Authorization: `Bearer ${token}`,
       },
     })
-      .then(toast.success("Habit Created!"))
+      .then((res)=>{
+        toast.success(`Habito de ${res.data.title} criado!`)
+        listHabitsNotArchived()
+      })
+      .catch((err) => console.log(err));
+    };
+
+  const archiveHabit = (data) => {
+    data = { ...data, achieved: true, how_much_achieved: 0};
+    Api.patch(`/habits/${data.id}/`, data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then(()=>{
+        toast.success("Habito arquivado!")
+        listHabitsNotArchived()
+        listHabitsArchived()
+      })
       .catch((err) => console.log(err));
   };
 
-  const attHabit = (data) => {
-    data = { ...data, user: user_id };
-
+  const checkInHabit = (data, num) => {
+    if(num === 0) return archiveHabit(data)
+    data = { ...data, how_much_achieved: num};
     Api.patch(`habits/${data.id}/`, data, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     })
-      .then(toast.success("Habit edited!"))
+      .then(toast.success("Check-In Feito!"))
       .catch((err) => console.log(err));
   };
 
@@ -54,13 +100,16 @@ export const HabitsProvider = ({ children }) => {
         Authorization: `Bearer ${token}`,
       },
     })
-      .then(toast.success("Deleted sucessufully!"))
+      .then((res)=>{
+        toast.success("Habito deletado!")
+        listHabitsNotArchived()
+      })
       .catch((err) => console.log(err));
   };
 
   return (
     <HabitsContext.Provider
-      value={(habits, listHabits, createHabit, attHabit, deleteHabit)}
+      value={{habits, habitsAchieved, searchHabit, listHabitsNotArchived, createHabit, archiveHabit, checkInHabit, deleteHabit}}
     >
       {children}
     </HabitsContext.Provider>

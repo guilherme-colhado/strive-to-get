@@ -2,14 +2,15 @@ import styled from "styled-components";
 
 export const HeaderStyle = styled.header`
     background-color: var(--HeaderDark);
-    position: sticky;
+    position: fixed;
     top: 0;
+    height: 86.4px;
     z-index: 100;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 5px 86px;
+    padding: 5px 30px;
     box-shadow: 0 5px 10px #000;
     figure{
         margin-right: 10px;
@@ -27,7 +28,7 @@ export const HeaderStyle = styled.header`
         text-align: center;
     }
     
-    @media (max-width: 720px) {
+    @media (max-width: 860px) {
         padding: 10px;
         div:nth-child(-1){
             position: fixed;
@@ -51,6 +52,7 @@ export const HeaderStyle = styled.header`
 export const LogoComponent = styled.div`
     display: flex;
     align-items: center;
+    cursor: pointer;
 `
 
 export const Button = styled.button`
@@ -58,7 +60,7 @@ export const Button = styled.button`
     color: #ffffff;
     font-size: 2rem;
     cursor: pointer;
-    padding: 10px 30px;
+    padding: ${props=> props.link ? '10px' : '7px 20px'};
     border-radius: 10px;
     border: none;
     margin-right: 10px;
@@ -89,7 +91,7 @@ export const Button = styled.button`
             border-radius: 10px;
         }
     }
-    @media (max-width: 720px) {
+    @media (max-width: 860px) {
         div{
             flex-direction: row;
             margin: 0 auto;
@@ -117,6 +119,8 @@ export const Mobile = styled.div`
         width: 45px;
         height: 45px;
         z-index: 1;
+        margin-top: -18px;
+        margin-left: -2px;
         cursor: pointer;
     }
     span{
@@ -152,7 +156,7 @@ export const Mobile = styled.div`
         transform: rotate(45deg);
         top: 0;
     }
-    @media (max-width: 720px) {
+    @media (max-width: 860px) {
         margin-right: 50px;
         display: flex;
         label, span{
@@ -164,7 +168,7 @@ export const Mobile = styled.div`
 export const Nav = styled.nav`
     display: flex;
     align-items: center;
-    @media (max-width: 720px) {
+    @media (max-width: 860px) {
         position: fixed;
         transition: all .3s ease-in;
         max-height: ${props=>props.mobile ? '200px' : '0'};
